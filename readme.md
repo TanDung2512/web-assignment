@@ -2,10 +2,10 @@
 **Lecturer:** Nguyen Duc Thai
 
 **Group members:**
-- Dung Nguyen - 1652
+- Dung Nguyen - 1652119
 - Thinh Tran - 1652578
 - Nhu Vo - 1652458
-- Thu Tran - 165
+- Thu Tran - 1652599
 
 
 ## Summary
