@@ -1,4 +1,4 @@
-# WEB PROGRAMMING ASSIGNMENT
+# Web Programming Assignment 
 **Lecturer:** Nguyen Duc Thai
 
 **Group members:**
