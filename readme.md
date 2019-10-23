@@ -1,5 +1,5 @@
-# OISP SOCIAL PLATFORM
-**Lecturer:** Quan Thanh Tho
+# WEB PROGRAMMING ASSIGNMENT
+**Lecturer:** Nguyen Duc Thai
 
 **Group members:**
 - Dung Nguyen - 1652
