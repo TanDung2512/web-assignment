@@ -16,8 +16,8 @@
 - **MySQL:** Database
 
 ## Additional Tools
-- **Postman**: Test your APIs.
 - **Git Client**: Sourcetree or Sublime Merge is good, or use the one included in VSCode or Atom.
+- **PhpStorm / Visual Studio Code**: suggested text editor
 
 ## Set-up Project
 
