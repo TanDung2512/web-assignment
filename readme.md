@@ -12,8 +12,9 @@
 
 
 ## Technologies
-- **PHP:** 
+- **PHP:** Back-end
 - **MySQL:** Database
+- **Gulp:** Compile SCSS
 
 ## Additional Tools
 - **Git Client**: Sourcetree or Sublime Merge is good, or use the one included in VSCode or Atom.
