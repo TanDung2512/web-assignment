@@ -5,13 +5,11 @@
         }
 
         public function render(){
-
             ?>
                 <style>
                     form {
                       border: 3px solid #f1f1f1;
                     }
-
                     /* Full-width inputs */
                     input[type=text], input[type=password] {
                       width: 100%;
