@@ -21,7 +21,6 @@
 
 ## Set-up Project
 
-## Set Up Project
 
 1. go to apache/conf/httpd.conf add this line 
 ```
