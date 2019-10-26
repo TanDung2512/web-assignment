@@ -17,19 +17,13 @@
 
 ## Quick start
 
-1. go to apache/conf/httpd.conf add this line 
-```
-    RewriteEngine on
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !\.(png|jpg|gif|css)$
-    RewriteRule web-assignment/(.*) /web-assignment/app/index.php?path=$1 [NC,L,QSA]
-```
-2. use command line
+
+1. use command line
 ``` 
     npm install 
 ```
 
-3. to Start project 
+2. to Start project 
 ```
     gulp
 ```
