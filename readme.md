@@ -1,5 +1,5 @@
 # Web Programming Assignment 
-**Lecturer:** Nguyen Duc Thai
+**Lecturer:** Dr. Nguyen Duc Thai
 
 **Group members:**
 - Dung Nguyen - 1652119
@@ -14,7 +14,7 @@
 ## Technologies
 - **PHP:** Back-end
 - **MySQL:** Database
-- **Gulp:** Compile SCSS
+- **Gulp:** Compile SCSS, Browser Sync
 
 ## Additional Tools
 - **Git Client**: Sourcetree or Sublime Merge is good, or use the one included in VSCode or Atom.

@@ -1,6 +1,15 @@
 .a {
-  color: #000; }
-  .a__a {
-    color: #000; }
-  .a__b {
-    color: #aaaa; }
+    color: #000;
+}
+
+.a__a {
+    color: #000;
+}
+
+.a__b {
+    color: #ffff;
+}
+
+h1 {
+    font-size: 80px;
+}

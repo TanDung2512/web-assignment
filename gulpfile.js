@@ -8,7 +8,6 @@ var connect = require('gulp-connect-php');
 // -----------------
 
 gulp.task('connect-sync', function() {
-    console.log("loading");
     connect.server({
         base: './app',
         keepalive: true
@@ -24,7 +23,6 @@ gulp.task('connect-sync', function() {
 
 
 gulp.task('sass', function() {
-    console.log("sass");
     return gulp.src('app/assets/stylesheets/scss/*.scss')
         .pipe(sass())
         .pipe(gulp.dest('app/assets/stylesheets'))
@@ -32,7 +30,6 @@ gulp.task('sass', function() {
 
 // Watchers
 gulp.task('watch', function() {
-    console.log(JSON.stringify(browserSync));
     gulp.watch('app/assets/stylesheets/**/*.scss', ['sass']);
     gulp.watch('app/**/*.html', browserSync.reload);
     gulp.watch('app/**/*.php', browserSync.reload);
