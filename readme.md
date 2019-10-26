@@ -27,7 +27,7 @@
 ```
     RewriteEngine on
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !\.(png|jpg|gif|css)$
     RewriteRule web-assignment/(.*) /web-assignment/app/index.php?path=$1 [NC,L,QSA]
 ```
 2. use command line
