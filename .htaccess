@@ -1,4 +1,4 @@
-    RewriteEngine on
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !\.(png|jpg|gif|css)$
-    RewriteRule (.*) app/index.php?path=$1 [NC,L,QSA]
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !\.(png|jpg|gif|css)$
+RewriteRule (.*) app/index.php?path=$1 [NC,L,QSA]
