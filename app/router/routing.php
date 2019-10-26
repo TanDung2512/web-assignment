@@ -1,17 +1,17 @@
 <?php
-require_once __DIR__."/../classes/router.php";
 
+require_once __DIR__."/../classes/Router.php";
 
 /*
 * require Controllers
 */
 
-require_once __DIR__."/../controllers/login.php";
-require_once __DIR__."/../controllers/home.php";
-require_once __DIR__."/../controllers/register.php";
-require_once __DIR__."/../controllers/chooseCV.php";
-require_once __DIR__."/../controllers/editCV.php";
-require_once __DIR__."/../controllers/myCV.php";
+require_once __DIR__."/../controllers/LoginController.php";
+require_once __DIR__."/../controllers/HomeController.php";
+require_once __DIR__."/../controllers/RegisterController.php";
+require_once __DIR__."/../controllers/ChooseCVController.php";
+require_once __DIR__."/../controllers/EditCVController.php";
+require_once __DIR__."/../controllers/MyCVController.php";
 
 define("ROOT_DIR","web-assignment");
 
