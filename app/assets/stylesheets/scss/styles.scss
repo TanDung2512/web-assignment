@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @import "./colors.scss";
+=======
+@import './colors.scss';
+>>>>>>> master
 
 @font-face {
   font-family: "TT Commons";
@@ -71,6 +75,7 @@ li {
 }
 
 .btn {
+<<<<<<< HEAD
   height: 40px;
   color: white;
   background-color: $living-coral;
@@ -87,6 +92,28 @@ li {
   background-color: $light-gray;
   border: none;
   border-bottom: 1px solid $living-coral;
+=======
+    height: 40px;
+    color: white;
+    background-color: $living-coral;
+    padding: 8px;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+}
+
+.input {
+    height: 48px;
+    width: 100%;
+    padding: 10px;
+    background-color: $light-gray;
+    border: none;
+    border-bottom: 1px solid $living-coral;
+}
+
+.txt-color {
+    color: $living-coral;
+>>>>>>> master
 }
 
 .input::placeholder {
