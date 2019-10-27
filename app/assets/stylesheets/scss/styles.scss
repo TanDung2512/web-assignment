@@ -1,5 +1,4 @@
 @import './colors.scss';
-@import './font-size.scss';
 
 @font-face {
     font-family: 'TT Commons';
@@ -72,7 +71,7 @@ li {
 .btn {
     height: 40px;
     color: white;
-    background-color: $blue;
+    background-color: $living-coral;
     padding: 8px;
     text-align: center;
     border: none;
@@ -85,7 +84,11 @@ li {
     padding: 10px;
     background-color: $light-gray;
     border: none;
-    border-bottom: 1px solid $blue;
+    border-bottom: 1px solid $living-coral;
+}
+
+.txt-color {
+    color: $living-coral;
 }
 
 .input::placeholder {
