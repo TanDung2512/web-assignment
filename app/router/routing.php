@@ -1,22 +1,28 @@
 <?php
 
-require_once __DIR__."/../classes/Router.php";
+require_once __DIR__ . "/../classes/Router.php";
 
 /*
 * require Controllers
 */
 
-require_once __DIR__."/../controllers/LoginController.php";
-require_once __DIR__."/../controllers/HomeController.php";
-require_once __DIR__."/../controllers/RegisterController.php";
-require_once __DIR__."/../controllers/ChooseCVController.php";
-require_once __DIR__."/../controllers/EditCVController.php";
-require_once __DIR__."/../controllers/MyCVController.php";
+require_once __DIR__ . "/../controllers/LoginController.php";
+require_once __DIR__ . "/../controllers/HomeController.php";
+require_once __DIR__ . "/../controllers/LandingController.php";
+require_once __DIR__ . "/../controllers/RegisterController.php";
+require_once __DIR__ . "/../controllers/ChooseCVController.php";
+require_once __DIR__ . "/../controllers/EditCVController.php";
+require_once __DIR__ . "/../controllers/MyCVController.php";
 
-define("ROOT_DIR","web-assignment");
+define("ROOT_DIR", "web-assignment");
 
 Router::GET('/', function () {
     $home = new HomeController();
+    $home->render();
+});
+
+Router::GET('/landing', function () {
+    $home = new LandingController();
     $home->render();
 });
 
@@ -47,7 +53,5 @@ Router::GET('/editCV', function () {
 
 
 $action = $_SERVER['REQUEST_URI'];
-$action = str_replace("web-assignment/", "",$action);
+$action = str_replace("web-assignment/", "", $action);
 Router::dispatch($action);
-
-?>

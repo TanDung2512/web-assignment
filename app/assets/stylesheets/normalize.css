@@ -23,7 +23,6 @@ h3,
 h4,
 h5,
 h6,
-p,
 b,
 strong {
   font-weight: bold;
@@ -34,8 +33,13 @@ button {
   cursor: pointer;
   outline: none; }
 
+a {
+  text-decoration: none;
+  color: #020202; }
+
 button {
-  border: 0; }
+  border: 0;
+  background-color: #fff; }
 
 input,
 textarea,
