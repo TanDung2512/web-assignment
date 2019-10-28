@@ -33,8 +33,8 @@
       ‘resume rules’ employers look for. Easy to use & done within minutes - try
       now for free!
     </p>
-    <button class="btn ">
-      <h3 class="txt--sub-heading">Create My Resume</h3>
+    <button class="btn txt--sub-heading ">
+      Create My Resume
     </button>
   </div>
   <div class="resum-img">
