@@ -44,6 +44,7 @@ class Router{
                 $callback = self::$_POSTs[$action];
                 break;
         }
+        
         echo call_user_func($callback);
     }
 }

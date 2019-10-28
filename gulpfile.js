@@ -23,7 +23,7 @@ gulp.task('connect-sync', function() {
 
 
 gulp.task('sass', function() {
-    return gulp.src('app/assets/stylesheets/scss/*.scss')
+    return gulp.src('app/assets/stylesheets/scss/styles.scss')
         .pipe(sass())
         .pipe(gulp.dest('app/assets/stylesheets'))
 });
@@ -34,6 +34,7 @@ gulp.task('watch', function() {
     gulp.watch('app/**/*.html', browserSync.reload);
     gulp.watch('app/**/*.php', browserSync.reload);
     gulp.watch('app/**/*.js', browserSync.reload);
+    gulp.watch('app/**/*.css', browserSync.reload);
 });
 
 gulp.task('default', function(callback) {
