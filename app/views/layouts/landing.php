@@ -1,6 +1,9 @@
 <header class="cv-header">
   <div class="page-wrapper d-flex ali-center">
-    <img src="app/images/logo.jpg" alt="logo" class="logo-big" />
+    <a href="#" class="d-b">
+      <img src="app/images/logo.jpg" alt="logo" class="logo-big" />
+    </a>
+
     <nav class="category-menu d-flex ali-center">
       <ul class="d-flex mr-5 pr-1">
         <li>
@@ -33,7 +36,7 @@
       ‘resume rules’ employers look for. Easy to use & done within minutes - try
       now for free!
     </p>
-    <button class="btn txt--sub-heading ">
+    <button class="btn txt--mid-heading ">
       Create My Resume
     </button>
   </div>
@@ -60,3 +63,44 @@
     </ul>
   </div>
 </div>
+<footer class="cv-footer d-flex">
+  <div class="social-wrapper">
+    <p class="header">
+      Connect with us <br />
+      on social media
+    </p>
+    <div class="social-links d-flex">
+      <a href="#" class=" fb social-button d-flex-center">
+        <img src="app/images/fb.svg" alt="" />
+      </a>
+      <a href="#" class="d-ib twitter social-button d-flex-center">
+        <img src="app/images/twitter.svg" alt="" />
+      </a>
+      <a href="#" class="d-ib linkedin social-button d-flex-center">
+        <img src="app/images/linkedin.svg" alt="" />
+      </a>
+    </div>
+  </div>
+  <div class="nav-bottom d-flex">
+    <div class="mr-3">
+      <div class="nav-links">
+        <div>Support</div>
+        <a href="#">FAQ</a>
+        <a href="#">Contact us</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+    <div>
+      <div class="nav-links">
+        <div>Support</div>
+        <a href="#">FAQ</a>
+        <a href="#">Contact us</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,27 @@
+.cv-footer {
+  background-color: #0f141f;
+  color: #fff;
+  padding: 40px 15%;
+  justify-content: space-between; }
+
+.social-links .social-button {
+  width: 40px;
+  height: 40px;
+  margin-right: 1em;
+  background-color: #fff;
+  border-radius: 50%; }
+
+.social-wrapper .header {
+  font-size: 1.35rem;
+  margin: 0 0 1rem 0; }
+
+.nav-bottom .nav-links a {
+  margin-bottom: 8px;
+  display: block;
+  color: #fff; }
+
+.nav-bottom .nav-links div {
+  text-transform: uppercase;
+  color: #3d4047;
+  margin-bottom: 8px;
+  font-size: 14px; }
