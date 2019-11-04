@@ -1,0 +1,17 @@
+.cv-header {
+  background: #fff;
+  height: 70px;
+  width: 100%; }
+  .cv-header .page-wrapper {
+    padding: 0 5%;
+    height: 100%;
+    justify-content: space-between; }
+    .cv-header .page-wrapper .category-menu ul {
+      border-right: solid 1px #dde3f0; }
+      .cv-header .page-wrapper .category-menu ul li {
+        margin: 0 1rem;
+        color: #020202; }
+
+.logo-big {
+  height: 40px;
+  object-fit: contain; }
