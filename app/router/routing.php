@@ -12,6 +12,7 @@ require_once __DIR__."/../controllers/RegisterController.php";
 require_once __DIR__."/../controllers/ChooseCVController.php";
 require_once __DIR__."/../controllers/EditCVController.php";
 require_once __DIR__."/../controllers/MyCVController.php";
+require_once __DIR__."/../controllers/BrowseCVController.php";
 
 define("ROOT_DIR","web-assignment");
 
@@ -42,6 +43,11 @@ Router::GET('/myCV', function () {
 
 Router::GET('/editCV', function () {
     $editCV = new EditCVController();
+    $editCV->render();
+});
+
+Router::GET('/browseCV', function () {
+    $editCV = new BrowseCVController();
     $editCV->render();
 });
 
