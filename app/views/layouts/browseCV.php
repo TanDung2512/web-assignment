@@ -1,59 +1,61 @@
-<header>
-  <img class="logo" src="./app/assets/images/logo.png" alt="logo">
-</header>
+<div class="browseCV">
+  <header>
+    <img class="logo" src="./app/assets/images/logo.png" alt="logo">
+  </header>
 
-<div class="body">
-  <div class="top">
-    <h1>Select a Template</h1>
-    <div class="progress_bar">
-      <div class="circle circle--reached"></div>
-      <div class="bar bar--reached"></div>
-      <div class="circle circle--reached"></div>
-      <div class="bar bar--reached"></div>
-      <div class="circle circle--reached"></div>
+  <div class="body">
+    <div class="top">
+      <h1>Select a Template</h1>
+      <div class="progress_bar">
+        <div class="circle circle--reached"></div>
+        <div class="bar bar--reached"></div>
+        <div class="circle circle--reached"></div>
+        <div class="bar bar--reached"></div>
+        <div class="circle circle--reached"></div>
+      </div>
+      <h3>To get started, select a resume template below.</h3>
     </div>
-    <h3>To get started, select a resume template below.</h3>
+
+    <div class="bot">
+      <div class="slider">
+        <div>
+          <div class="slide-item">
+            <p>Paris</p>
+            <img class="cv_template" src="https://www.my-resume-templates.com/wp-content/uploads/2019/07/67-best-cv-format.jpg">
+          </div>
+        </div>
+        <div>
+          <div class="slide-item">
+            <p>London</p>
+            <img class="cv_template" src="https://www.my-resume-templates.com/wp-content/uploads/2019/07/67-best-cv-format.jpg">
+          </div>
+        </div>
+        <div>
+          <div class="slide-item">
+            <p>Paris</p>
+            <img class="cv_template" src="https://www.my-resume-templates.com/wp-content/uploads/2019/07/67-best-cv-format.jpg">
+          </div>
+        </div>
+        <div>
+          <div class="slide-item">
+            <p>New York</p>
+            <img class="cv_template" src="https://www.my-resume-templates.com/wp-content/uploads/2019/07/67-best-cv-format.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="bot">
-    <div class="slider">
-      <div>
-        <div class="slide-item">
-          <p>Paris</p>
-          <img class="cv_template" src="https://www.my-resume-templates.com/wp-content/uploads/2019/07/67-best-cv-format.jpg">
-        </div>
-      </div>
-      <div>
-        <div class="slide-item">
-          <p>London</p>
-          <img class="cv_template" src="https://www.my-resume-templates.com/wp-content/uploads/2019/07/67-best-cv-format.jpg">
-        </div>
-      </div>
-      <div>
-        <div class="slide-item">
-          <p>Paris</p>
-          <img class="cv_template" src="https://www.my-resume-templates.com/wp-content/uploads/2019/07/67-best-cv-format.jpg">
-        </div>
-      </div>
-      <div>
-        <div class="slide-item">
-          <p>New York</p>
-          <img class="cv_template" src="https://www.my-resume-templates.com/wp-content/uploads/2019/07/67-best-cv-format.jpg">
-        </div>
-      </div>
+  <footer>
+    <div class="linebreak"></div>
+    <ul class="content">
+      <li>Contact Us</li>
+      <li>Privacy</li>
+      <li>Disclaimer</li>
+      <li>Terms of Service</li>
     </div>
-  </div>
+  </footer>
 </div>
-
-<footer>
-  <div class="linebreak"></div>
-  <ul class="content">
-    <li>Contact Us</li>
-    <li>Privacy</li>
-    <li>Disclaimer</li>
-    <li>Terms of Service</li>
-  </div>
-</footer>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
