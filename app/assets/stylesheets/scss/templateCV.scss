@@ -1,0 +1,30 @@
+.cv {
+    font-size: 0.7em;
+    width: 50em;
+    height: 70em;
+    background-color: white;
+    &-1 {
+        &__container {
+            padding: 3em;
+        }
+        &__header {
+            display: block;
+        }
+        &__avatar {
+            width: 4em;
+            height: 4em;
+            object-fit: cover;
+            border-radius: 0.5em;
+            display: inline-block;
+        }
+        &__header>div {
+            display: inline-block;
+            padding: 2em 0em;
+        }
+    }
+    & section {
+        &>div {
+            padding: 1em 1em;
+        }
+    }
+}
