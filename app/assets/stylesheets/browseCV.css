@@ -87,11 +87,38 @@ header {
   height: 80px; }
 
 .body {
-  height: calc(100% - 80px - 120px); }
+  height: calc(100% - 80px - 120px);
+  text-align: center; }
+  .body .top {
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .body .top h3 {
+      color: #5c5c5c; }
+    .body .top .progress_bar {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .body .top .progress_bar .circle {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%; }
+        .body .top .progress_bar .circle--reached {
+          border: 3px solid #ff6f61; }
+        .body .top .progress_bar .circle--unreached {
+          border: 3px solid #ddd; }
+      .body .top .progress_bar .bar {
+        height: 3px;
+        width: 300px; }
+        .body .top .progress_bar .bar--reached {
+          background-color: #ff6f61; }
+        .body .top .progress_bar .bar--unreached {
+          background-color: #ddd; }
 
 footer {
   width: 100%;
-  height: 120px;
+  height: 90px;
   position: fixed;
   bottom: 0;
   display: flex;
@@ -104,7 +131,7 @@ footer {
     border-bottom: 1px solid #88898c;
     height: 1px; }
   footer ul {
-    width: 500px;
+    width: 470px;
     height: 100%;
     display: flex;
     justify-content: space-between;
