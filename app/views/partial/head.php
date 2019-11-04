@@ -6,4 +6,5 @@
     <title>CV</title>
     <link href="./app/assets/stylesheets/styles.css" rel="stylesheet" />
     <link href="./app/assets/stylesheets/browseCV.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 </head>
