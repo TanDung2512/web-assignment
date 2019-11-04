@@ -5,7 +5,7 @@
         margin: 0px;
         & main {
             padding: 1rem 1rem;
-            min-height: 100%;
+            overflow: auto;
         }
     }
     &__header {
@@ -29,7 +29,7 @@
 .template-cv {
     &__list {
         width: 40%;
-        padding: 1.25rem 1.6rem 1.875rem;
+        padding: 0 1.6rem 1.875rem;
         overflow: scroll;
         max-height: 100%;
         font-size: 1rem;
@@ -49,7 +49,7 @@
     &__review {
         float: right;
         width: 60%;
-        font-size: 1rem;
+        font-size: 1.6vw;
         height: 100%;
         overflow: auto;
     }

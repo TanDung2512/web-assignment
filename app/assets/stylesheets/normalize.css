@@ -58,6 +58,9 @@ select,
 button {
   box-shadow: none; }
 
+body {
+  margin: 0; }
+
 ul,
 li {
   list-style: none;

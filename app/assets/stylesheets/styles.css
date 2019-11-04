@@ -58,6 +58,9 @@ select,
 button {
   box-shadow: none; }
 
+body {
+  margin: 0; }
+
 ul,
 li {
   list-style: none;
@@ -73,7 +76,7 @@ p {
   height: 70px;
   width: 100%; }
   .cv-header .page-wrapper {
-    padding: 0 80px;
+    padding: 0 5%;
     height: 100%;
     justify-content: space-between; }
     .cv-header .page-wrapper .category-menu ul {
@@ -86,52 +89,13 @@ p {
   height: 40px;
   object-fit: contain; }
 
-#landing {
-  background-color: #fcf9f8;
-  padding: 80px 0;
-  text-align: center; }
-  #landing .main-content {
-    text-align: center;
-    padding-bottom: 40px; }
-    #landing .main-content h1 {
-      color: #ff6f61;
-      margin: auto;
-      max-width: 800px;
-      margin-bottom: 0.25em; }
-    #landing .main-content .content {
-      max-width: 600px;
-      margin: auto;
-      margin-bottom: 32px; }
-  #landing .resum-img {
-    width: 770px;
-    height: 355px;
-    margin: 0 auto;
-    overflow: hidden;
-    margin-bottom: 32px; }
-    #landing .resum-img img {
-      width: 100%; }
-
-.steps-wrapper {
-  margin-top: 24px; }
-  .steps-wrapper .circle {
-    width: 40px;
-    height: 40px;
-    background-color: #ffc7c2;
-    border-radius: 50%;
-    line-height: 2em;
-    display: inline-block;
-    font-weight: bold; }
-  .steps-wrapper .content {
-    max-width: 250px;
-    text-align: left; }
-
 .preCV__container {
   background-color: #4f5259;
   min-width: 100%;
   margin: 0px; }
   .preCV__container main {
     padding: 1rem 1rem;
-    min-height: 100%; }
+    overflow: auto; }
 
 .preCV__header {
   color: white;
@@ -149,7 +113,7 @@ p {
 
 .template-cv__list {
   width: 40%;
-  padding: 1.25rem 1.6rem 1.875rem;
+  padding: 0 1.6rem 1.875rem;
   overflow: scroll;
   max-height: 100%;
   font-size: 1rem;
@@ -168,7 +132,7 @@ p {
 .template-cv__review {
   float: right;
   width: 60%;
-  font-size: 1rem;
+  font-size: 1.6vw;
   height: 100%;
   overflow: auto; }
 
@@ -198,6 +162,74 @@ p {
     padding: 2em 0em; }
   .cv section > div {
     padding: 1em 1em; }
+
+.cv-footer {
+  background-color: #0f141f;
+  color: #fff;
+  padding: 40px 15%;
+  justify-content: space-between; }
+
+.social-links .social-button {
+  width: 40px;
+  height: 40px;
+  margin-right: 1em;
+  background-color: #fff;
+  border-radius: 50%; }
+
+.social-wrapper .header {
+  font-size: 1.35rem;
+  margin: 0 0 1rem 0; }
+
+.nav-bottom .nav-links a {
+  margin-bottom: 8px;
+  display: block;
+  color: #fff; }
+
+.nav-bottom .nav-links div {
+  text-transform: uppercase;
+  color: #3d4047;
+  margin-bottom: 8px;
+  font-size: 14px; }
+
+#landing {
+  background-color: #fcf9f8;
+  padding: 80px 0 40px;
+  text-align: center; }
+  #landing .main-content {
+    text-align: center;
+    padding-bottom: 40px; }
+    #landing .main-content h1 {
+      color: #ff6f61;
+      margin: auto;
+      max-width: 800px;
+      margin-bottom: 0.25em; }
+    #landing .main-content .content {
+      max-width: 600px;
+      margin: auto;
+      margin-bottom: 32px; }
+  #landing .resum-img {
+    max-width: 770px;
+    width: 100%;
+    height: 355px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 32px; }
+    #landing .resum-img img {
+      width: 100%; }
+
+.steps-wrapper {
+  margin-top: 24px; }
+  .steps-wrapper .circle {
+    width: 40px;
+    height: 40px;
+    background-color: #ffc7c2;
+    border-radius: 50%;
+    line-height: 2em;
+    display: inline-block;
+    font-weight: bold; }
+  .steps-wrapper .content {
+    max-width: 250px;
+    text-align: left; }
 
 .clearfix {
   zoom: 1; }
@@ -285,6 +317,25 @@ p {
 .txt--bold {
   font-weight: bold; }
 
+.txt--big-heading {
+  font-size: 2.875rem;
+  font-weight: bold; }
+
+.txt--heading {
+  font-size: 2rem; }
+
+.txt--sub-heading {
+  font-size: 1.2rem; }
+
+.txt--mid-heading {
+  font-size: 1.55rem; }
+
+.txt--regular {
+  font-size: 1rem; }
+
+.txt--bold {
+  font-weight: bold; }
+
 .btn {
   color: white;
   background-color: #ff6f61;
@@ -320,6 +371,12 @@ p {
 .d-flex {
   display: flex; }
 
+.d-b {
+  display: block; }
+
+.d-ib {
+  display: inline-block; }
+
 .ali-center {
   align-items: center; }
 
@@ -329,3 +386,8 @@ p {
 body {
   padding: 0px;
   margin: 0px; }
+
+.d-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
