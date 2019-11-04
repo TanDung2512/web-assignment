@@ -1,0 +1,20 @@
+.cv {
+  font-size: 0.7em;
+  width: 50em;
+  height: 70em;
+  background-color: white; }
+  .cv-1__container {
+    padding: 3em; }
+  .cv-1__header {
+    display: block; }
+  .cv-1__avatar {
+    width: 4em;
+    height: 4em;
+    object-fit: cover;
+    border-radius: 0.5em;
+    display: inline-block; }
+  .cv-1__header > div {
+    display: inline-block;
+    padding: 2em 0em; }
+  .cv section > div {
+    padding: 1em 1em; }

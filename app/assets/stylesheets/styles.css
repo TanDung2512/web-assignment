@@ -125,6 +125,80 @@ p {
     max-width: 250px;
     text-align: left; }
 
+.preCV__container {
+  background-color: #4f5259;
+  min-width: 100%;
+  margin: 0px; }
+  .preCV__container main {
+    padding: 1rem 1rem;
+    min-height: 100%; }
+
+.preCV__header {
+  color: white;
+  padding: 0.5rem 3.7rem;
+  background-color: #0f141f;
+  height: 3.7rem; }
+  .preCV__header .nav-back {
+    float: left;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.35; }
+  .preCV__header .btn {
+    padding: 0.5rem 0.7rem;
+    float: right; }
+
+.template-cv__list {
+  width: 40%;
+  padding: 1.25rem 1.6rem 1.875rem;
+  overflow: scroll;
+  max-height: 100%;
+  font-size: 1rem;
+  text-align: center;
+  float: left; }
+
+.template-cv__item {
+  display: inline-block;
+  float: left;
+  margin: 10px;
+  width: 40%; }
+  .template-cv__item img {
+    width: 100%;
+    object-fit: contain; }
+
+.template-cv__review {
+  float: right;
+  width: 60%;
+  font-size: 1rem;
+  height: 100%;
+  overflow: auto; }
+
+.check-image {
+  background-image: url("/web-assignment/app/assets/images/cv.jpg");
+  background-size: contain;
+  width: 100px;
+  height: 100px; }
+
+.cv {
+  font-size: 0.7em;
+  width: 50em;
+  height: 70em;
+  background-color: white; }
+  .cv-1__container {
+    padding: 3em; }
+  .cv-1__header {
+    display: block; }
+  .cv-1__avatar {
+    width: 4em;
+    height: 4em;
+    object-fit: cover;
+    border-radius: 0.5em;
+    display: inline-block; }
+  .cv-1__header > div {
+    display: inline-block;
+    padding: 2em 0em; }
+  .cv section > div {
+    padding: 1em 1em; }
+
 .clearfix {
   zoom: 1; }
   .clearfix:after, .clearfix:before {
@@ -251,3 +325,7 @@ p {
 
 .jus-center {
   justify-content: center; }
+
+body {
+  padding: 0px;
+  margin: 0px; }

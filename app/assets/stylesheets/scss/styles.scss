@@ -1,164 +1,166 @@
 @import "./colors.scss";
 @import "./normalize.scss";
 @import "./header.scss";
-
+@import "./previewCV.scss";
+@import "./templateCV.scss";
 // -------------- GLOBAL CLASSES ---------------
 .clearfix {
-  &:after,
-  &:before {
-    content: " ";
-    display: block;
-    overflow: hidden;
-    visibility: hidden;
-    width: 0;
-    height: 0;
-  }
-  zoom: 1;
+    &:after,
+    &:before {
+        content: " ";
+        display: block;
+        overflow: hidden;
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+    zoom: 1;
 }
 
 .mr {
-  &-1 {
-    margin-right: 0.75em;
-  }
-  &-2 {
-    margin-right: 1em;
-  }
-  &-3 {
-    margin-right: 1.25em;
-  }
-  &-34 {
-    margin-right: 1.5em;
-  }
-  &-5 {
-    margin-right: 2em;
-  }
+    &-1 {
+        margin-right: 0.75em;
+    }
+    &-2 {
+        margin-right: 1em;
+    }
+    &-3 {
+        margin-right: 1.25em;
+    }
+    &-34 {
+        margin-right: 1.5em;
+    }
+    &-5 {
+        margin-right: 2em;
+    }
 }
 
 .ml {
-  &-1 {
-    margin-left: 0.75em;
-  }
-  &-2 {
-    margin-left: 1em;
-  }
-  &-3 {
-    margin-left: 1.25em;
-  }
-  &-4 {
-    margin-left: 1.5em;
-  }
-  &-5 {
-    margin-left: 2em;
-  }
+    &-1 {
+        margin-left: 0.75em;
+    }
+    &-2 {
+        margin-left: 1em;
+    }
+    &-3 {
+        margin-left: 1.25em;
+    }
+    &-4 {
+        margin-left: 1.5em;
+    }
+    &-5 {
+        margin-left: 2em;
+    }
 }
 
 .pr {
-  &-1 {
-    padding-right: 0.75em;
-  }
-  &-2 {
-    padding-right: 1em;
-  }
-  &-3 {
-    padding-right: 1.25em;
-  }
-  &-4 {
-    padding-right: 1.5em;
-  }
-  &-5 {
-    padding-right: 2em;
-  }
+    &-1 {
+        padding-right: 0.75em;
+    }
+    &-2 {
+        padding-right: 1em;
+    }
+    &-3 {
+        padding-right: 1.25em;
+    }
+    &-4 {
+        padding-right: 1.5em;
+    }
+    &-5 {
+        padding-right: 2em;
+    }
 }
 
 .pl {
-  &-1 {
-    padding-left: 0.75em;
-  }
-  &-2 {
-    padding-left: 1em;
-  }
-  &-3 {
-    padding-left: 1.25em;
-  }
-  &-4 {
-    padding-left: 1.5em;
-  }
-  &-5 {
-    padding-left: 2em;
-  }
+    &-1 {
+        padding-left: 0.75em;
+    }
+    &-2 {
+        padding-left: 1em;
+    }
+    &-3 {
+        padding-left: 1.25em;
+    }
+    &-4 {
+        padding-left: 1.5em;
+    }
+    &-5 {
+        padding-left: 2em;
+    }
 }
 
 .txt {
-  &--big-heading {
-    font-size: 2.875rem;
-    font-weight: bold;
-  }
-
-  &--heading {
-    font-size: 2rem;
-  }
-
-  &--sub-heading {
-    font-size: 1.2rem;
-  }
-
-  &--regular {
-    font-size: 1rem;
-  }
-
-  &--bold {
-    font-weight: bold;
-  }
+    &--big-heading {
+        font-size: 2.875rem;
+        font-weight: bold;
+    }
+    &--heading {
+        font-size: 2rem;
+    }
+    &--sub-heading {
+        font-size: 1.2rem;
+    }
+    &--regular {
+        font-size: 1rem;
+    }
+    &--bold {
+        font-weight: bold;
+    }
 }
 
 .btn {
-  // height: 40px;
-  color: white;
-  background-color: $living-coral;
-  // padding: 8px;
-  font-weight: bold;
-  padding: 0.4em 0.8em;
-  text-align: center;
-  border: none;
-  border-radius: 4px;
-  &-secondary {
-    color: $living-coral;
-  }
+    // height: 40px;
+    color: white;
+    background-color: $living-coral;
+    // padding: 8px;
+    font-weight: bold;
+    padding: 0.4em 0.8em;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    &-secondary {
+        color: $living-coral;
+    }
 }
 
 .input {
-  height: 48px;
-  width: 100%;
-  padding: 10px;
-  background-color: $light-gray;
-  border: none;
-  border-bottom: 1px solid $living-coral;
+    height: 48px;
+    width: 100%;
+    padding: 10px;
+    background-color: $light-gray;
+    border: none;
+    border-bottom: 1px solid $living-coral;
 }
 
 .input::placeholder {
-  color: $gray;
+    color: $gray;
 }
 
 .eclipse {
-  width: 20px;
-  height: 20px;
-  opacity: 0.27;
-  border: 5px solid $gray;
-  background-color: white;
+    width: 20px;
+    height: 20px;
+    opacity: 0.27;
+    border: 5px solid $gray;
+    background-color: white;
 }
 
 .txt-color {
-  color: $living-coral;
+    color: $living-coral;
 }
 
 .d-flex {
-  display: flex;
+    display: flex;
 }
 
 .ali-center {
-  align-items: center;
+    align-items: center;
 }
 
 .jus-center {
-  justify-content: center;
+    justify-content: center;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
 }
