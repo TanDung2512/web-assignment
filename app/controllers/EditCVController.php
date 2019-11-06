@@ -7,7 +7,7 @@
         }
         
         public function render(){
-            parent::$getView("login");
+            parent::getView("editCV");
         }
 
     }

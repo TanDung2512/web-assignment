@@ -48,7 +48,7 @@
             <p class="myCV-info-title">Untitled</p>
             <p class="myCV-info-date">Updated November, 01:05</p>
             <div>
-              <p>Edit</p>
+              <p><i class="fas fa-pencil-alt"></i>Edit</p>
               <p>Download PDF</p>
               <p>Delete</p>
             </div>
