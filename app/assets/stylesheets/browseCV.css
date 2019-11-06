@@ -261,7 +261,8 @@ p {
       height: 173px;
       margin: 16px 54px; }
   #home .home-createCV {
-    font-size: 37px; }
+    font-size: 37px;
+    margin: 37px 0; }
   #home .home-left-big-button {
     margin-right: 190px; }
 
