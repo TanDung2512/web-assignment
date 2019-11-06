@@ -1,0 +1,45 @@
+@import "./colors.scss";
+
+#home {
+  background-color: #fcf9f8;
+  .home-view {
+    // width: 1920px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home-big-button {
+    width: 392px;
+    height: 426px;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    // font-family: TTCommons;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.35;
+    letter-spacing: normal;
+    text-align: center;
+    color: #88898c;
+    .home-createCV-btn {
+      width: 123px;
+      height: 39px;
+      border-radius: 4px;
+      background-color: #ff6f61;
+      color: white;
+    }
+    .home-createCV-content {
+      height: 173px;
+      margin: 16px 54px;
+    }
+  }
+  .home-createCV {
+    font-size: 37px;
+  }
+  .home-left-big-button {
+    margin-right: 190px;
+  }
+}
