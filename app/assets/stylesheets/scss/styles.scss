@@ -1,6 +1,8 @@
 @import "./colors.scss";
 @import "./normalize.scss";
 @import "./header.scss";
+@import "./previewCV.scss";
+@import "./templateCV.scss";
 @import "./footer.scss";
 @import "./landing.scss";
 @import "./home.scss";
@@ -19,6 +21,27 @@
     height: 0;
   }
   zoom: 1;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-family: "Source Sans Pro";
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+b,
+strong {
+  margin: 0;
 }
 
 .mr {
@@ -98,23 +121,34 @@
     font-size: 2.875rem;
     font-weight: bold;
   }
-
   &--heading {
     font-size: 2rem;
   }
-
   &--sub-heading {
     font-size: 1.2rem;
   }
-
-  &--mid-heading {
-    font-size: 1.55rem;
-  }
-
   &--regular {
     font-size: 1rem;
   }
-
+  &--bold {
+    font-weight: bold;
+  }
+  &--big-heading {
+    font-size: 2.875rem;
+    font-weight: bold;
+  }
+  &--heading {
+    font-size: 2rem;
+  }
+  &--sub-heading {
+    font-size: 1.2rem;
+  }
+  &--mid-heading {
+    font-size: 1.55rem;
+  }
+  &--regular {
+    font-size: 1rem;
+  }
   &--bold {
     font-weight: bold;
   }
@@ -178,6 +212,11 @@
 
 .jus-center {
   justify-content: center;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
 }
 
 .d-flex-center {
