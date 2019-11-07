@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather+Sans");
 * {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased; }
@@ -391,6 +392,62 @@ p {
       justify-content: center;
       align-items: center; }
 
+main {
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Merriweather Sans", sans-serif; }
+  main #errorText {
+    font-size: 22px;
+    margin: 14px 0; }
+  main #errorLink {
+    font-size: 20px;
+    padding: 12px;
+    border: 1px solid;
+    color: #000;
+    background-color: transparent;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out; }
+  main #errorLink:hover {
+    color: #fff;
+    background: #000; }
+  main #errorLink:active {
+    color: #fff;
+    background: #000; }
+  main #g6219 {
+    transform-origin: 85px 4px;
+    animation: an1 12s 0.5s infinite ease-out; }
+
+@keyframes an1 {
+  0% {
+    transform: rotate(0); }
+  5% {
+    transform: rotate(3deg); }
+  15% {
+    transform: rotate(-2.5deg); }
+  25% {
+    transform: rotate(2deg); }
+  35% {
+    transform: rotate(-1.5deg); }
+  45% {
+    transform: rotate(1deg); }
+  55% {
+    transform: rotate(-1.5deg); }
+  65% {
+    transform: rotate(2deg); }
+  75% {
+    transform: rotate(-2deg); }
+  85% {
+    transform: rotate(2.5deg); }
+  95% {
+    transform: rotate(-3deg); }
+  100% {
+    transform: rotate(0); } }
+
 .clearfix {
   zoom: 1; }
   .clearfix:after, .clearfix:before {
@@ -401,11 +458,12 @@ p {
     width: 0;
     height: 0; }
 
-body, html {
+body,
+html {
   width: 100%;
   height: 100%;
   font-size: 16px;
-  font-family: 'Source Sans Pro';
+  font-family: "Source Sans Pro";
   margin: 0; }
 
 h1,

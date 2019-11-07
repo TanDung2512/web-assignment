@@ -1,6 +1,6 @@
 <?php
-    require_once __DIR__."/Error404.php";
-    class EditCVController extends Controller{
+    require_once __DIR__."/Controller.php";
+    class Error404Controller extends Controller{
 
         public function __construct(){
             parent::__construct();
