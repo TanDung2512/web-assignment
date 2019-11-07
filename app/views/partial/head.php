@@ -18,4 +18,5 @@
     type="image/x-icon"
     href="app/images/favicon-16x16.png"
   />
+  <script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
 </head>
