@@ -46,7 +46,7 @@ class User {
   * @return boolean
   */  
   public function __set($name, $value) {
-    if (property_exists($name)) {
+    if (property_exists($name) and $value != null) {
       $this->$name = $value;
       return true;
     } else {
