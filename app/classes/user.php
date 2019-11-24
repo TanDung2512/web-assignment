@@ -1,4 +1,8 @@
 <?php 
+
+/**
+ * User class
+ */
 class User {
   private $_user_ID;
   private $_user_mail;
@@ -10,7 +14,13 @@ class User {
 
 /**
   * Construction of a user. 
-  * @param 
+  * @param int $id
+  * @param string $mail 
+  * @param string $pw
+  * @param string $ava
+  * @param string $role
+  * @param string $gender
+  * @param string $birthday
   *
   * @return instance
   */
@@ -58,10 +68,22 @@ class User {
   * Return json type of user. 
   * @param 
   *
-  * @return json
+  * @return json user
   */
   public function __get_json() {
+    // json_encode(get_object_vars($user));
 
+    $json = array(
+      'user_ID' = $this->__get("_user_ID"),
+      'user_mail' = $this->__get("_user_mail"),
+      'password' = $this->__get("_password"),
+      'avatar' = $this->__get("_avatar"),
+      'role' = $this->__get("_role"),
+      'gender' = $this->__get("_gender"),
+      'birthday' = $this->__get("_birthday")
+    );
+
+  return json_encode($json);
   }
 }
 ?>
