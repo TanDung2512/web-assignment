@@ -28,7 +28,7 @@ class Users {
   *
   * @return null
   */  
-  public function creatUser($user_ID, $user_mail, $password, $avatar, $role, $gender, $birthday) {
+  public function createUser($user_ID, $user_mail, $password, $avatar, $role, $gender, $birthday) {
     $query = 'INSERT INTO users (user_ID, user_mail, password, avatar, role, gender, birthday)  
                             VALUES(:user_ID, :user_mail, :password, :avatar, :role, :gender, :birthday)';
     $stmt = $this->getConnection()->prepare($query);
@@ -46,7 +46,7 @@ class Users {
   * get user by user ID
   * @param string $user_ID
   *
-  * @return array key: value
+  * @return User | false
   */  
   public function getUserByID($user_ID) {
     $query = 'SELECT * FROM users WHERE user_ID = :user_ID';
@@ -54,14 +54,20 @@ class Users {
     $stmt->bindParam(':user_ID', $user_ID);
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
-    return $stmt->fetchAll(); 
+    $resultSet = $stmt->fetchAll(); 
+    if (count($resultSet) == 1) {
+      $user_db = $resultSet[0];
+      $user = new User($user_db["user_ID"], $user_db["user_mail"], $user_db["password"], $user_db["avatar"], $user_db["role"], $user_db["gender"], $user_db["birthday"]);
+      return $user;
+    }
+    return false;
   }
 
   /**
   * get user by user mail
   * @param string $user_mail
   *
-  * @return array key: value
+  * @return User | false
   */
   public function getUserByEmail($user_mail) {
     $query = 'SELECT * FROM users WHERE user_mail = :user_mail';
@@ -69,7 +75,13 @@ class Users {
     $stmt->bindParam(':user_mail', $user_mail);
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
-    return $stmt->fetchAll();    
+    $resultSet = $stmt->fetchAll(); 
+    if (count($resultSet) == 1) {
+      $user_db = $resultSet[0];
+      $user = new User($user_db["user_ID"], $user_db["user_mail"], $user_db["password"], $user_db["avatar"], $user_db["role"], $user_db["gender"], $user_db["birthday"]);
+      return $user;
+    }
+    return false;  
   }
 
   /**
