@@ -4,6 +4,16 @@
  * User class
  */
 class User {
+
+    /**
+   * @var string $_user_ID 
+   * @var string $_user_main
+   * @var string $_password
+   * @var string $_avatar
+   * @var string $_role
+   * @var string $_gender
+   * @var string $_birthday
+   */
   private $_user_ID;
   private $_user_mail;
   private $_password;
@@ -29,7 +39,7 @@ class User {
     $this->_user_mail = $mail;
     $this->_password = $pw;
     $this->_avatar = $ava;
-    $this->_role = $role,
+    $this->_role = $role;
     $this->_gender = $gender;
     $this->_birthday = $birthday;
   }
