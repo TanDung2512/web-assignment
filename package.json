@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "prettier": {
+    "tabWidth": 4
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TanDung2512/web-assignment.git"
