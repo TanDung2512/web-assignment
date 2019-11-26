@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/../classes/Router.php";
+require_once __DIR__ . "/../classes/router.php";
 
 /*
 * require Controllers
@@ -15,7 +15,7 @@ require_once __DIR__ . "/../controllers/EditCVController.php";
 require_once __DIR__ . "/../controllers/MyCVController.php";
 require_once __DIR__ . "/../controllers/PreviewCVController.php";
 require_once __DIR__ . "/../controllers/BrowseCVController.php";
-require_once __DIR__ . "/../controllers/TestdbController.php"
+require_once __DIR__ . "/../controllers/TestdbController.php";
 
 
 define("ROOT_DIR", "web-assignment");

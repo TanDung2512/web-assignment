@@ -29,7 +29,7 @@ class User {
     $this->_user_mail = $mail;
     $this->_password = $pw;
     $this->_avatar = $ava;
-    $this->_role = $role,
+    $this->_role = $role;
     $this->_gender = $gender;
     $this->_birthday = $birthday;
   }
@@ -74,13 +74,13 @@ class User {
     // json_encode(get_object_vars($user));
 
     $json = array(
-      'user_ID' = $this->__get("_user_ID"),
-      'user_mail' = $this->__get("_user_mail"),
-      'password' = $this->__get("_password"),
-      'avatar' = $this->__get("_avatar"),
-      'role' = $this->__get("_role"),
-      'gender' = $this->__get("_gender"),
-      'birthday' = $this->__get("_birthday")
+      'user_ID' => $this->__get("_user_ID"),
+      'user_mail' => $this->__get("_user_mail"),
+      'password' => $this->__get("_password"),
+      'avatar' => $this->__get("_avatar"),
+      'role' => $this->__get("_role"),
+      'gender' => $this->__get("_gender"),
+      'birthday' => $this->__get("_birthday")
     );
 
   return json_encode($json);
