@@ -1,6 +1,6 @@
 <div id="template-cv">
     <page size="A4">
-        <div class="cv-container">
+        <div class="cv-container" id="template-2">
             <section class="cv-section ali-center" id="section-header">
                 <div class="img-wrapper">
                     <img src="app/images/avatar_toan.jpg" alt="avatar_toan" />
