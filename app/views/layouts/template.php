@@ -69,20 +69,14 @@
                             <h4 class="cv-experience-item__subtitle">
                                 Company Name, May 2016 - Current
                             </h4>
-                            <ul class="cv-experience-item__content">
-                                <li>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. In, laboriosam quaerat!
-                                </li>
-                                <li>
-                                    Vitae, ad cum. Sit aliquid molestias veniam
-                                    magnam laboriosam
-                                </li>
-                                <li>
-                                    Dicta qui voluptates eum dolores est aliquam
-                                    quaerat error quisquam?
-                                </li>
-                            </ul>
+                            <div class="cv-experience-item__content">
+                                Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit. Natus, animi doloribus
+                                accusamus perspiciatis numquam beatae
+                                consequuntur mollitia nostrum quas quidem
+                                dolorum tempore, ipsam nihil dignissimos
+                                reprehenderit error optio unde assumenda.
+                            </div>
                         </li>
                         <li class="cv-experience-item">
                             <h3 class="cv-experience-item__title">
