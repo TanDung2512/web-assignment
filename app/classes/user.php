@@ -4,22 +4,26 @@
  * User class
  */
 class User {
-
-    /**
-   * @var string $_user_ID 
-   * @var string $_user_main
-   * @var string $_password
-   * @var string $_avatar
-   * @var string $_role
-   * @var string $_gender
-   * @var string $_birthday
-   */
+   
+  /** @var int $_user_ID */
   private $_user_ID;
+
+  /** @var string $_user_mail*/
   private $_user_mail;
+
+  /** @var string $_password*/
   private $_password;
+
+  /** @var string $_avatar*/
   private $_avatar;
+
+  /** @var string $_role*/
   private $_role;
+
+  /** @var string $_gender*/
   private $_gender;
+
+  /** @var string $_birthday*/
   private $_birthday;
 
 /**
@@ -84,13 +88,13 @@ class User {
     // json_encode(get_object_vars($user));
 
     $json = array(
-      'user_ID' = $this->__get("_user_ID"),
-      'user_mail' = $this->__get("_user_mail"),
-      'password' = $this->__get("_password"),
-      'avatar' = $this->__get("_avatar"),
-      'role' = $this->__get("_role"),
-      'gender' = $this->__get("_gender"),
-      'birthday' = $this->__get("_birthday")
+      'user_ID' => $this->__get("_user_ID"),
+      'user_mail' => $this->__get("_user_mail"),
+      'password' => $this->__get("_password"),
+      'avatar' => $this->__get("_avatar"),
+      'role' => $this->__get("_role"),
+      'gender' => $this->__get("_gender"),
+      'birthday' => $this->__get("_birthday")
     );
 
   return json_encode($json);

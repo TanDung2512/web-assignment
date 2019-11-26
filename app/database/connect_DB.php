@@ -1,9 +1,16 @@
 <?php 
 
+ /**
+  * @package database
+  * This class is managing database connection
+  *
+  * @method static getInstance()
+  * @method getConnection()
+  */
 class connectDB {
+
   private static $instance = null;
   private $conn;
-
   private $host = 'localhost';
   private $user = 'root';
   private $pass = '';
