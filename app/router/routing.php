@@ -15,6 +15,7 @@ require_once __DIR__ . "/../controllers/EditCVController.php";
 require_once __DIR__ . "/../controllers/MyCVController.php";
 require_once __DIR__ . "/../controllers/PreviewCVController.php";
 require_once __DIR__ . "/../controllers/BrowseCVController.php";
+require_once __DIR__ . "/../controllers/TemplateController.php";
 require_once __DIR__ . "/../controllers/Error404Controller.php";
 
 
@@ -28,6 +29,11 @@ Router::GET('/', function () {
 Router::GET('/landing', function () {
     $home = new LandingController();
     $home->render();
+});
+
+Router::GET('/template', function () {
+    $template = new TemplateController();
+    $template->render();
 });
 
 Router::GET('/login', function () {
