@@ -111,7 +111,11 @@ class Users {
     $stmt->bindParam(':user_ID', $user_ID);
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
-    return $stmt->fetchAll();  
+    $resultSet = $stmt->fetchAll();  
+    if (count($resultSet) == 0) {
+      return False
+    }
+    return $resultSet[0];
   }
 }
 ?>
