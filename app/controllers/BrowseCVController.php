@@ -7,7 +7,6 @@
             parent::__construct();
         }
 
-
         public function render(){
             parent::getView("browseCV");
         }

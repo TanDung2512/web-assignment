@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "gulp"
   },
+  "prettier": {
+    "tabWidth": 4
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TanDung2512/web-assignment.git"

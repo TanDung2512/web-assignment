@@ -1,0 +1,66 @@
+p {
+  margin: 0; }
+
+.editCV-tag-title {
+  font-weight: 600;
+  margin-bottom: 19px; }
+
+.editCV-input > p {
+  color: #7a8599;
+  font-weight: 600;
+  opacity: 0.55;
+  margin-bottom: 13px; }
+
+.editCV-input > input {
+  width: 100%;
+  height: 43px;
+  border: none;
+  background: #7a8599;
+  opacity: 0.15;
+  margin-bottom: 16px; }
+
+.editCV-sub-info {
+  color: #7a8599;
+  margin-bottom: 17px; }
+
+#editCV {
+  display: flex;
+  align-items: center; }
+  #editCV .editCV-content {
+    width: 100%;
+    margin: 0 370px 50px 370px; }
+    #editCV .editCV-content .editCV-title-container {
+      display: flex;
+      justify-content: center; }
+      #editCV .editCV-content .editCV-title-container .editCV-title {
+        border: none;
+        font-weight: 600;
+        font-size: 27px; }
+    #editCV .editCV-content .editCV-personal .editCV-per {
+      display: flex; }
+      #editCV .editCV-content .editCV-personal .editCV-per .editCV-per-col1 {
+        width: 398px;
+        padding-right: 140px; }
+      #editCV .editCV-content .editCV-personal .editCV-per .editCV-per-col2 {
+        width: 398px;
+        padding-left: 140px; }
+        #editCV .editCV-content .editCV-personal .editCV-per .editCV-per-col2 .editCV-img {
+          display: flex; }
+        #editCV .editCV-content .editCV-personal .editCV-per .editCV-per-col2 .editCV-img > img {
+          height: 76px;
+          width: 76px;
+          object-fit: cover;
+          margin: 0 58px 15px 0; }
+    #editCV .editCV-content .editCV-btn {
+      display: flex;
+      justify-content: center; }
+    #editCV .editCV-content .editCV-btn > button {
+      background-color: #ff6f61;
+      color: white;
+      font-weight: 600;
+      height: 52px;
+      width: 279px;
+      border-radius: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
