@@ -1,20 +1,27 @@
 <?php
 
-/**
- * User service
- */
-
 require_once(__DIR__."/../database/connect_DB.php");
 include_once(__DIR__."/../classes/user.php");
 
-class Users {
+ /**
+  * @package app\services
+  * This class provides all user-relating functions.
+  *
+  * @method boolean createUser()
+  * @method User|boolean getUserByID(integer $user_ID)
+  * @method User|boolean getUserByEmail(string $user_mail)
+  * @method User|boolean updateRoleByID(string $user_ID)
+  * @method User|boolean getRoleByID(string $user_ID)
+  */
+class UserService{
+
+ /**
+  * @var connectDB $db_connection 
+  */   
+  private $db_connection;
+
   public function __construct() {
-    try {
-      $db = DB::getInstance();
-    } catch (Exception $e) {
-      print $e->getMessage();
-      exit();
-    }
+      $db_connection = connectDB::getInstance();
   }
 /**
   * create new user
@@ -26,12 +33,20 @@ class Users {
   * @param string $gender 
   * @param string $birthday
   *
-  * @return null
+  * @return boolean
   */  
-  public function createUser($user_ID, $user_mail, $password, $avatar, $role, $gender, $birthday) {
+  public function createUser(
+    int $user_ID, 
+    string $user_mail, 
+    string $password, 
+    string $avatar, 
+    string $role, 
+    string $gender, 
+    string $birthday
+  ){
     $query = 'INSERT INTO users (user_ID, user_mail, password, avatar, role, gender, birthday)  
-                            VALUES(:user_ID, :user_mail, :password, :avatar, :role, :gender, :birthday)';
-    $stmt = $this->getConnection()->prepare($query);
+              VALUES(:user_ID, :user_mail, :password, :avatar, :role, :gender, :birthday)';
+    $stmt = $this->db_connection->prepare($query);
     $stmt->bindParam(':user_ID', $user_ID);
     $stmt->bindParam(':user_mail', $user_mail);
     $stmt->bindParam(':password', $password);
@@ -39,18 +54,21 @@ class Users {
     $stmt->bindParam(':role', $role);
     $stmt->bindParam(':gender', $gender);
     $stmt->bindParam(':birthday', $birthday);
-    $stmt->execute();
+    return $stmt->execute();
   }
 
-/**
-  * get user by user ID
-  * @param string $user_ID
-  *
-  * @return User | false
-  */  
+  /**
+    * get user by user ID
+    * @param string $user_ID
+    *
+    * @return User|false
+    */  
   public function getUserByID($user_ID) {
+    if($user_ID == NULL){
+      return false;
+    }
     $query = 'SELECT * FROM users WHERE user_ID = :user_ID';
-    $stmt = $this->getConnection()->prepare($query);
+    $stmt = $this->db_connection->prepare($query);
     $stmt->bindParam(':user_ID', $user_ID);
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
@@ -67,11 +85,14 @@ class Users {
   * get user by user mail
   * @param string $user_mail
   *
-  * @return User | false
+  * @return User|false
   */
   public function getUserByEmail($user_mail) {
+    if($user_mail == NULL){
+      return false;
+    }
     $query = 'SELECT * FROM users WHERE user_mail = :user_mail';
-    $stmt = $this->getConnection()->prepare($query);
+    $stmt = $this->db_connection->prepare($query);
     $stmt->bindParam(':user_mail', $user_mail);
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
@@ -89,33 +110,32 @@ class Users {
   * @param string $user_ID
   * @param string $role
   *
-  * @return null
+  * @return boolean
   */  
   public function updateRoleByID($user_ID, $role) {
+    if($user_ID == NULL || $role == NULL){
+      return false;
+    }
     $query = "UPDATE user SET role = :role WHERE user_iD = :user_ID";
-    $stmt = $this->getConnection()->prepare($query);
+    $stmt = $this->db_connection->prepare($query);
     $stmt->bindParam(':user_ID', $user_ID);
     $stmt->bindParam(':role', $role);
-    $stmt->execute();
+    return $stmt->execute();
   }
 
   /**
   * get user role by user ID
   * @param string $user_ID
   *
-  * @return array role: value
+  * @return user|boolean
   */  
   public function getRoleByID($user_ID) {
     $query = 'SELECT role FROM users WHERE user_ID = :user_ID';
-    $stmt = $this->getConnection()->prepare($query);
+    $stmt = $this->db_connection->prepare($query);
     $stmt->bindParam(':user_ID', $user_ID);
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
-    $returnSet = $stmt->fetchAll();  
-    if (count($resultSet) == 0) {
-      return false;
-    }
-    return $returnSet[0];
+    $stmt->fetchAll();  
   }
 }
 ?>

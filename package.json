@@ -1,26 +1,29 @@
 {
-  "name": "web-assignment",
-  "version": "1.0.0",
-  "description": "web assignment",
-  "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TanDung2512/web-assignment.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TanDung2512/web-assignment/issues"
-  },
-  "homepage": "https://github.com/TanDung2512/web-assignment#readme",
-  "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "gulp": "^3.9.1",
-    "gulp-connect-php": "^1.0.3",
-    "gulp-sass": "^4.0.2",
-    "run-sequence": "^2.2.1"
-  }
+    "name": "web-assignment",
+    "version": "1.0.0",
+    "description": "web assignment",
+    "main": "gulpfile.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "prettier": {
+        "tabWidth": 4
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TanDung2512/web-assignment.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/TanDung2512/web-assignment/issues"
+    },
+    "homepage": "https://github.com/TanDung2512/web-assignment#readme",
+    "devDependencies": {
+        "browser-sync": "^2.26.7",
+        "gulp": "^3.9.1",
+        "gulp-connect-php": "^1.0.3",
+        "gulp-sass": "^4.0.2",
+        "run-sequence": "^2.2.1"
+    }
 }

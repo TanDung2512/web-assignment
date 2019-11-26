@@ -4,12 +4,26 @@
  * User class
  */
 class User {
+   
+  /** @var int $_user_ID */
   private $_user_ID;
+
+  /** @var string $_user_mail*/
   private $_user_mail;
+
+  /** @var string $_password*/
   private $_password;
+
+  /** @var string $_avatar*/
   private $_avatar;
+
+  /** @var string $_role*/
   private $_role;
+
+  /** @var string $_gender*/
   private $_gender;
+
+  /** @var string $_birthday*/
   private $_birthday;
 
 /**

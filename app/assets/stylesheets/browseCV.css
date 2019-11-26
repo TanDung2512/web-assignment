@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather+Sans");
 * {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased; }
@@ -163,6 +164,92 @@ p {
   .cv section > div {
     padding: 1em 1em; }
 
+#template-cv {
+  background: #cccccc;
+  padding: 50px 0; }
+
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5); }
+
+page[size="A4"] {
+  width: 21cm;
+  height: 29.7cm; }
+
+.cv-container {
+  padding: 1cm 0;
+  color: #333333; }
+  .cv-container .cv-section {
+    display: flex;
+    margin-bottom: 0.75cm; }
+    .cv-container .cv-section-left {
+      min-width: 5.5cm;
+      text-align: right;
+      margin-right: 0.5cm; }
+      .cv-container .cv-section-left h3 {
+        margin-bottom: 4px; }
+      .cv-container .cv-section-left .cv-section-line {
+        width: 100%;
+        height: 1.5px;
+        background: #ddd; }
+    .cv-container .cv-section-right {
+      padding-right: 1cm; }
+  .cv-container #section-header .img-wrapper {
+    width: 3cm;
+    height: 3cm;
+    object-fit: contain;
+    border-radius: 50%;
+    margin: 0 1cm 0cm 2cm; }
+    .cv-container #section-header .img-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%; }
+  .cv-container #section-header #cv-header-name {
+    font-size: 28pt; }
+  .cv-container #section-header #cv-header-major {
+    font-size: 14pt;
+    color: #777777;
+    font-weight: normal; }
+  .cv-container #section-working-experience .cv-experience-item {
+    margin-bottom: 10px; }
+    .cv-container #section-working-experience .cv-experience-item::last-child {
+      margin-bottom: 0; }
+  .cv-container #section-contact .cv-contact-list {
+    padding: 0.35cm 0.5cm;
+    background: #eee; }
+    .cv-container #section-contact .cv-contact-list-left {
+      min-width: 6.5cm; }
+  .cv-container #section-contact .cv-contact-item > * {
+    display: inline-block; }
+  .cv-container #section-contact .cv-contact-item #cv-address {
+    display: inline; }
+  .cv-container #section-skills .cv-skill-list:first-child {
+    margin-right: 3cm; }
+  .cv-container #section-skills .cv-skill-list li {
+    line-height: 1.5; }
+
+#template-2 {
+  text-align: left; }
+  #template-2 #section-header {
+    display: flex; }
+    #template-2 #section-header .img-wrapper {
+      margin-left: 0; }
+  #template-2 .cv-section {
+    display: block;
+    padding: 0 2cm; }
+    #template-2 .cv-section-left {
+      text-align: left;
+      margin-bottom: 10px; }
+  #template-2 #section-contact .cv-contact-list {
+    background: none;
+    padding: 0; }
+  #template-2 #section-skills .cv-skill-list:first-child {
+    min-width: 8cm;
+    margin-right: 0; }
+
 .cv-footer {
   background-color: #0f141f;
   color: #fff;
@@ -324,6 +411,129 @@ p {
         height: 416px;
         margin-right: 44px; }
 
+p {
+  margin: 0; }
+
+.editCV-tag-title {
+  font-weight: 600;
+  margin-bottom: 19px; }
+
+.editCV-input > p {
+  color: #7a8599;
+  font-weight: 600;
+  opacity: 0.55;
+  margin-bottom: 13px; }
+
+.editCV-input > input {
+  width: 100%;
+  height: 43px;
+  border: none;
+  background: #7a8599;
+  opacity: 0.15;
+  margin-bottom: 16px; }
+
+.editCV-sub-info {
+  color: #7a8599;
+  margin-bottom: 17px; }
+
+#editCV {
+  display: flex;
+  align-items: center; }
+  #editCV .editCV-content {
+    width: 100%;
+    margin: 0 370px 50px 370px; }
+    #editCV .editCV-content .editCV-title-container {
+      display: flex;
+      justify-content: center; }
+      #editCV .editCV-content .editCV-title-container .editCV-title {
+        border: none;
+        font-weight: 600;
+        font-size: 27px; }
+    #editCV .editCV-content .editCV-personal .editCV-per {
+      display: flex; }
+      #editCV .editCV-content .editCV-personal .editCV-per .editCV-per-col1 {
+        width: 398px;
+        padding-right: 140px; }
+      #editCV .editCV-content .editCV-personal .editCV-per .editCV-per-col2 {
+        width: 398px;
+        padding-left: 140px; }
+        #editCV .editCV-content .editCV-personal .editCV-per .editCV-per-col2 .editCV-img {
+          display: flex; }
+        #editCV .editCV-content .editCV-personal .editCV-per .editCV-per-col2 .editCV-img > img {
+          height: 76px;
+          width: 76px;
+          object-fit: cover;
+          margin: 0 58px 15px 0; }
+    #editCV .editCV-content .editCV-btn {
+      display: flex;
+      justify-content: center; }
+    #editCV .editCV-content .editCV-btn > button {
+      background-color: #ff6f61;
+      color: white;
+      font-weight: 600;
+      height: 52px;
+      width: 279px;
+      border-radius: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+
+main {
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Merriweather Sans", sans-serif; }
+  main #errorText {
+    font-size: 22px;
+    margin: 14px 0; }
+  main #errorLink {
+    font-size: 20px;
+    padding: 12px;
+    border: 1px solid;
+    color: #000;
+    background-color: transparent;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out; }
+  main #errorLink:hover {
+    color: #fff;
+    background: #000; }
+  main #errorLink:active {
+    color: #fff;
+    background: #000; }
+  main #g6219 {
+    transform-origin: 85px 4px;
+    animation: an1 12s 0.5s infinite ease-out; }
+
+@keyframes an1 {
+  0% {
+    transform: rotate(0); }
+  5% {
+    transform: rotate(3deg); }
+  15% {
+    transform: rotate(-2.5deg); }
+  25% {
+    transform: rotate(2deg); }
+  35% {
+    transform: rotate(-1.5deg); }
+  45% {
+    transform: rotate(1deg); }
+  55% {
+    transform: rotate(-1.5deg); }
+  65% {
+    transform: rotate(2deg); }
+  75% {
+    transform: rotate(-2deg); }
+  85% {
+    transform: rotate(2.5deg); }
+  95% {
+    transform: rotate(-3deg); }
+  100% {
+    transform: rotate(0); } }
+
 .clearfix {
   zoom: 1; }
   .clearfix:after, .clearfix:before {
@@ -334,11 +544,12 @@ p {
     width: 0;
     height: 0; }
 
-body, html {
+body,
+html {
   width: 100%;
   height: 100%;
   font-size: 16px;
-  font-family: 'Source Sans Pro';
+  font-family: "Source Sans Pro";
   margin: 0; }
 
 h1,
