@@ -73,6 +73,12 @@ Router::GET('/testdb', function () {
     $testdb->render();
 });
 
+Router::GET('/template', function () {
+    $testdb = new TemplateController();
+    $testdb->render();
+});
+
+
 
 $action = $_SERVER['REQUEST_URI'];
 $action = str_replace("web-assignment/", "", $action);

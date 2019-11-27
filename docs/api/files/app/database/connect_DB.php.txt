@@ -27,9 +27,9 @@ class connectDB {
       "mysql:host={$this->host};
       dbname={$this->name}",
       $this->user,
-      $this->pass,
-      array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAME 'utf8",
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)  
+      $this->pass
+      // array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAME 'utf8",
+      //       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)  
     );
   }
 
