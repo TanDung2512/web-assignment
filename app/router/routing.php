@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/../classes/Router.php";
+require_once __DIR__ . "/../classes/router.php";
 
 /*
 * require Controllers
