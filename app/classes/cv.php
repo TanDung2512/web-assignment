@@ -1,8 +1,100 @@
 <?php 
 
-
+/**
+ * @package app\classes
+ * Describe subsection of CV.
+ * 
+ */
 class CV_Section {
+  /** @var int $ID primary key*/
+  private $_ID;
 
+  /** @var int $CV_ID */
+  private $_CV_ID;
+
+  /** 
+   * @var string $info_flag 
+   * 1 is Experience 
+   * 2 is Achievement
+   * 3 is Activities
+   * */
+  private $_info_flag;
+
+  /** @var string $start_date */
+  private $_start_date;
+
+  /** @var string $end_date */
+  private $_end_date;
+
+  /** @var string $title */
+  private $_title;
+
+  /** @var string $description */
+  private $_description;
+
+  public function __construct(
+    int $ID = null,
+    int $CV_ID = null,
+    string $start_date = null,
+    string $end_date = null,
+    string $title = null,
+    string $description = null
+  ){
+    $this->_ID = $ID;
+    $this->_CV_ID = $CV_ID;
+    $this->_start_date = $start_date;
+    $this->_end_date = $end_date;
+    $this->_title = $title;
+    $this->_description = $description;
+  }
+  /**
+  * get attribute of subsection CV.
+  * @param string $name
+  *
+  * @return attribute
+  */
+  public function __get(string $name) {
+    if (property_exists("_"+$name)) {
+      return $this["_"+$name];
+    } else {
+      return null;
+    }
+  }
+  
+/**
+  * set attribute of subsection CV
+  * @param string $name 
+  * @param string $value
+  *
+  * @return boolean
+  */  
+  public function __set(string $name, string $value) {
+    if (property_exists("_"+$name) and $value != null) {
+      $this["_"+$name] = $value;
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+/**
+  * Return json type of subsection. 
+  * @param 
+  *
+  * @return json 
+  */
+  public function __get_json(){
+    $json = array(
+        "_ID" => $this->__get("ID"),
+        "_CV_ID" => $this->__get("CV_ID"),
+        "_start_date" => $this->__get("start_date"),
+        "_end_date" => $this->__get("end_date"),
+        "_title" => $this->__get("title"),
+        "_description" => $this->__get("description")
+    );
+
+  return json_encode($json);
+  }
 }
 
 /**
@@ -72,22 +164,24 @@ class CV {
   * @param int $template_ID
   * @param int $user_id
   * @param string $category
-  *
+  * @param CV_Section $experiences,
+  * @param CV_Section[] $activities,
+  * @param CV_Section[] $
   * @return instance
   */
   public function __construct(
-        $CV_ID = "",
-        $avatar = "",
-        $category = "",
-        $fullname = "",
-        $professional = "",
-        $about_me = "",
-        $date_created = "",
-        $address = "",
-        $phone = "",
-        $email = "",
-        $template_ID = "",
-        $user_id = ""
+        $CV_ID = null,
+        $avatar = null,
+        $category = null,
+        $fullname = null,
+        $professional = null,
+        $about_me = null,
+        $date_created = null,
+        $address = null,
+        $phone = null,
+        $email = null,
+        $template_ID = null,
+        $user_id = null
     ) {
         $this->$_CV_ID = $CV_ID;
         $this->$_avatar = $avatar;
@@ -110,8 +204,8 @@ class CV {
   * @return attribute
   */
   public function __get(string $name) {
-    if (property_exists($name)) {
-      return $this->$name;
+    if (property_exists("_"+$name)) {
+      return $this["_"+$name];
     } else {
       return null;
     }
@@ -125,8 +219,8 @@ class CV {
   * @return boolean
   */  
   public function __set(string $name, string $value) {
-    if (property_exists($name) and $value != null) {
-      $this->$name = $value;
+    if (property_exists("_"+$name) and $value != null) {
+      $this["_"+$name] = $value;
       return true;
     } else {
       return false;
@@ -142,17 +236,17 @@ class CV {
   public function __get_json(){
 
     $json = array(
-        "CV_ID" => $this->__get("_CV_ID"),
-        "avatar" => $this->__get("_avatar"),
-        "fullname" => $this->__get("_fullname"),
-        "professional" => $this->__get("_professional"),
-        "about_me" => $this->__get("_about_me"),
-        "date_created" => $this->__get("_date_created"),
-        "address" => $this->__get("_address"),
-        "phone" => $this->__get("_phone"),
-        "email" => $this->__get("_email"),
-        "template_ID" => $this->__get("_template_ID"),
-        "user_id" => $this->__get("_user_id")  
+        "CV_ID" => $this->__get("CV_ID"),
+        "avatar" => $this->__get("avatar"),
+        "fullname" => $this->__get("fullname"),
+        "professional" => $this->__get("professional"),
+        "about_me" => $this->__get("about_me"),
+        "date_created" => $this->__get("date_created"),
+        "address" => $this->__get("address"),
+        "phone" => $this->__get("phone"),
+        "email" => $this->__get("email"),
+        "template_ID" => $this->__get("template_ID"),
+        "user_id" => $this->__get("user_id")  
     );
 
   return json_encode($json);
