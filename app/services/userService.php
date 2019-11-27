@@ -21,7 +21,7 @@ class UserService{
   private $db_connection;
 
   public function __construct() {
-      $db_connection = connectDB::getInstance();
+      $this->db_connection = connectDB::getInstance()->getConnection();
   }
 /**
   * create new user
@@ -33,7 +33,7 @@ class UserService{
   * @param string $gender 
   * @param string $birthday
   *
-  * @return boolean
+  * @return null
   */  
   public function createUser(
     int $user_ID, 
@@ -42,19 +42,24 @@ class UserService{
     string $avatar, 
     string $role, 
     string $gender, 
-    string $birthday
+    string $birthday_in
   ){
+    $birthday = date("Y-m-d", strtotime($birthday_in));
+    var_dump($birthday_in);
+    var_dump($birthday);
     $query = 'INSERT INTO users (user_ID, user_mail, password, avatar, role, gender, birthday)  
-              VALUES(:user_ID, :user_mail, :password, :avatar, :role, :gender, :birthday)';
+              VALUES (:user_ID, :user_mail, :password, :avatar, :role, :gender, :birthday)';
     $stmt = $this->db_connection->prepare($query);
-    $stmt->bindParam(':user_ID', $user_ID);
-    $stmt->bindParam(':user_mail', $user_mail);
-    $stmt->bindParam(':password', $password);
-    $stmt->bindParam(':avatar', $avatar);
-    $stmt->bindParam(':role', $role);
-    $stmt->bindParam(':gender', $gender);
-    $stmt->bindParam(':birthday', $birthday);
-    return $stmt->execute();
+    $stmt->bindParam(':user_ID', $user_ID, PDO::PARAM_INT);
+    $stmt->bindParam(':user_mail', $user_mail, PDO::PARAM_STR);
+    $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+    $stmt->bindParam(':avatar', $avatar, PDO::PARAM_STR);
+    $stmt->bindParam(':role', $role, PDO::PARAM_STR);
+    $stmt->bindParam(':gender', $gender, PDO::PARAM_STR);
+    $stmt->bindParam(':birthday', $birthday, PDO::PARAM_STR);
+    var_dump($stmt);
+    $resultSet = $stmt->execute();
+    var_dump($resultSet);
   }
 
   /**
@@ -69,7 +74,7 @@ class UserService{
     }
     $query = 'SELECT * FROM users WHERE user_ID = :user_ID';
     $stmt = $this->db_connection->prepare($query);
-    $stmt->bindParam(':user_ID', $user_ID);
+    $stmt->bindParam(':user_ID', $user_ID, PDO::PARAM_INT);
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
     $resultSet = $stmt->fetchAll(); 
@@ -93,7 +98,7 @@ class UserService{
     }
     $query = 'SELECT * FROM users WHERE user_mail = :user_mail';
     $stmt = $this->db_connection->prepare($query);
-    $stmt->bindParam(':user_mail', $user_mail);
+    $stmt->bindParam(':user_mail', $user_mail, PDO::PARAM_STR);
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
     $resultSet = $stmt->fetchAll(); 
@@ -118,8 +123,8 @@ class UserService{
     }
     $query = "UPDATE user SET role = :role WHERE user_iD = :user_ID";
     $stmt = $this->db_connection->prepare($query);
-    $stmt->bindParam(':user_ID', $user_ID);
-    $stmt->bindParam(':role', $role);
+    $stmt->bindParam(':user_ID', $user_ID, PDO::PARAM_INT);
+    $stmt->bindParam(':role', $role, PDO::PARAM_STR);
     return $stmt->execute();
   }
 
@@ -132,7 +137,7 @@ class UserService{
   public function getRoleByID($user_ID) {
     $query = 'SELECT role FROM users WHERE user_ID = :user_ID';
     $stmt = $this->db_connection->prepare($query);
-    $stmt->bindParam(':user_ID', $user_ID);
+    $stmt->bindParam(':user_ID', $user_ID, PDO::PARAM_INT);
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
     $stmt->fetchAll();  

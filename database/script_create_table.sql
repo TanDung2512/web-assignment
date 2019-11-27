@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 23, 2019 at 02:20 PM
--- Server version: 10.1.39-MariaDB
--- PHP Version: 7.3.5
+-- Host: localhost
+-- Generation Time: Nov 27, 2019 at 04:18 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `cv`
 --
 
-CREATE TABLE IF NOT EXISTS `cv` (
+CREATE TABLE `cv` (
   `CV_ID` int(11) NOT NULL,
   `avatar` varchar(2047) DEFAULT NULL,
   `fullname` varchar(255) DEFAULT NULL,
   `professional` varchar(255) DEFAULT NULL,
-  `about_me` text,
+  `about_me` text DEFAULT NULL,
   `category` varchar(255) DEFAULT NULL,
   `date_created` date DEFAULT NULL,
   `address` varchar(2047) DEFAULT NULL,
@@ -49,9 +49,9 @@ CREATE TABLE IF NOT EXISTS `cv` (
 -- Table structure for table `cv_template`
 --
 
-CREATE TABLE IF NOT EXISTS `cv_template` (
+CREATE TABLE `cv_template` (
   `template_ID` int(11) NOT NULL,
-  `template_html` text,
+  `template_html` text DEFAULT NULL,
   `template_img` varchar(2047) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -61,14 +61,14 @@ CREATE TABLE IF NOT EXISTS `cv_template` (
 -- Table structure for table `info`
 --
 
-CREATE TABLE IF NOT EXISTS `info` (
+CREATE TABLE `info` (
   `ID` int(11) NOT NULL,
   `CV_ID` int(11) DEFAULT NULL,
   `info_flag` char(1) DEFAULT NULL,
   `start_date` date DEFAULT NULL,
   `end_date` date DEFAULT NULL,
-  `title` text,
-  `description` text
+  `title` text DEFAULT NULL,
+  `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `info` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `user_ID` int(11) NOT NULL,
   `user_mail` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
@@ -118,6 +118,34 @@ ALTER TABLE `info`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_ID`),
   ADD UNIQUE KEY `user_mail` (`user_mail`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `cv`
+--
+ALTER TABLE `cv`
+  MODIFY `CV_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `cv_template`
+--
+ALTER TABLE `cv_template`
+  MODIFY `template_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `info`
+--
+ALTER TABLE `info`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
