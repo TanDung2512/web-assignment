@@ -6,6 +6,7 @@
     <div class="home-big-button home-left-big-button">
       <p class="home-createCV">Create CV</p>
       <p class="home-createCV-content">
+      <i class="fas fa-home"></i>
         Save time with our easy 3-step resume builder. No more writer’s block or
         formatting difficulties in Word. Rapidly build a resume employers love.
       </p>
