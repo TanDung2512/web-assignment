@@ -534,6 +534,49 @@ main {
   100% {
     transform: rotate(0); } }
 
+#login-container {
+  min-height: 100vh;
+  background: url("/web-assignment/app/images/bg-f-36-c-1501.svg") no-repeat 50% 200%; }
+  #login-container .logo-big {
+    margin: 2rem; }
+    #login-container .logo-big img {
+      width: auto;
+      height: 100%; }
+  #login-container .login-wrapper {
+    padding: 4rem 10rem; }
+    #login-container .login-wrapper h2 {
+      color: #ff6f61;
+      margin-bottom: 1rem; }
+    #login-container .login-wrapper .form-control {
+      max-width: 400px;
+      margin-top: 2rem; }
+      #login-container .login-wrapper .form-control label {
+        color: #98a1b3;
+        margin-bottom: 6px;
+        display: block; }
+      #login-container .login-wrapper .form-control input {
+        width: 100%;
+        caret-color: #ff6f61;
+        color: #262b33;
+        pointer-events: unset;
+        border-radius: 3px;
+        padding: 11px 16px;
+        transition: color 0.1s ease 0s;
+        outline: none;
+        border-width: 0px;
+        background-color: #fcf9f8;
+        border-style: initial;
+        border-color: initial;
+        border-image: initial; }
+      #login-container .login-wrapper .form-control .form-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        #login-container .login-wrapper .form-control .form-bottom b {
+          color: #ff6f61; }
+        #login-container .login-wrapper .form-control .form-bottom .btn {
+          padding: 0.5em 1em; }
+
 .clearfix {
   zoom: 1; }
   .clearfix:after, .clearfix:before {
@@ -713,6 +756,66 @@ body {
   display: flex;
   align-items: center;
   justify-content: center; }
+
+.mt-1 {
+  margin-top: 0.75em; }
+
+.mt-2 {
+  margin-top: 1em; }
+
+.mt-3 {
+  margin-top: 1.25em; }
+
+.mt-34 {
+  margin-top: 1.5em; }
+
+.mt-5 {
+  margin-top: 2em; }
+
+.mb-1 {
+  margin-bottom: 0.75em; }
+
+.mb-2 {
+  margin-bottom: 1em; }
+
+.mb-3 {
+  margin-bottom: 1.25em; }
+
+.mb-4 {
+  margin-bottom: 1.5em; }
+
+.mb-5 {
+  margin-bottom: 2em; }
+
+.pt-1 {
+  padding-top: 0.75em; }
+
+.pt-2 {
+  padding-top: 1em; }
+
+.pt-3 {
+  padding-top: 1.25em; }
+
+.pt-4 {
+  padding-top: 1.5em; }
+
+.pt-5 {
+  padding-top: 2em; }
+
+.pb-1 {
+  padding-bottom: 0.75em; }
+
+.pb-2 {
+  padding-bottom: 1em; }
+
+.pb-3 {
+  padding-bottom: 1.25em; }
+
+.pb-4 {
+  padding-bottom: 1.5em; }
+
+.pb-5 {
+  padding-bottom: 2em; }
 
 .browseCV header {
   height: 80px; }
