@@ -34,9 +34,9 @@
         </div>
         
         <section class = "template-cv__review">
-            <?php 
-                include_once(__DIR__."/../template-cv/template-1.php");
-            ?>
+             <?php 
+                include_once(__DIR__."/template.php");
+            ?> 
         </section>
     </main>
 </section>

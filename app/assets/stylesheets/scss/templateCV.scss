@@ -17,22 +17,23 @@
             border-radius: 0.5em;
             display: inline-block;
         }
-        &__header > div {
+        &__header>div {
             display: inline-block;
             padding: 2em 0em;
         }
     }
     & section {
-        & > div {
+        &>div {
             padding: 1em 1em;
         }
     }
 }
 
 #template-cv {
-    background: rgb(204, 204, 204);
-    padding: 50px 0;
+    //background: inherit;
+    //padding: 50px 0;
 }
+
 page {
     background: white;
     display: block;
@@ -40,6 +41,7 @@ page {
     margin-bottom: 0.5cm;
     box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
 }
+
 page[size="A4"] {
     width: 21cm;
     height: 29.7cm;
@@ -107,7 +109,7 @@ page[size="A4"] {
             }
         }
         .cv-contact-item {
-            & > * {
+            &>* {
                 display: inline-block;
             }
             #cv-address {
