@@ -1,3 +1,7 @@
+.myCV-icon {
+  color: #ff6f61;
+  margin-right: 8px; }
+
 #myCV {
   background-color: #fcf9f8; }
   #myCV .myCV-body {
@@ -42,12 +46,14 @@
         grid-template-columns: auto auto;
         margin-top: 40px;
         margin-bottom: 25px; }
+        #myCV .myCV-body .myCV-content .myCV-displayCV .myCV-display-info > div > p {
+          margin-bottom: 5px; }
         #myCV .myCV-body .myCV-content .myCV-displayCV .myCV-info-title {
           font-size: 30px;
           margin: 1px 0; }
         #myCV .myCV-body .myCV-content .myCV-displayCV .myCV-info-date {
           opacity: 0.3;
-          margin: 1px 0; }
+          margin: 1px 0 26px 0; }
       #myCV .myCV-body .myCV-content .myCV-displayCV > div {
         display: flex;
         justify-content: flex-start;

@@ -9,7 +9,7 @@
         Save time with our easy 3-step resume builder. No more writer’s block or
         formatting difficulties in Word. Rapidly build a resume employers love.
       </p>
-      <a href="myCV"><button class="home-createCV-btn">Create</button></a>
+      <a href="browseCV"><button class="home-createCV-btn">Create</button></a>
     </div>
     <div class="home-big-button">
       <p class="home-createCV">View CV</p>

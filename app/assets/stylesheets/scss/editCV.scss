@@ -17,14 +17,27 @@ p {
     width: 100%;
     height: 43px;
     border: none;
-    background: #7a8599;
-    opacity: 0.15;
+    background-color: #ebedf0;
+    // opacity: 0.15;
+    color: black;
     margin-bottom: 16px;
+    padding: 5px;
 }
 .editCV-sub-info {
     color: #7a8599;
     margin-bottom: 17px;
 }
+
+.editCV-add {
+    color: #ff6f61;
+    font-weight: 600;
+    margin: 0 0 15px 33px;
+}
+
+.editCV-add:hover {
+    cursor: pointer;
+}
+
 #editCV {
     display: flex;
     align-items: center;
@@ -45,11 +58,11 @@ p {
                 display: flex;
                 .editCV-per-col1 {
                     width: 398px;
-                    padding-right: 140px;
+                    padding-right: 58px;
                 }
                 .editCV-per-col2 {
                     width: 398px;
-                    padding-left: 140px;
+                    padding-left: 58px;
                     .editCV-img {
                         display: flex;
                     }
@@ -57,7 +70,7 @@ p {
                         height: 76px;
                         width: 76px;
                         object-fit: cover;
-                        margin: 0 58px 15px 0;
+                        margin: 0 21px 15px 0;
                     }
                 }
             }
@@ -66,7 +79,7 @@ p {
             display: flex;
             justify-content: center;
         }
-        .editCV-btn > button {
+        .editCV-btn > a > button {
             background-color: #ff6f61;
             color: white;
             font-weight: 600;

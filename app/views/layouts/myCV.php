@@ -8,10 +8,11 @@
 
       <div class="myCV-navbar">
         <div class="myCV-nav">
-          <span class="myCV-nav-resume">Resume</span>
-          <span class="myCV-nav-CV">Cover Letter</span>
+          <!-- <span class="myCV-nav-resume">Resume</span> -->
+          <!-- <span class="myCV-nav-CV">Cover Letter</span> -->
         </div>
-        <button class="myCV-createNew">+ Create New</button>
+        <a href="browseCV"><button class="myCV-createNew">+ Create New</button></a>
+        
       </div>
 
       <div class="myCV-displayCV">
@@ -21,9 +22,9 @@
             <p class="myCV-info-title">Untitled</p>
             <p class="myCV-info-date">Updated November, 01:05</p>
             <div>
-              <p><i class="fas fa-pencil-alt"></i>Edit</p>
-              <p>Download PDF</p>
-              <p>Delete</p>
+              <p><a href="editCV"><i class="fas fa-pencil-alt myCV-icon" ></i>Edit</a></p>
+              <p><i class="fas fa-arrow-down myCV-icon"></i>Download PDF</p>
+              <p><i class="fas fa-trash-alt myCV-icon"></i>Delete</p>
             </div>
           </div>
         </div>
@@ -33,16 +34,16 @@
             <p class="myCV-info-title">Untitled</p>
             <p class="myCV-info-date">Updated November, 01:05</p>
             <div>
-              <p>Edit</p>
-              <p>Download PDF</p>
-              <p>Delete</p>
+              <p><i class="fas fa-pencil-alt myCV-icon"></i>Edit</p>
+              <p><i class="fas fa-arrow-down myCV-icon"></i>Download PDF</p>
+              <p><i class="fas fa-trash-alt myCV-icon"></i>Delete</p>
             </div>
           </div>
         </div>
       </div>
 
       <div>
-        < 1/2 >
+      <i class="fas fa-chevron-left" style="color: #ff6f61;"></i> 1/2 <i class="fas fa-chevron-right myCV-icon"></i>
       </div>
     </div>
   </div>

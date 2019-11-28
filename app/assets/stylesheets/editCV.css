@@ -15,13 +15,22 @@ p {
   width: 100%;
   height: 43px;
   border: none;
-  background: #7a8599;
-  opacity: 0.15;
-  margin-bottom: 16px; }
+  background-color: #ebedf0;
+  color: black;
+  margin-bottom: 16px;
+  padding: 5px; }
 
 .editCV-sub-info {
   color: #7a8599;
   margin-bottom: 17px; }
+
+.editCV-add {
+  color: #ff6f61;
+  font-weight: 600;
+  margin: 0 0 15px 33px; }
+
+.editCV-add:hover {
+  cursor: pointer; }
 
 #editCV {
   display: flex;
@@ -40,21 +49,21 @@ p {
       display: flex; }
       #editCV .editCV-content .editCV-personal .editCV-per .editCV-per-col1 {
         width: 398px;
-        padding-right: 140px; }
+        padding-right: 58px; }
       #editCV .editCV-content .editCV-personal .editCV-per .editCV-per-col2 {
         width: 398px;
-        padding-left: 140px; }
+        padding-left: 58px; }
         #editCV .editCV-content .editCV-personal .editCV-per .editCV-per-col2 .editCV-img {
           display: flex; }
         #editCV .editCV-content .editCV-personal .editCV-per .editCV-per-col2 .editCV-img > img {
           height: 76px;
           width: 76px;
           object-fit: cover;
-          margin: 0 58px 15px 0; }
+          margin: 0 21px 15px 0; }
     #editCV .editCV-content .editCV-btn {
       display: flex;
       justify-content: center; }
-    #editCV .editCV-content .editCV-btn > button {
+    #editCV .editCV-content .editCV-btn > a > button {
       background-color: #ff6f61;
       color: white;
       font-weight: 600;

@@ -6,7 +6,7 @@
   />
   <meta name="description" content="assignment web" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV</title>
+  <title>La Vitaé</title>
   <link href="./app/assets/stylesheets/styles.css" rel="stylesheet" />
   <link
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap"
@@ -19,4 +19,7 @@
     href="app/images/favicon-16x16.png"
   />
   <script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
