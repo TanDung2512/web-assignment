@@ -11,7 +11,7 @@ include_once(__DIR__."/../classes/user.php");
   * @method User|boolean getUserByID(integer $user_ID)
   * @method User|boolean getUserByEmail(string $user_mail)
   * @method User|boolean updateRoleByID(string $user_ID)
-  * @method User|boolean getRoleByID(string $user_ID)
+  * @method array|boolean getRoleByID(string $user_ID)
   */
 class UserService{
 
@@ -25,7 +25,7 @@ class UserService{
   }
 /**
   * create new user
-  * @param string $user_ID
+  * @param int $user_ID
   * @param string $user_mail
   * @param string $password
   * @param string $avatar
@@ -47,19 +47,16 @@ class UserService{
     $birthday = date("Y-m-d", strtotime($birthday_in));
     var_dump($birthday_in);
     var_dump($birthday);
-    $query = 'INSERT INTO users (user_ID, user_mail, password, avatar, role, gender, birthday)  
-              VALUES (:user_ID, :user_mail, :password, :avatar, :role, :gender, :birthday)';
+    $query = 'INSERT INTO users (user_mail, password, avatar, role, gender, birthday)  
+              VALUES (:user_mail, :password, :avatar, :role, :gender, :birthday)';
     $stmt = $this->db_connection->prepare($query);
-    $stmt->bindParam(':user_ID', $user_ID, PDO::PARAM_INT);
     $stmt->bindParam(':user_mail', $user_mail, PDO::PARAM_STR);
     $stmt->bindParam(':password', $password, PDO::PARAM_STR);
     $stmt->bindParam(':avatar', $avatar, PDO::PARAM_STR);
     $stmt->bindParam(':role', $role, PDO::PARAM_STR);
     $stmt->bindParam(':gender', $gender, PDO::PARAM_STR);
     $stmt->bindParam(':birthday', $birthday, PDO::PARAM_STR);
-    var_dump($stmt);
-    $resultSet = $stmt->execute();
-    var_dump($resultSet);
+    return $stmt->execute();
   }
 
   /**
@@ -112,7 +109,7 @@ class UserService{
 
   /**
   * update user role by user ID
-  * @param string $user_ID
+  * @param int $user_ID
   * @param string $role
   *
   * @return boolean
@@ -121,7 +118,7 @@ class UserService{
     if($user_ID == NULL || $role == NULL){
       return false;
     }
-    $query = "UPDATE user SET role = :role WHERE user_iD = :user_ID";
+    $query = "UPDATE users SET role = :role WHERE user_ID = :user_ID";
     $stmt = $this->db_connection->prepare($query);
     $stmt->bindParam(':user_ID', $user_ID, PDO::PARAM_INT);
     $stmt->bindParam(':role', $role, PDO::PARAM_STR);
@@ -132,7 +129,7 @@ class UserService{
   * get user role by user ID
   * @param string $user_ID
   *
-  * @return user|boolean
+  * @return array|boolean
   */  
   public function getRoleByID($user_ID) {
     $query = 'SELECT role FROM users WHERE user_ID = :user_ID';
@@ -140,7 +137,11 @@ class UserService{
     $stmt->bindParam(':user_ID', $user_ID, PDO::PARAM_INT);
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
-    $stmt->fetchAll();  
+    $returnSet = $stmt->fetchAll();;
+    if (count($returnSet) == 0) {
+      return false;
+    } 
+    return $returnSet[0];
   }
 }
 ?>

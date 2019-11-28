@@ -35,10 +35,18 @@ class User {
   * @param string $role
   * @param string $gender
   * @param string $birthday
-  *  coding style
+  * 
   * @return instance
   */
-  public function __construct($id = null, $mail = null, $pw = null, $ava = null, $role = null, $gender = null, $birthday = null) {
+  public function __construct(
+      $id = null, 
+      $mail = null, 
+      $pw = null, 
+      $ava = null, 
+      $role = null, 
+      $gender = null, 
+      $birthday = null
+    ) {
     $this->_user_ID = $id;
     $this->_user_mail = $mail;
     $this->_password = $pw;
@@ -54,10 +62,10 @@ class User {
   *
   * @return attribute
   */
-  public function get($name) {
-    $name = "_".$name;
+  public function get($name_in) {
+    $name = "_".$name_in;
     if (property_exists("User", $name)) {
-      return $this->name;
+      return $this->$name;
     } else {
       return null;
     }
@@ -70,8 +78,8 @@ class User {
   *
   * @return boolean
   */  
-  public function set($name, $value) {
-    $name = "_".$name;
+  public function set($name_in, $value) {
+    $name = "_".$name_in;
     if (property_exists("User", $name) and $value != null) {
       $this->name = $value;
       return true;
