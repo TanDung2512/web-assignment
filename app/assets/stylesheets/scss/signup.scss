@@ -1,7 +1,7 @@
-#login-container {
+#signup-container {
     min-height: 100vh;
     background: url("/web-assignment/app/images/bg-f-36-c-1501.svg") no-repeat
-        50% 200%;
+        50% 250%;
     .logo-big {
         margin: 2rem;
         img {
@@ -18,18 +18,13 @@
         .form-control {
             max-width: 400px;
             margin-top: 2rem;
-            label {
-                color: rgb(152, 161, 179);
-                margin-bottom: 6px;
-                display: block;
-            }
             input {
                 width: 100%;
                 caret-color: #ff6f61;
                 color: rgb(38, 43, 51);
                 pointer-events: unset;
                 border-radius: 3px;
-                padding: 11px 16px;
+                padding: 15px 21px;
                 transition: color 0.1s ease 0s;
                 outline: none;
                 border-width: 0px;
@@ -37,6 +32,20 @@
                 border-style: initial;
                 border-color: initial;
                 border-image: initial;
+                margin-bottom: 0.4rem;
+                &:invalid {
+                    border: 1px solid #bd3200;
+                }
+            }
+            .invalid-wrapper {
+                height: 2rem;
+                .hidden {
+                    display: none;
+                }
+                .invalid {
+                    color: #bd3200;
+                    font-size: 0.8rem;
+                }
             }
             .form-bottom {
                 display: flex;

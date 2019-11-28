@@ -1,0 +1,48 @@
+#signup-container {
+  min-height: 100vh;
+  background: url("/web-assignment/app/images/bg-f-36-c-1501.svg") no-repeat 50% 250%; }
+  #signup-container .logo-big {
+    margin: 2rem; }
+    #signup-container .logo-big img {
+      width: auto;
+      height: 100%; }
+  #signup-container .login-wrapper {
+    padding: 4rem 10rem; }
+    #signup-container .login-wrapper h2 {
+      color: #ff6f61;
+      margin-bottom: 1rem; }
+    #signup-container .login-wrapper .form-control {
+      max-width: 400px;
+      margin-top: 2rem; }
+      #signup-container .login-wrapper .form-control input {
+        width: 100%;
+        caret-color: #ff6f61;
+        color: #262b33;
+        pointer-events: unset;
+        border-radius: 3px;
+        padding: 15px 21px;
+        transition: color 0.1s ease 0s;
+        outline: none;
+        border-width: 0px;
+        background-color: #fcf9f8;
+        border-style: initial;
+        border-color: initial;
+        border-image: initial;
+        margin-bottom: 0.4rem; }
+        #signup-container .login-wrapper .form-control input:invalid {
+          border: 1px solid #bd3200; }
+      #signup-container .login-wrapper .form-control .invalid-wrapper {
+        height: 2rem; }
+        #signup-container .login-wrapper .form-control .invalid-wrapper .hidden {
+          display: none; }
+        #signup-container .login-wrapper .form-control .invalid-wrapper .invalid {
+          color: #bd3200;
+          font-size: 0.8rem; }
+      #signup-container .login-wrapper .form-control .form-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        #signup-container .login-wrapper .form-control .form-bottom b {
+          color: #ff6f61; }
+        #signup-container .login-wrapper .form-control .form-bottom .btn {
+          padding: 0.5em 1em; }
