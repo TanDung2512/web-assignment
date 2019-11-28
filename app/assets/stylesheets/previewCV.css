@@ -1,12 +1,18 @@
 .preCV__container {
-  background-color: #4f5259;
   min-width: 100%;
-  margin: 0px; }
+  margin: 0px;
+  overflow: hidden;
+  height: 100vh; }
   .preCV__container main {
     padding: 1rem 1rem;
-    overflow: auto; }
+    display: inline-block;
+    overflow: auto;
+    background-color: #4f5259; }
 
 .preCV__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   color: white;
   padding: 0.5rem 3.7rem;
   background-color: #0f141f;
@@ -41,9 +47,11 @@
 .template-cv__review {
   float: right;
   width: 60%;
-  font-size: 1.6vw;
+  font-size: 0.7em;
   height: 100%;
-  overflow: auto; }
+  overflow: auto;
+  padding: 1rem;
+  padding-bottom: 4rem; }
 
 .check-image {
   background-image: url("/web-assignment/app/assets/images/cv.jpg");
