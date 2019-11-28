@@ -18,7 +18,6 @@
         .form-control {
             max-width: 400px;
             margin-top: 2rem;
-
             input {
                 width: 100%;
                 caret-color: #ff6f61;
@@ -33,12 +32,21 @@
                 border-style: initial;
                 border-color: initial;
                 border-image: initial;
-                margin-bottom: 2rem;
-                &#password2 {
-                    margin: 0;
+                margin-bottom: 0.4rem;
+                &:invalid {
+                    border: 1px solid #bd3200;
                 }
             }
-
+            .invalid-wrapper {
+                height: 2rem;
+                .hidden {
+                    display: none;
+                }
+                .invalid {
+                    color: #bd3200;
+                    font-size: 0.8rem;
+                }
+            }
             .form-bottom {
                 display: flex;
                 justify-content: space-between;

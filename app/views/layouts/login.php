@@ -2,7 +2,6 @@
     <div class="logo-big">
         <img src="app/images/logo.jpg" alt="logo" />
     </div>
-
     <div class="login-wrapper">
         <h2 class="txt--big-heading">Login</h2>
         <p class="">Welcome back, please log in</p>
