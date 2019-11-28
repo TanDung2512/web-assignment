@@ -9,10 +9,10 @@
 
 
         public function render(){
-            $tmp = new UserService();
+            // $tmp = new UserService();
             // var_dump($tmp);
-            $res = $tmp->updateRoleByID(3, "user");
-            var_dump($res);
+            // $res = $tmp->updateRoleByID(3, "user");
+            // var_dump($res);
         }
     }
 ?>
