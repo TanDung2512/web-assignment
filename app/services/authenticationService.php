@@ -11,16 +11,18 @@ include_once(__DIR__."/../classes/user.php");
   * @method null | boolean signin(string $user_mail_in, string $password_in)
   * @method null signout()
   */
-
+  
 class AuthenService {
 
  /**
   * @var connectDB $db_connection 
   */   
     private $db_connection;
+    private $userService;
 
     public function __construct() {
         $this->db_connection = connectDB::getInstance()->getConnection();
+        $this->userService = new UserService();
 
         // check if session exists
         if (isset($_SESSION['loggedin']) AND $_COOKIE['user_ID'] == $_SESSION['user_ID']) {
@@ -28,13 +30,14 @@ class AuthenService {
             setcookie('token', $_SESSION['hash_token'], time() + 10);
         } else {
             if (isset($_COOKIE['user_ID'])) {
+
                 $cookieToken = getTokenFromCookie($_COOKIE['user_ID']);
 
                 if ($cookieToken == $_COOKIE['token']) {
 
                     $_SESSION['loggedin'] = true;
                     $_SESSION['user_ID'] = $_COOKIE['user_ID'];
-                    $_SESSION['avatar_url'] = getAvatarByID($_COOKIE['user_ID']);
+                    $_SESSION['avatar_url'] = $this->userService->getAvatarByID($_COOKIE['user_ID']);
                     $_SESSION['hash_token'] = password_hash($user_ID . $password);    
 
                     setcookie('user_ID', $_SESSION['user_ID'], time() + 10); // to be changed to 3600 
@@ -46,36 +49,9 @@ class AuthenService {
 
 
     public function getTokenFromCookie($user_ID) {
-        $query = "SELECT user_ID, password FROM users WHERE user_ID = '$user_ID'";
-
-        $stmt = $this->db_connection->prepare($query);
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $stmt->execute();
-        $resultSet = $stmt->fetchAll(); 
-        if (count($resultSet) == 1) {
-        $user_db = $resultSet[0];
-        $cookie_hash = password_hash($user_db["user_ID"] . $user_db["password"]);
+        $user_db = $this->userService->getUserByID($user_ID);
+        $cookie_hash = password_hash($user_db->get("user_ID") . $user_db->get("password"));
         return $cookie_hash;
-        }
-    }
-
-/**
-    * get avatar user ID
-    * @param string $user_ID
-    *
-    * @return array|boolean
-    */  
-    public function getAvatarByID($user_ID) {
-        $query = 'SELECT avatar FROM users WHERE user_ID = :user_ID';
-        $stmt = $this->db_connection->prepare($query);
-        $stmt->bindParam(':user_ID', $user_ID, PDO::PARAM_INT);
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $stmt->execute();
-        $returnSet = $stmt->fetchAll();;
-        if (count($returnSet) == 0) {
-        return false;
-        } 
-        return $returnSet[0]["avatar"];
     }
 
 /**

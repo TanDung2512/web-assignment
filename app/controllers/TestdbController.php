@@ -9,10 +9,10 @@
 
 
         public function render(){
-            // $tmp = new UserService();
+            $tmp = new UserService();
             // var_dump($tmp);
-            // $res = $tmp->getAvatarByID(1);
-            // var_dump($res);
+            $res = $tmp->getUserByID(1);
+            var_dump($res->get("user_mail"));
         }
     }
 ?>

@@ -142,5 +142,24 @@ class UserService{
     } 
     return $returnSet[0]['role'];
   }
+
+  /**
+    * get avatar user ID
+    * @param string $user_ID
+    *
+    * @return array|boolean
+    */  
+    public function getAvatarByID($user_ID) {
+      $query = 'SELECT avatar FROM users WHERE user_ID = :user_ID';
+      $stmt = $this->db_connection->prepare($query);
+      $stmt->bindParam(':user_ID', $user_ID, PDO::PARAM_INT);
+      $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      $stmt->execute();
+      $returnSet = $stmt->fetchAll();;
+      if (count($returnSet) == 0) {
+      return false;
+      } 
+      return $returnSet[0]["avatar"];
+  }
 }
 ?>
