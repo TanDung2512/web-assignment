@@ -74,7 +74,7 @@ Router::GET('/testdb', function () {
 });
 
 Router::GET('/template', function () {
-    $testdb = new TemplateController();
+    $testdb = new TemplateController2();
     $testdb->render();
 });
 

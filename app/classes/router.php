@@ -27,6 +27,7 @@ class Router{
         self::$_POSTs[$action] = $callback;
     }
     
+
     /**
      *
      * @param $action string
@@ -35,7 +36,7 @@ class Router{
     {
         global $routes;
         $action = trim($action, '/');
-
+        
         switch(true){
             case $_SERVER['REQUEST_METHOD'] == "GET":
                 $callback = self::$_GETs[$action];

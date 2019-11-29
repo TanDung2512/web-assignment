@@ -17,6 +17,19 @@ class PriviledgeService {
     } 
 
     /**
+    * check whether user is login
+    *
+    * @return boolean
+    */  
+    public function isLogin(){
+        if(isset($_SESSION["user_ID"])){
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
     * check whether user is VIP
     *
     * @return boolean
@@ -42,7 +55,6 @@ class PriviledgeService {
     */  
     public function upgradeVIP($code){
         if(!isset($_SESSION["user_ID"]) || $this->isVIP()) return false;
-
         return $this->userService->updateRoleByID($_SESSION["user_ID"], "VIP");
 
     }
