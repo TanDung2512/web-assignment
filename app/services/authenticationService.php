@@ -157,8 +157,12 @@ class AuthenService {
         // default role
         $user_role = "user";
 
-        $this->userService->createUser($mail_in, $pw_in, $user_role);
-        $this->signin($mail_in, $pw_in);
+        $sign_up_success = $this->userService->createUser($mail_in, $pw_in, $user_role);
+        if ($sign_up_success) {
+            $this->signin($mail_in, $pw_in);
+        } else {
+            echo "failed to sign in";
+        }
     }
 }
 

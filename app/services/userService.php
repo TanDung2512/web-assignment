@@ -33,7 +33,7 @@ class UserService{
   * @param string $gender 
   * @param string $birthday
   *
-  * @return null
+  * @return boolean
   */  
   public function createUser(
     string $user_mail, 
@@ -119,7 +119,7 @@ class UserService{
   * get user role by user ID
   * @param string $user_ID
   *
-  * @return array|boolean
+  * @return string|boolean
   */  
   public function getRoleByID($user_ID) {
     $query = 'SELECT role FROM users WHERE user_ID = :user_ID';
