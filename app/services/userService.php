@@ -1,7 +1,7 @@
 <?php
 
 require_once(__DIR__."/../database/connect_DB.php");
-include_once(__DIR__."/../classes/user.php");
+require_once(__DIR__."/../classes/user.php");
 
  /**
   * @package app\services
