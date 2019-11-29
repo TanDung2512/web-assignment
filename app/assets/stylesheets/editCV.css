@@ -3,6 +3,7 @@ p {
 
 .editCV-tag-title {
   font-weight: 600;
+  margin-top: 10px;
   margin-bottom: 19px; }
 
 .editCV-input > p {
@@ -27,7 +28,7 @@ p {
 .editCV-add {
   color: #ff6f61;
   font-weight: 600;
-  margin: 0 0 15px 33px; }
+  margin: 10px 0 15px 33px; }
 
 .editCV-add:hover {
   cursor: pointer; }

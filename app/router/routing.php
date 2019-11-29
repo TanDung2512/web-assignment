@@ -19,6 +19,7 @@ require_once __DIR__ . "/../controllers/TestdbController.php";
 require_once __DIR__ . "/../controllers/TemplateController.php";
 require_once __DIR__ . "/../controllers/TemplateController2.php";
 require_once __DIR__ . "/../controllers/Error404Controller.php";
+require_once __DIR__ . "/../controllers/FakeController.php";
 
 
 define("ROOT_DIR", "web-assignment");
@@ -50,6 +51,11 @@ Router::GET('/chooseCV', function () {
 
 Router::GET('/myCV', function () {
     $myCV = new MyCVController();
+    $myCV->render();
+});
+
+Router::POST('/fake', function () {
+    $myCV = new FakeController();
     $myCV->render();
 });
 
