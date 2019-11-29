@@ -36,11 +36,10 @@ class UserService{
   * @return null
   */  
   public function createUser(
-    int $user_ID, 
     string $user_mail, 
     string $password, 
     string $avatar, 
-    string $role, 
+    string $role = "user", 
     string $gender, 
     string $birthday_in
   ){
@@ -141,7 +140,7 @@ class UserService{
     if (count($returnSet) == 0) {
       return false;
     } 
-    return $returnSet[0];
+    return $returnSet[0]['role'];
   }
 }
 ?>

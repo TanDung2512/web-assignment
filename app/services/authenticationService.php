@@ -1,6 +1,7 @@
 <?php
 
 require_once(__DIR__."/../database/connect_DB.php");
+require_once(__DIR__."/userService.php");
 include_once(__DIR__."/../classes/user.php");
 
  /**
@@ -22,12 +23,58 @@ class AuthenService {
         $this->db_connection = connectDB::getInstance()->getConnection();
 
         // check if session exists
-        if (isset($_COOKIE['loggedin']) AND $_COOKIE['user'] == $_SESSION['user_ID']) {
-            setcookie('user', $_SESSION['user_ID'], time() + 10); // to be changed to 3600 
+        if (isset($_SESSION['loggedin']) AND $_COOKIE['user_ID'] == $_SESSION['user_ID']) {
+            setcookie('user_ID', $_SESSION['user_ID'], time() + 10); // to be changed to 3600 
         } else {
-            session_unset();
-            session_destroy();
+            if (isset($_COOKIE['user_ID'])) {
+                $cookieToken = getTokenFromCookie($_COOKIE['user_ID']);
+
+                if ($cookieToken == $_COOKIE['token']) {
+
+                    $_SESSION['loggedin'] = true;
+                    $_SESSION['user_ID'] = $_COOKIE['user_ID'];
+                    $_SESSION['avatar_url'] = getAvatarByID($_COOKIE['user_ID']);
+                    $_SESSION['hash_token'] = password_hash($user_ID . $password);    
+
+                    setcookie('user_ID', $_SESSION['user_ID'], time() + 10); // to be changed to 3600 
+                    setcookie('token', $_SESSION['hash_token'], time() + 10);
+                }
+            }
         }
+    }
+
+
+    public function getTokenFromCookie($user_ID) {
+        $query = "SELECT user_ID, password FROM users WHERE user_ID = '$user_ID'";
+
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $resultSet = $stmt->fetchAll(); 
+        if (count($resultSet) == 1) {
+        $user_db = $resultSet[0];
+        $cookie_hash = password_hash($user_db["user_ID"] . $user_db["password"]);
+        return $cookie_hash;
+        }
+    }
+
+/**
+    * get avatar user ID
+    * @param string $user_ID
+    *
+    * @return array|boolean
+    */  
+    public function getAvatarByID($user_ID) {
+        $query = 'SELECT avatar FROM users WHERE user_ID = :user_ID';
+        $stmt = $this->db_connection->prepare($query);
+        $stmt->bindParam(':user_ID', $user_ID, PDO::PARAM_INT);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $returnSet = $stmt->fetchAll();;
+        if (count($returnSet) == 0) {
+        return false;
+        } 
+        return $returnSet[0]["avatar"];
     }
 
 /**
@@ -39,7 +86,6 @@ class AuthenService {
   */  
 
     public function signin($user_mail_in, $password_in) {
-        session_start();
 
         // if no data submitted, return false
         if ($user_mail_in == '' || $password_in == '' || $user_mail_in == null || $password_in == null) {
@@ -65,14 +111,14 @@ class AuthenService {
                 if (password_verify($password_in, $password)) {
 
                     // add SESSION
-                    session_regenerate_id();
                     $_SESSION['loggedin'] = true;
                     $_SESSION['user_ID'] = $user_ID;
                     $_SESSION['avatar_url'] = $avatar;
                     $_SESSION['hash_token'] = password_hash($user_ID . $password);
                     
                     // time to be changed to 3600; 10 for testing
-                    setcookie("user", $_SESSION['user_ID'], time() + 10);
+                    setcookie("user_ID", $_SESSION['user_ID'], time() + 10);
+                    setcookie("token", $_SESSION['hash_token'], time() + 10);
                     // header("location: "); echo for testing
                     echo "Logged in";
                 } else {

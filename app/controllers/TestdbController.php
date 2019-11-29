@@ -11,7 +11,7 @@
         public function render(){
             // $tmp = new UserService();
             // var_dump($tmp);
-            // $res = $tmp->updateRoleByID(3, "user");
+            // $res = $tmp->getAvatarByID(1);
             // var_dump($res);
         }
     }
