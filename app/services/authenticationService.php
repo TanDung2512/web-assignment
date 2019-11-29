@@ -25,6 +25,7 @@ class AuthenService {
         // check if session exists
         if (isset($_SESSION['loggedin']) AND $_COOKIE['user_ID'] == $_SESSION['user_ID']) {
             setcookie('user_ID', $_SESSION['user_ID'], time() + 10); // to be changed to 3600 
+            setcookie('token', $_SESSION['hash_token'], time() + 10);
         } else {
             if (isset($_COOKIE['user_ID'])) {
                 $cookieToken = getTokenFromCookie($_COOKIE['user_ID']);
