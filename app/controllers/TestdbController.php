@@ -1,6 +1,7 @@
 <?php
     require_once __DIR__."/Controller.php";
     require_once __DIR__."/../services/cvService.php";
+    require_once __DIR__."/../services/userService.php";
     class TestdbController extends Controller{
 
         public function __construct(){
@@ -8,13 +9,21 @@
         }
 
         public function render(){
-            $cvService = new CVService();
-            var_dump($cvService->getTemplateCVByID(1));
+
+
         }
     }
 ?>
 
-<!-- $sub_section = [new CV_Section(
+<!--        $cvService = new CVService();
+            var_dump($cvService->getTemplateCVByID(1));
+
+            $tmp = new UserService();
+            // var_dump($tmp);
+            $res = $tmp->getUserByID(1);
+            var_dump($res->get("user_mail"));
+    
+    $sub_section = [new CV_Section(
                 1,
                 2,
                 1,

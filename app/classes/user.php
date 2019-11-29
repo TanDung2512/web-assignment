@@ -14,38 +14,28 @@ class User {
   /** @var string $_password*/
   private $_password;
 
-  /** @var string $_avatar*/
-  private $_avatar;
-
   /** @var string $_role*/
   private $_role;
-
-  /** @var string $_gender*/
-  private $_gender;
-
-  /** @var string $_birthday*/
-  private $_birthday;
 
 /**
   * Construction of a user. 
   * @param int $id
   * @param string $mail 
   * @param string $pw
-  * @param string $ava
   * @param string $role
-  * @param string $gender
-  * @param string $birthday
-  *
+  * 
   * @return instance
   */
-  public function __construct($id = null, $mail = null, $pw = null, $ava = null, $role = null, $gender = null, $birthday = null) {
+  public function __construct(
+      $id = null, 
+      $mail = null, 
+      $pw = null, 
+      $role = null
+    ) {
     $this->_user_ID = $id;
     $this->_user_mail = $mail;
     $this->_password = $pw;
-    $this->_avatar = $ava;
     $this->_role = $role;
-    $this->_gender = $gender;
-    $this->_birthday = $birthday;
   }
 
 /**
@@ -54,8 +44,9 @@ class User {
   *
   * @return attribute
   */
-  public function __get($name) {
-    if (property_exists($name)) {
+  public function get($name_in) {
+    $name = "_".$name_in;
+    if (property_exists("User", $name)) {
       return $this->$name;
     } else {
       return null;
@@ -69,9 +60,10 @@ class User {
   *
   * @return boolean
   */  
-  public function __set($name, $value) {
-    if (property_exists($name) and $value != null) {
-      $this->$name = $value;
+  public function set($name_in, $value) {
+    $name = "_".$name_in;
+    if (property_exists("User", $name) and $value != null) {
+      $this->name = $value;
       return true;
     } else {
       return false;
@@ -84,17 +76,14 @@ class User {
   *
   * @return json user
   */
-  public function __get_json() {
+  public function get_json() {
     // json_encode(get_object_vars($user));
 
     $json = array(
-      'user_ID' => $this->__get("_user_ID"),
-      'user_mail' => $this->__get("_user_mail"),
-      'password' => $this->__get("_password"),
-      'avatar' => $this->__get("_avatar"),
-      'role' => $this->__get("_role"),
-      'gender' => $this->__get("_gender"),
-      'birthday' => $this->__get("_birthday")
+      'user_ID' => $this->user_ID,
+      'user_mail' => $this->user_mail,
+      'password' => $this->password,
+      'role' => $this->role
     );
 
   return json_encode($json);
