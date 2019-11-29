@@ -133,10 +133,32 @@ class AuthenService {
         return null;
     }
 
-    public function signup() {
+/**
+  * sign up function
+  * 
+  * @param string $mail_in
+  * @param string $pw_in
+  * @param string $pw_confirm_in
+  *
+  * @return null | false
+  */    
 
+    public function signup($mail_in, $pw_in, $pw_confirm_in) {
+        if ($mail_in == null || $pw_in == null || $pw_confirm_in == null) {
+            return false;
+        }
+
+        if ($pw_in != $pw_confirm_in) {
+            echo "Pw doesnt match pw confirm";
+            return false;
+        }
+
+        // default role
+        $user_role = "user";
+
+        $this->userService->createUser($mail_in, $pw_in, $user_role);
+        $this->signin($mail_in, $pw_in);
     }
-
 }
 
 ?>
