@@ -108,9 +108,11 @@ class AuthenService {
                     // header("location: "); echo for testing
                     echo "Logged in";
                 } else {
+                    $_SESSION['error'] = 'Wrong password';
                     echo "Wrong password";
                 }
             } else {
+                $_SESSION['error'] = 'Wrong email';
                 echo "Wrong email";
             }
             $stmt->close();
@@ -150,6 +152,7 @@ class AuthenService {
         }
 
         if ($pw_in != $pw_confirm_in) {
+            $_SESSION['error'] = 'Password don\'t match';
             echo "Pw doesnt match pw confirm";
             return false;
         }
@@ -161,6 +164,7 @@ class AuthenService {
         if ($sign_up_success) {
             $this->signin($mail_in, $pw_in);
         } else {
+            $_SESSION['error'] = 'Failed to sign in';
             echo "failed to sign in";
         }
     }
