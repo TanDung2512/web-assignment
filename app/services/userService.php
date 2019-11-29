@@ -67,7 +67,7 @@ class UserService{
     $resultSet = $stmt->fetchAll(); 
     if (count($resultSet) == 1) {
       $user_db = $resultSet[0];
-      $user = new User($user_db["user_ID"], $user_db["user_mail"], $user_db["password"], $user_db["avatar"], $user_db["role"], $user_db["gender"], $user_db["birthday"]);
+      $user = new User($user_db["user_ID"], $user_db["user_mail"], $user_db["password"], $user_db["role"]);
       return $user;
     }
     return false;
