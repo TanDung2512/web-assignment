@@ -11,7 +11,7 @@ include_once(__DIR__."/../classes/user.php");
   * @method null | boolean signin(string $user_mail_in, string $password_in)
   * @method null signout()
   */
-  
+
 class AuthenService {
 
  /**
@@ -26,8 +26,8 @@ class AuthenService {
 
         // check if session exists
         if (isset($_SESSION['loggedin']) AND $_COOKIE['user_ID'] == $_SESSION['user_ID']) {
-            setcookie('user_ID', $_SESSION['user_ID'], time() + 10); // to be changed to 3600 
-            setcookie('token', $_SESSION['hash_token'], time() + 10);
+            setcookie('user_ID', $_SESSION['user_ID'], time() + TIMEOUT); // to be changed to 3600 
+            setcookie('token', $_SESSION['hash_token'], time() + TIMEOUT);
         } else {
             if (isset($_COOKIE['user_ID'])) {
 
@@ -40,8 +40,8 @@ class AuthenService {
                     $_SESSION['avatar_url'] = $this->userService->getAvatarByID($_COOKIE['user_ID']);
                     $_SESSION['hash_token'] = password_hash($user_ID . $password);    
 
-                    setcookie('user_ID', $_SESSION['user_ID'], time() + 10); // to be changed to 3600 
-                    setcookie('token', $_SESSION['hash_token'], time() + 10);
+                    setcookie('user_ID', $_SESSION['user_ID'], time() + TIMEOUT); // to be changed to 3600 
+                    setcookie('token', $_SESSION['hash_token'], time() + TIMEOUT);
                 }
             }
         }
