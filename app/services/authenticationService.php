@@ -37,7 +37,6 @@ class AuthenService {
 
                     $_SESSION['loggedin'] = true;
                     $_SESSION['user_ID'] = $_COOKIE['user_ID'];
-                    $_SESSION['avatar_url'] = $this->userService->getAvatarByID($_COOKIE['user_ID']);
                     $_SESSION['hash_token'] = password_hash($user_ID . $password);    
 
                     setcookie('user_ID', $_SESSION['user_ID'], time() + TIMEOUT); // to be changed to 3600 
@@ -80,7 +79,7 @@ class AuthenService {
             return false;
         }
 
-        $query = 'SELECT user_ID, user_mail, password, avatar FROM users WHERE user_mail = ?';
+        $query = 'SELECT user_ID, user_mail, password FROM users WHERE user_mail = ?';
 
         // Prepre SQL to prevent SQL injection
         if ($stmt = $this->db_connection->prepare($query)) {
@@ -91,7 +90,7 @@ class AuthenService {
             $stmt->store_result();
 
             if ($stmt->num_rows > 0) {
-                $stmt->bind_result($user_ID, $user_mail, $password, $avatar);
+                $stmt->bind_result($user_ID, $user_mail, $password);
                 $stmt->fetch();
 
                 // use password_hash in login file
@@ -101,7 +100,6 @@ class AuthenService {
                     // add SESSION
                     $_SESSION['loggedin'] = true;
                     $_SESSION['user_ID'] = $user_ID;
-                    $_SESSION['avatar_url'] = $avatar;
                     $_SESSION['hash_token'] = password_hash($user_ID . $password);
                     
                     // time to be changed to 3600; 10 for testing
@@ -134,6 +132,11 @@ class AuthenService {
 
         return null;
     }
+
+    public function signup() {
+
+    }
+
 }
 
 ?>

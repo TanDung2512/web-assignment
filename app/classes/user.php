@@ -14,27 +14,15 @@ class User {
   /** @var string $_password*/
   private $_password;
 
-  /** @var string $_avatar*/
-  private $_avatar;
-
   /** @var string $_role*/
   private $_role;
-
-  /** @var string $_gender*/
-  private $_gender;
-
-  /** @var string $_birthday*/
-  private $_birthday;
 
 /**
   * Construction of a user. 
   * @param int $id
   * @param string $mail 
   * @param string $pw
-  * @param string $ava
   * @param string $role
-  * @param string $gender
-  * @param string $birthday
   * 
   * @return instance
   */
@@ -42,18 +30,12 @@ class User {
       $id = null, 
       $mail = null, 
       $pw = null, 
-      $ava = null, 
-      $role = null, 
-      $gender = null, 
-      $birthday = null
+      $role = null
     ) {
     $this->_user_ID = $id;
     $this->_user_mail = $mail;
     $this->_password = $pw;
-    $this->_avatar = $ava;
     $this->_role = $role;
-    $this->_gender = $gender;
-    $this->_birthday = $birthday;
   }
 
 /**
@@ -101,10 +83,7 @@ class User {
       'user_ID' => $this->user_ID,
       'user_mail' => $this->user_mail,
       'password' => $this->password,
-      'avatar' => $this->avatar,
-      'role' => $this->role,
-      'gender' => $this->gender,
-      'birthday' => $this->birthday
+      'role' => $this->role
     );
 
   return json_encode($json);

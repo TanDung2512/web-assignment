@@ -38,23 +38,14 @@ class UserService{
   public function createUser(
     string $user_mail, 
     string $password, 
-    string $avatar, 
-    string $role = "user", 
-    string $gender, 
-    string $birthday_in
+    string $role
   ){
-    $birthday = date("Y-m-d", strtotime($birthday_in));
-    var_dump($birthday_in);
-    var_dump($birthday);
-    $query = 'INSERT INTO users (user_mail, password, avatar, role, gender, birthday)  
-              VALUES (:user_mail, :password, :avatar, :role, :gender, :birthday)';
+    $query = 'INSERT INTO users (user_mail, password, role)  
+              VALUES (:user_mail, :password, :role)';
     $stmt = $this->db_connection->prepare($query);
     $stmt->bindParam(':user_mail', $user_mail, PDO::PARAM_STR);
     $stmt->bindParam(':password', $password, PDO::PARAM_STR);
-    $stmt->bindParam(':avatar', $avatar, PDO::PARAM_STR);
     $stmt->bindParam(':role', $role, PDO::PARAM_STR);
-    $stmt->bindParam(':gender', $gender, PDO::PARAM_STR);
-    $stmt->bindParam(':birthday', $birthday, PDO::PARAM_STR);
     return $stmt->execute();
   }
 
@@ -141,25 +132,6 @@ class UserService{
       return false;
     } 
     return $returnSet[0]['role'];
-  }
-
-  /**
-    * get avatar user ID
-    * @param string $user_ID
-    *
-    * @return array|boolean
-    */  
-    public function getAvatarByID($user_ID) {
-      $query = 'SELECT avatar FROM users WHERE user_ID = :user_ID';
-      $stmt = $this->db_connection->prepare($query);
-      $stmt->bindParam(':user_ID', $user_ID, PDO::PARAM_INT);
-      $stmt->setFetchMode(PDO::FETCH_ASSOC);
-      $stmt->execute();
-      $returnSet = $stmt->fetchAll();;
-      if (count($returnSet) == 0) {
-      return false;
-      } 
-      return $returnSet[0]["avatar"];
   }
 }
 ?>
