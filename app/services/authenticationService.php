@@ -47,11 +47,22 @@ class AuthenService {
         }
     }
 
+/**
+  * return token from user ID
+  * @param string $user_ID
+  *
+  * @return string $cookie_hash | false
+  */  
 
     public function getTokenFromCookie($user_ID) {
         $user_db = $this->userService->getUserByID($user_ID);
-        $cookie_hash = password_hash($user_db->get("user_ID") . $user_db->get("password"));
-        return $cookie_hash;
+        if ($user_db) {
+            $cookie_hash = password_hash($user_db->get("user_ID") . $user_db->get("password"));
+            return $cookie_hash;
+        } else {
+            return false;
+        }
+        
     }
 
 /**
