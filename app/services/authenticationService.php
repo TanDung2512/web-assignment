@@ -144,7 +144,8 @@ class AuthenService {
   */    
 
     public function signup($mail_in, $pw_in, $pw_confirm_in) {
-        if ($mail_in == null || $pw_in == null || $pw_confirm_in == null) {
+        if ($mail_in == null || $pw_in == null || $pw_confirm_in == null ||
+            trim($mail_in) == '' || trim($pw_in) == '' || trim($pw_confirm_in) == '') {
             return false;
         }
 
