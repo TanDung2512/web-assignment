@@ -58,40 +58,36 @@
       cursor: pointer; }
 
 .browseCV .arrow {
-  width: 40px;
-  height: 40px; }
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); }
   .browseCV .arrow--prev {
-    margin-right: 14px; }
+    left: 10px; }
+  .browseCV .arrow--next {
+    right: 10px; }
 
 .browseCV .cv_template {
-  width: 100%;
   height: 100%; }
 
 .browseCV .slick-center .slide-h3 {
   color: #FFF; }
 
 .browseCV .slider {
-  width: 80%;
   height: 100%;
   margin: auto;
-  text-align: center;
-  display: flex !important;
-  align-items: center; }
+  position: relative;
+  overflow: hidden; }
 
 .browseCV .slide-item {
-  margin: 10% 0 10% 0;
   height: 400px;
-  text-align: center; }
+  text-align: center;
+  display: inline-block; }
 
 .browseCV .slider div {
   margin-right: 5px; }
 
 .browseCV .slick-slide {
-  opacity: .6;
-  width: 10px; }
+  opacity: .6; }
 
 .browseCV .slick-center {
-  display: block;
-  max-width: 10% !important;
-  max-height: 20% !important;
   opacity: 1; }
