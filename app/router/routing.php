@@ -19,6 +19,7 @@ require_once __DIR__ . "/../controllers/TestdbController.php";
 require_once __DIR__ . "/../controllers/TemplateController.php";
 require_once __DIR__ . "/../controllers/TemplateController2.php";
 require_once __DIR__ . "/../controllers/Error404Controller.php";
+require_once __DIR__ . "/../services/authenticationService.php";
 
 
 define("ROOT_DIR", "web-assignment");
@@ -78,13 +79,15 @@ Router::GET('/template', function () {
     $testdb->render();
 });
 
-Router::POST('/login-authen',function(){
-    echo "aaaaa";
-    $_POST["email"];
+Router::POST('/login-authen', function() {
+    $authenService = new AuthenService();
+    $authenService->signin($_POST["mail"], $_POST["password"]);
 });
 
+Router::POST('/register-authen', function() {
+
+});
 
 $action = $_SERVER['REQUEST_URI'];
-var_dump($action);
 $action = str_replace("web-assignment/", "", $action);
 Router::dispatch($action);

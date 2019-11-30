@@ -40,11 +40,12 @@ class UserService{
     string $password, 
     string $role
   ){
+    $hashed_pw = password_hash($password, PASSWORD_DEFAULT);
     $query = 'INSERT INTO users (user_mail, password, role)  
               VALUES (:user_mail, :password, :role)';
     $stmt = $this->db_connection->prepare($query);
     $stmt->bindParam(':user_mail', $user_mail, PDO::PARAM_STR);
-    $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+    $stmt->bindParam(':password', $hashed_pw, PDO::PARAM_STR);
     $stmt->bindParam(':role', $role, PDO::PARAM_STR);
     return $stmt->execute();
   }

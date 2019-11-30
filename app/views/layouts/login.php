@@ -5,7 +5,7 @@
     <div class="login-wrapper">
         <h2 class="txt--big-heading">Login</h2>
         <p class="">Welcome back, please log in</p>
-        <form action="login-authen" method = "POST"class="form-control">
+        <form action="login-authen" method="POST" class="form-control">
             <label for="email">
                 Email
             </label>
@@ -22,36 +22,22 @@
     </div>
 </div>
 <script>
-// $(document).ready(function(){
+$(document).ready(function(){
   $("#login").on("click" ,function(e){
     $.ajax({
-        url:"localhost/web-assignment/login-authen",
+        url:"/web-assignment/login-authen",
         type: "POST",
-        dataType: 'json',
+        crossDomain: true,
         data: {
             mail: $("#email").val(),
             password: $("#password").val(),
         },
         success: function(result){
-        console.log(result.abc);
+            console.log(result);
+            alert("ngu");
         }
-        });
-    console.log("ditconme");
+    });
     e.preventDefault();
   });
-// });
-// function login() {
-//     $.ajax({
-//             url:"/../../services/authentication.php",
-//             type: "post",
-//             dataType: 'json',
-//             data: {
-//                 mail: $("#email").val(),
-//                 password: $("#password").val(),
-//             },
-//             success: function(result){
-//             console.log(result.abc);
-//            }
-//          });
-// }
+});
 </script>
