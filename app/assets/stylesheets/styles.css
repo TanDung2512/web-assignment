@@ -541,6 +541,12 @@ p {
   color: black;
   margin-bottom: 16px;
   padding: 5px; }
+  .editCV-input > input[type=date] {
+    width: 30%;
+    margin: 0 1rem 1rem; }
+
+.editCV-input label {
+  margin-right: 1rem; }
 
 .editCV-sub-info {
   color: #7a8599;
@@ -550,9 +556,8 @@ p {
   color: #ff6f61;
   font-weight: 600;
   margin: 10px 0 15px 33px; }
-
-.editCV-add:hover {
-  cursor: pointer; }
+  .editCV-add:hover {
+    cursor: pointer; }
 
 #editCV {
   display: flex;

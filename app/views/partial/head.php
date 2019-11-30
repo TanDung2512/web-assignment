@@ -8,6 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>La Vitaé</title>
   <link href="./app/assets/stylesheets/styles.css" rel="stylesheet" />
+  <script  type="text/javascript"  src="./app/assets/javascripts/editCV.js"></script>
+
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
   <link
