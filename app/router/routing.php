@@ -25,12 +25,12 @@ require_once __DIR__ . "/../services/authenticationService.php";
 define("ROOT_DIR", "web-assignment");
 
 Router::GET('/', function () {
-    $home = new HomeController();
+    $home = new LandingController();
     $home->render();
 });
 
 Router::GET('/landing', function () {
-    $home = new LandingController();
+    $home = new HomeController();
     $home->render();
 });
 
