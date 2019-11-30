@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>La Vitaé</title>
   <link href="./app/assets/stylesheets/styles.css" rel="stylesheet" />
-  <script  type="text/javascript"  src="./app/assets/javascripts/editCV.js"></script>
+  <!-- <script  type="text/javascript"  src="./app/assets/javascripts/editCV.js"></script> -->
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
@@ -25,4 +25,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script id="__bs_script__">
+    document.write("<script async src='/browser-sync/browser-sync-client.js?v=2.23.3'><\/script>".replace("HOST", location.hostname));
+</script>
 </head>

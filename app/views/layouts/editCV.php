@@ -16,7 +16,7 @@
                         <div class="editCV-per-col1">
                             <div class="editCV-input">
                                 <p>Job title</p>
-                                <input type="text" name="job-title" />
+                                <input type="text" name="professional" />
                             </div>
                             <div class="editCV-input">
                                 <p>Full Name</p>
@@ -36,7 +36,7 @@
                                        background: #EBEDF0;
                                        margin-top: 31px;
                                        color: black;
-                                       padding: 5px" placeholder="Image URL" name="image-url" />
+                                       padding: 5px" placeholder="Image URL" name="avatar" />
                             </div>
                             <div class="editCV-input">
                                 <p>Address</p>
@@ -44,18 +44,18 @@
                             </div>
                             <div class="editCV-input">
                                 <p>Phone</p>
-                                <input type="text" name="phone-num" />
+                                <input type="text" name="phone" />
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="editCV-profess">
+                <div class="editCV-profess" id = "profile">
                     <p class="editCV-tag-title">Profile</p>
                     <div>
                         <textarea name="content" id="editor">
-                        &lt;p&gt;Enter your Professional Summary here.&lt;/p&gt;
-                    </textarea>
+                            &lt;p&gt;Enter your Professional Summary here.&lt;/p&gt;
+                        </textarea>
                         <!-- <p><input type="submit" value="Submit" name="submit-btn" /></p> -->
                     </div>
                 </div>
@@ -114,8 +114,66 @@
         addJob();
 
         $(".editCV-btn").click(function(e) {
-            console.log($(".editCV-personal").find("input"));
+            let infos = $(".editCV-personal").find("input").toArray();
+            let jsonData = {};
+
+            infos.forEach(function(info){
+                let type = $(info).attr("name");
+                let value = $(info).val();
+                jsonData[type] = value;       
+            })
+
+            jsonData["about_me"] = $("#profile .ck-content").html();
+            
+            let experiences = $(".editCV-job").find("*[class*='projob']").toArray();
+
+            let experiences_arr = []
+
+            experiences.forEach(function(ex){
+                let experience = {};
+                let inputArr = $(ex).find("input").toArray();
+
+                inputArr.forEach(function(input){
+                    let type = $(input).attr("name");
+                    let value = $(input).val();
+                    experience[type] = value;
+                })
+
+                experience["description"] = $(`.${$(ex).attr("class")} .ck-content`).html();
+                experiences_arr.push(experience);
+            })
+
+            let eductions = $(".editCV-addEdu").find("*[class*='edu2edu']").toArray();
+
+            let eductions_arr = []
+
+            eductions.forEach(function(ex){
+                let education = {};
+                let inputArr = $(ex).find("input").toArray();
+
+                inputArr.forEach(function(input){
+                    let type = $(input).attr("name");
+                    let value = $(input).val();
+                    education[type] = value;
+                })
+
+                education["description"] = $(`.${$(ex).attr("class")} .ck-content`).html();
+                eductions_arr.push(education);
+            })
+            jsonData["eduction"] = eductions_arr;
+            jsonData = JSON.parse(jsonData);
+            console.log(jsonData);
+            $.ajax({
+                type: "POST",
+                url: "/web-assignment/editCV",
+                data: jsonData,
+                success: function(result){
+                    console.log(result);
+                },
+                dataType: "json"
+            });
             e.preventDefault();
+
         })
 
         var loadFile = function(event) {
@@ -154,16 +212,16 @@
 
         function addJob() {
             let idName = "job" + job.toString();
-            let jobTitle = "profess-title" + job.toString();
-            let comName = "profess-company" + job.toString();
-            let startDate = "profess-startDate" + job.toString();
-            let endDate = "profess-endDate" + job.toString();
+            let jobTitle = "title";
+            let comName = "company";
+            let start_date = "start_date";
+            let end_date = "end_date";
 
             let dateTag = [
                 createLabelTag("Start date:"),
-                createInputTag("date", "Start date", "", startDate),
+                createInputTag("date", "Start date", "", start_date),
                 createLabelTag("End date:"),
-                createInputTag("date", "Start date", "", endDate)
+                createInputTag("date", "End date", "", end_date)
             ]
 
             let wrapperEdit = document.createElement("div");
@@ -211,16 +269,16 @@
 
         function addEdu() {
             let idName = "edu" + edu.toString();
-            let schoolName = "school-name" + edu.toString();
-            let majorName = "school-major" + edu.toString();
-            let startDate = "profess-startDate" + edu.toString();
-            let endDate = "profess-endDate" + edu.toString();
+            let schoolName = "title";
+            let majorName = "school-major";
+            let start_date = "start_date";
+            let end_date = "end_date";
 
             let dateTags = [
                 createLabelTag("Start date:"),
-                createInputTag("date", "Start date", "", startDate),
+                createInputTag("date", "Start date", "", start_date),
                 createLabelTag("End date:"),
-                createInputTag("date", "Start date", "", endDate)
+                createInputTag("date", "Start date", "", end_date)
             ]
 
             let wrapperEdit = document.createElement("div");
@@ -318,4 +376,6 @@
             wrapper.append(button);
             return wrapper;
         }
-    </script>
+
+
+    </script>   
