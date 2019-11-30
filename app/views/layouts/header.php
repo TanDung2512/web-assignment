@@ -22,9 +22,35 @@
       <div class="toolkit">
         <!-- <button class="btn-secondary txt--sub-heading mr-2">Sign up</button>
         <button class="btn txt--sub-heading">Log in</button> -->
-        <span>Nhu Vo</span>
+        <span>
+          <?php 
+          if (isset($_SESSION["user_mail"])) {
+            echo $_SESSION["user_mail"];
+          } else {
+            echo "lmao";
+          }
+          ?>
+        </span>
+        <a id="logout">Log out</a>
         <img src="app/images/chevron-down-solid.svg" style="height: 12px;" />
       </div>
     </nav>
   </div>
 </header>
+
+<script>
+$(document).ready(function(){
+  $("#logout").on("click" ,function(e){
+    $.ajax({
+        url:"/web-assignment/logout-authen",
+        type: "POST",
+        crossDomain: true,
+        data: {},
+        success: function(result){
+          document.location.href = '/web-assignment/landing';
+        }
+    });
+    e.preventDefault();
+  });
+});
+</script>

@@ -5,7 +5,7 @@
     <div class="login-wrapper">
         <h2 class="txt--big-heading">Login</h2>
         <p class="">Welcome back, please log in</p>
-        <form action="" class="form-control">
+        <form action="login-authen" method="POST" class="form-control">
             <label for="email">
                 Email
             </label>
@@ -16,8 +16,31 @@
             <input type="password" name="password" id="password" />
             <div class="form-bottom mt-5">
                 <a href=""> Don't have an account? <b> Sign up</b></a>
-                <button class="btn pl-2">Log in</button>
+                <a id="login" class="btn pl-2">Log in</a>
             </div>
         </form>
     </div>
 </div>
+<script>
+$(document).ready(function(){
+  $("#login").on("click" ,function(e){
+    $.ajax({
+        url:"/web-assignment/login-authen",
+        type: "POST",
+        crossDomain: true,
+        data: {
+            mail: $("#email").val(),
+            password: $("#password").val(),
+        },
+        success: function(result){
+            if (result == 1) {
+                document.location.href = '/web-assignment';
+            } else {
+                window.reload();
+            }
+        }
+    });
+    e.preventDefault();
+  });
+});
+</script>
