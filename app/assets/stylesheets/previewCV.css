@@ -27,7 +27,7 @@
     float: right; }
 
 .template-cv__list {
-  width: 40%;
+  width: 35%;
   padding: 0 1.6rem 1.875rem;
   overflow: scroll;
   max-height: 100%;
@@ -46,7 +46,7 @@
 
 .template-cv__review {
   float: right;
-  width: 60%;
+  width: 65%;
   font-size: 0.7em;
   height: 100%;
   overflow: auto;
