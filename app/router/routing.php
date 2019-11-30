@@ -78,8 +78,13 @@ Router::GET('/template', function () {
     $testdb->render();
 });
 
+Router::POST('/login-authen',function(){
+    echo "aaaaa";
+    $_POST["email"];
+});
 
 
 $action = $_SERVER['REQUEST_URI'];
+var_dump($action);
 $action = str_replace("web-assignment/", "", $action);
 Router::dispatch($action);

@@ -1,4 +1,4 @@
-<div class="browseCV">
+<div id="browseCV">
   <header>
     <img class="logo" src="./app/assets/images/logo.png" alt="logo">
   </header>
