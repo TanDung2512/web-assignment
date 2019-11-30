@@ -92,11 +92,6 @@ Router::POST('/login-authen', function() {
 
 Router::POST('/register-authen', function() {
     $authenService = new AuthenService();
-    // $post_body = file_get_contents('php://input');
-    // // $tmp = explode(',',$post_body);
-    // $json = json_decode($post_body, true);
-    // var_dump($_POST);
-    // echo "aaaaaa";
     echo $authenService->signup($_POST["mail"], $_POST["password"], $_POST["password2"]);
 });
 
@@ -105,6 +100,12 @@ Router::POST('/logout-authen', function() {
     $authenService->signout();
 });
 
+Router::POST('/editCV', function() {
+   // var_dump($_POST);
+   $editCVController = new EditCVController();
+   var_dump($editCVController->submitCV());
+   
+});
 $action = $_SERVER['REQUEST_URI'];
 $action = str_replace("web-assignment/", "", $action);
 Router::dispatch($action);

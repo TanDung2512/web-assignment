@@ -47,6 +47,8 @@ class CVService{
   * @param int $phone
   * @param string $email
   * @param int $template_ID
+  * @param CV_Section[] experiences
+  * @param CV_Section[] education 
   *
   * @return boolean true if insert successfully
   */  
@@ -65,7 +67,7 @@ class CVService{
     array $experiences = NULL,
     array $education = NULL
   ) {
-    $date_created_formated = $date_created ? date("Y-m-d", strtotime($date_created)) : NULL;
+    $date_created_formated = $date_created ? date("Y-m-d", $date_created) : NULL;
 
     $query = 'INSERT INTO cv (avatar, fullname, professional, about_me, date_created, category, address, phone, email, template_ID, user_id)
     VALUES(:avatar, :fullname, :professional, :about_me, :date_created, :category, :address, :phone, :email, :template_ID, :user_id)';
@@ -90,7 +92,14 @@ class CVService{
         $e_json = $experience->get_json();
         $e_json = json_decode( $e_json, true );
        // var_dump($e_json);
-        $result = $result && $this->insertCVSection($CV_ID, $e_json["info_flag"], $e_json["start_date"], $e_json["end_date"],$e_json["title"], $e_json["description"]);
+        $result = $result && $this->insertCVSection(
+          $CV_ID, 
+          $e_json["info_flag"], 
+          $e_json["start_date"], 
+          $e_json["end_date"],
+          $e_json["title"], 
+          $e_json["description"]
+        );
       }
     }
 
@@ -98,11 +107,16 @@ class CVService{
       foreach($education as $education_item){
         $e_json = $education_item->get_json();
         $e_json = json_decode( $e_json, true );
-        $result = $result && $this->insertCVSection($CV_ID, $e_json["info_flag"], $e_json["start_date"], $e_json["end_date"],$e_json["title"], $e_json["description"]);
+        $result = $result && $this->insertCVSection(
+          $CV_ID, 
+          $e_json["info_flag"], 
+          $e_json["start_date"], 
+          $e_json["end_date"],
+          $e_json["title"], 
+          $e_json["description"]);
       }
     }
-
-    return $result;
+    return $result ? $CV_ID : false;
   }
 
   /**
@@ -305,6 +319,124 @@ class CVService{
       $result = $stmt->execute();
       return $result;
     }
+  }
+
+
+  /**
+  * edit CV_Section into database. 
+  * 
+  * @param int $ID
+  * @param string $start_date
+  * @param string $end_date
+  * @param string $title
+  * @param string $description
+  *
+  * @return boolean true if edit successfully
+  */  
+  public function editCVSection(
+    int $ID = NULL,
+    string $start_date = NULL,
+    string $end_date = NULL,
+    string $title = NULL,
+    string $description = NULL
+  ){
+    if($ID == NULL) return false;
+
+    $start_date_formated = $start_date ? date("Y-m-d", strtotime($start_date)): NULL;
+    $end_date_formated = $end_date ? date("Y-m-d", strtotime($end_date)): NULL;
+
+    $query = 'UPDATE info start_date = :start_date, end_date = :end_date, title = :title, description = :description
+              WHERE ID = :ID';
+    
+    $stmt = $this->db_connection->prepare($query);
+    $stmt->bindParam(':ID', $ID, PDO::PARAM_INT);
+    $stmt->bindParam(':start_date', $start_date_formated, PDO::PARAM_STR);
+    $stmt->bindParam(':end_date', $end_date_formated, PDO::PARAM_STR);
+    $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+    $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+
+    $result = $stmt->execute();
+    return $result;
+  }
+
+  /**
+  * update CV's columns.
+  * @param int $CV_ID 
+  * @param string $avatar
+  * @param string $fullname
+  * @param string $professional
+  * @param string $about_me
+  * @param string $date_created
+  * @param string $category
+  * @param string $address
+  * @param int $phone
+  * @param string $email
+  * @param int $template_ID
+  *
+  * @return boolean return true if edit successfully
+  */  
+  public function editCVByIDCols(
+    int $CV_ID,
+    string $avatar = NULL,
+    string $fullname = NULL,
+    string $professional = NULL,
+    string $about_me = NULL,
+    string $date_created = NULL,
+    string $category = NULL,
+    string $address = NULL,
+    int $phone = NULL,
+    string $email = NULL,
+    int $template_ID = NULL,
+    array $experiences = NULL,
+    array $education = NULL
+  ){
+    $date_created_formated = $date_created ? date("Y-m-d", $date_created) : NULL;
+
+    $query = 'UPDATE cv SET avatar = :avatar, fullname = :fullname, professional = :professional, about_me = :about_me, date_created = :date_created, category = :category, address = :address, phone = :phone, email = :email, template_ID = :template_ID
+              WHERE CV_ID = :CV_ID';
+    $stmt = $this->db_connection->prepare($query);
+    $stmt->bindParam(':CV_ID', $CV_ID, PDO::PARAM_INT);
+    $stmt->bindParam(':phone', $phone, PDO::PARAM_INT);
+    $stmt->bindParam(':template_ID', $template_ID, PDO::PARAM_INT);
+    $stmt->bindParam(':avatar', $avatar, PDO::PARAM_STR);
+    $stmt->bindParam(':fullname', $fullname, PDO::PARAM_STR);
+    $stmt->bindParam(':category', $category, PDO::PARAM_STR);
+    $stmt->bindParam(':professional', $professional, PDO::PARAM_STR);
+    $stmt->bindParam(':about_me', $about_me, PDO::PARAM_STR);
+    $stmt->bindParam(':date_created', $date_created_formated, PDO::PARAM_STR);
+    $stmt->bindParam(':address', $address, PDO::PARAM_STR);
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    $result = $stmt->execute();
+    
+    if($experiences != NULL){
+      foreach($experiences as $experience){
+        $e_json = $experience->get_json();
+        $e_json = json_decode( $e_json, true );
+        $result = $result && $this->editCVSection(
+          $e_json["ID"], 
+          $e_json["info_flag"], 
+          $e_json["start_date"], 
+          $e_json["end_date"],
+          $e_json["title"], 
+          $e_json["description"]
+        );
+      }
+    }
+
+    if($education != NULL){
+      foreach($education as $education_item){
+        $e_json = $education_item->get_json();
+        $e_json = json_decode( $e_json, true );
+        $result = $result && $this->editCVSection(
+          $e_json["ID"], 
+          $e_json["info_flag"], 
+          $e_json["start_date"], 
+          $e_json["end_date"],
+          $e_json["title"], 
+          $e_json["description"]);
+      }
+    }
+    return $result;
   }
 
   /**

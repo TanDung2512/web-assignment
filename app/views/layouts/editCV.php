@@ -143,6 +143,8 @@
                 experiences_arr.push(experience);
             })
 
+            jsonData["experiences"] = experiences_arr;
+
             let eductions = $(".editCV-addEdu").find("*[class*='edu2edu']").toArray();
 
             let eductions_arr = []
@@ -160,17 +162,18 @@
                 education["description"] = $(`.${$(ex).attr("class")} .ck-content`).html();
                 eductions_arr.push(education);
             })
-            jsonData["eduction"] = eductions_arr;
-            jsonData = JSON.parse(jsonData);
-            console.log(jsonData);
+            jsonData["education"] = eductions_arr;
+            //jsonData = JSON.parse(jsonData);
+            //console.log(jsonData);
+
             $.ajax({
                 type: "POST",
                 url: "/web-assignment/editCV",
                 data: jsonData,
+                crossDomain: true,
                 success: function(result){
                     console.log(result);
                 },
-                dataType: "json"
             });
             e.preventDefault();
 
