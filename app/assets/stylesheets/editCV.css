@@ -67,6 +67,7 @@ p {
           object-fit: cover;
           margin: 0 21px 15px 0; }
     #editCV .editCV-content .editCV-btn {
+      margin-top: 1rem;
       display: flex;
       justify-content: center; }
     #editCV .editCV-content .editCV-btn > a > button {
