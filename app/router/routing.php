@@ -81,11 +81,22 @@ Router::GET('/template', function () {
 
 Router::POST('/login-authen', function() {
     $authenService = new AuthenService();
-    $authenService->signin($_POST["mail"], $_POST["password"]);
+    echo $authenService->signin($_POST["mail"], $_POST["password"]);
 });
 
 Router::POST('/register-authen', function() {
+    $authenService = new AuthenService();
+    // $post_body = file_get_contents('php://input');
+    // // $tmp = explode(',',$post_body);
+    // $json = json_decode($post_body, true);
+    // var_dump($_POST);
+    // echo "aaaaaa";
+    echo $authenService->signup($_POST["mail"], $_POST["password"], $_POST["password2"]);
+});
 
+Router::POST('/logout-authen', function() {
+    $authenService = new AuthenService();
+    $authenService->signout();
 });
 
 $action = $_SERVER['REQUEST_URI'];

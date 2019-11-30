@@ -33,8 +33,11 @@ $(document).ready(function(){
             password: $("#password").val(),
         },
         success: function(result){
-            console.log(result);
-            alert("ngu");
+            if (result == 1) {
+                document.location.href = '/web-assignment';
+            } else {
+                window.reload();
+            }
         }
     });
     e.preventDefault();
