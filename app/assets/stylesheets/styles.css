@@ -491,14 +491,14 @@ page[size="A4"] {
   width: 80%;
   height: 100%;
   margin: auto;
-  text-align: center;
-  display: flex !important;
-  align-items: center; }
+  position: relative;
+  overflow: hidden; }
 
 #browseCV .slide-item {
   margin: 10% 0 10% 0;
   height: 400px;
-  text-align: center; }
+  text-align: center;
+  display: inline-block; }
 
 #browseCV .slider div {
   margin-right: 5px; }
