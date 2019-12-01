@@ -52,7 +52,7 @@ $(document).ready(function(){
         },
         success: function(result){
             if (result == 1) {
-                document.location.href = '/web-assignment';
+                document.location.href = '/web-assignment/landing';
             } else {
                 window.reload();
             }

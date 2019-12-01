@@ -47,7 +47,7 @@ $(document).ready(function(){
         crossDomain: true,
         data: {},
         success: function(result){
-          document.location.href = '/web-assignment/landing';
+          document.location.href = '/web-assignment';
         }
     });
     e.preventDefault();
