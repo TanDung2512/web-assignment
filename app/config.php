@@ -1,5 +1,5 @@
 <?php 
 
-define("TIMEOUT", 10);
+define("TIMEOUT", 3600);
 
 ?>

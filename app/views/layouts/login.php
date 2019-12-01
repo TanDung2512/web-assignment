@@ -15,7 +15,7 @@
             </label>
             <input type="password" name="password" id="password" />
             <div class="form-bottom mt-5">
-                <a href=""> Don't have an account? <b> Sign up</b></a>
+                <a href="register"> Don't have an account? <b> Sign up</b></a>
                 <a id="login" class="btn pl-2">Log in</a>
             </div>
         </form>

@@ -31,8 +31,8 @@
                 <p class="invalid hidden">Your password is not match.</p>
             </div>
             <div class="form-bottom mt-5">
-                <a href=""> Already have an account? <b> Sign in</b></a>
-                <a  id="signup" class="btn pl-2">Sign up</a>
+                <a href="login"> Already have an account? <b> Sign in</b></a>
+                <a id="signup" class="btn pl-2">Sign up</a>
             </div>
         </form>
     </div>
