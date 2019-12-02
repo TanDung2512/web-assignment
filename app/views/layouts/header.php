@@ -31,8 +31,7 @@
           }
           ?>
         </span>
-        <a id="logout">Log out</a>
-        <img src="app/images/chevron-down-solid.svg" style="height: 12px;" />
+        <a id="logout" class="btn txt--sub-heading">Log out</a>
       </div>
     </nav>
   </div>
