@@ -7,7 +7,7 @@
     <nav class="category-menu d-flex ali-center">
       <ul class="d-flex mr-5 pr-1">
         <li>
-          <a href="#" class="txt--sub-heading">Templates</a>
+          <a href="searchCV" class="txt--sub-heading">search CV</a>
         </li>
         <li>
           <a href="#" class="txt--sub-heading">Examples</a>

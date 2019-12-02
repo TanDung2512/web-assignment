@@ -12,6 +12,7 @@ require_once(__DIR__."/userService.php");
 class PriviledgeService {
 
     private $userService;
+    
     public function __constructor(){
         $this->userService = new UserService();
     } 
@@ -36,7 +37,7 @@ class PriviledgeService {
     */  
     public function isVIP(){
         if(!isset($_SESSION["user_ID"])) return false;
-
+        var_dump($this->userService);
         $response_value = $this->userService->getRoleByID($_SESSION["user_ID"]);
 
         if($response_value == "VIP"){

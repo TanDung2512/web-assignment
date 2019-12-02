@@ -136,8 +136,15 @@ Router::GET('/editCV', function () {
 });
 
 Router::GET('/searchCV', function () {
-    $searchCV = new SearchCVController();
-    $searchCV->render();
+    $priService = new PriviledgeService();
+    if($priService->isVIP()){
+        $searchCV = new SearchCVController();
+        $searchCV->render();
+    }
+    else{
+        $login = new LoginController();
+        $login->render();
+    }
 });
 
 Router::GET('/browseCV', function () {

@@ -597,8 +597,7 @@ public function searchCV(string $key_word){
   $stmt->execute();
   $resultSet = $stmt->fetchAll(); 
   //var_dump($resultSet);
-  if (count($resultSet) != 0) {
-    $returnArr = [];
+  $returnArr = [];
     //var_dump($resultSet);
     foreach($resultSet as $cv){
       $cv = new CV(
@@ -619,9 +618,7 @@ public function searchCV(string $key_word){
       );
       array_push($returnArr, $cv);  
     }
-      return $returnArr;
-    }
-    return false;
+    return $returnArr;
   }
 }
 ?>
