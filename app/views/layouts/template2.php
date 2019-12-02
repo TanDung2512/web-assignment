@@ -3,11 +3,11 @@
         <div class="cv-container" id="template-2">
             <section class="cv-section ali-center" id="section-header">
                 <div class="img-wrapper">
-                    <img src="app/images/avatar_toan.jpg" alt="avatar_toan" />
+                    <img class="personal" data-cv-type="avatar" src="app/images/avatar_toan.jpg" alt="avatar_toan" />
                 </div>
                 <div class="cv-header-right">
-                    <h2 id="cv-header-name">Jim Tran</h2>
-                    <h4 id="cv-header-major">Software Engineer</h4>
+                    <h2 class="personal" data-cv-type="fullname" id="cv-header-name">Jim Tran</h2>
+                    <h4 class="personal" data-cv-type="professional" id="cv-header-major">Software Engineer</h4>
                 </div>
             </section>
             <section class="cv-section" id="section-contact">
@@ -20,20 +20,20 @@
                         <div class="cv-contact-list-left">
                             <div class="cv-contact-item">
                                 <b>Email: </b>
-                                <p id="cv-email">
+                                <p class="personal" data-cv-type="email" id="cv-email">
                                     tio200@gmail.com
                                 </p>
                             </div>
                             <div class="cv-contact-item">
                                 <b>Phone: </b>
-                                <p id="cv-phone">
+                                <p class="personal" data-cv-type="phone" id="cv-phone">
                                     0332996969
                                 </p>
                             </div>
                         </div>
                         <div class="cv-contact-list-right cv-contact-item">
-                            <b>Phone: </b>
-                            <p id="cv-address">
+                            <b>Address: </b>
+                            <p class="personal" data-cv-type="address" id="cv-address">
                                 497 Hoa Hao street, Ward 7, District 10, HCMC
                             </p>
                         </div>
@@ -46,7 +46,7 @@
                     <div class="cv-section-line"></div>
                 </div>
                 <div class="cv-section-right">
-                    <p class="cv-profile">
+                    <p class="cv-profile personal" data-cv-type="about_me">
                         Lorem ipsum, dolor sit amet consectetur adipisicing
                         elit. Accusantium, magni maxime veniam ullam velit quas
                         voluptates aliquid atque voluptatibus eius, sapiente
@@ -110,42 +110,6 @@
                             </h3>
                             <h4 id="cv-major">Computer Science</h4>
                             <p id="cv-edu-content">GPA: 8.0</p>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <section class="cv-section" id="section-skills">
-                <div class="cv-section-left">
-                    <h3>Skills</h3>
-                    <div class="cv-section-line"></div>
-                </div>
-                <div class="cv-section-right d-flex">
-                    <ul class="cv-skill-list">
-                        <li class="cv-skill-item">
-                            Communication
-                        </li>
-                        <li class="cv-skill-item">
-                            Self-motivation
-                        </li>
-                        <li class="cv-skill-item">
-                            Communication
-                        </li>
-                        <li class="cv-skill-item">
-                            Leadership
-                        </li>
-                    </ul>
-                    <ul class="cv-skill-list">
-                        <li class="cv-skill-item">
-                            Ability to work under pressure
-                        </li>
-                        <li class="cv-skill-item">
-                            Decition making
-                        </li>
-                        <li class="cv-skill-item">
-                            Time management
-                        </li>
-                        <li class="cv-skill-item">
-                            Self-motivation
                         </li>
                     </ul>
                 </div>

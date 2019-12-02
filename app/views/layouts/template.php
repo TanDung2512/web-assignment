@@ -71,42 +71,6 @@
                     </ul>
                 </div>
             </section>
-            <!-- <section class="cv-section" id="section-skills">
-                <div class="cv-section-left">
-                    <h3>Skills</h3>
-                    <div class="cv-section-line"></div>
-                </div>
-                <div class="cv-section-right d-flex">
-                    <ul class="cv-skill-list">
-                        <li class="cv-skill-item">
-                            Communication
-                        </li>
-                        <li class="cv-skill-item">
-                            Self-motivation
-                        </li>
-                        <li class="cv-skill-item">
-                            Communication
-                        </li>
-                        <li class="cv-skill-item">
-                            Leadership
-                        </li>
-                    </ul>
-                    <ul class="cv-skill-list">
-                        <li class="cv-skill-item">
-                            Ability to work under pressure
-                        </li>
-                        <li class="cv-skill-item">
-                            Decition making
-                        </li>
-                        <li class="cv-skill-item">
-                            Time management
-                        </li>
-                        <li class="cv-skill-item">
-                            Self-motivation
-                        </li>
-                    </ul>
-                </div>
-            </section> -->
         </div>
     </page>
 </div>
