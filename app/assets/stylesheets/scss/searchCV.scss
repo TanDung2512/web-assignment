@@ -1,0 +1,79 @@
+.myCV-navbar > div {
+    display: inline-block;
+    position: relative;
+}
+
+.myCV-navbar > div:after {
+    content: "";
+    background: #ff6f61;
+    width: 4px;
+    height: 20px;
+    position: absolute;
+    top: 40px;
+    right: 2px;
+    transform: rotate(135deg);
+    box-shadow: 1px 0 #ffc83d;
+}
+
+.myCV-navbar > div > input {
+    color: black;
+    font-size: 16px;
+    background: transparent;
+    width: 47px;
+    height: 47px;
+    padding: 10px;
+    border: solid 3px #ff6f61;
+    outline: none;
+    border-radius: 35px;
+    box-shadow: 0 1px #ffc83d;
+    transition: width 0.5s;
+}
+
+.myCV-navbar > div > input::placeholder {
+    color: #ffc83d;
+    opacity: 1;
+}
+
+.myCV-navbar > div > input::-ms-placeholder {
+    color: #ffc83d;
+}
+
+.myCV-navbar > div > input::-ms-input-placeholder {
+    color: #ffc83d;
+}
+
+.myCV-navbar > div > input:focus,
+.myCV-navbar > div > input:valid {
+    width: 250px;
+}
+
+.searchCV-displayCV {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    // grid-auto-rows: 5px;
+    margin-top: 40px;
+    margin-bottom: 25px;
+
+    .searchCV-display-info > div > p {
+        margin-bottom: 5px;
+    }
+    .searchCV-info-title {
+        font-size: 30px;
+        margin: 1px 0;
+    }
+    .searchCV-info-date {
+        opacity: 0.3;
+        margin: 1px 0 26px 0;
+    }
+}
+
+.searchCV-displayCV > div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+}
+.searchCV-displayCV > div > img {
+    height: 250px;
+    margin-right: 35px;
+}
