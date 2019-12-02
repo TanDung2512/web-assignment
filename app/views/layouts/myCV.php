@@ -16,32 +16,29 @@
       </div>
 
       <div class="myCV-displayCV">
+      
+      
+      <?php 
+      GLOBAL $cvs;
+      foreach($cvs as $cv) { ?>
         <div>
           <img src="app/images/resum-1.png" />
           <div class="myCV-display-info">
-            <p class="myCV-info-title">Untitled</p>
-            <p class="myCV-info-date">Updated November, 01:05</p>
+            <p class="myCV-info-title">
+            <?php echo $cv->fullname."_".$cv->CV_ID; ?>
+            </p>
+            <p class="myCV-info-date">
+              Created at <?php echo $cv->date_created; ?>
+            </p>
             <div>
-              <p><a href="editCV"><i class="fas fa-pencil-alt myCV-icon" ></i>Edit</a></p>
+              <p><?php echo '<a href="editCV?CV_ID=' . $cv->CV_ID . '">' ?><i class="fas fa-pencil-alt myCV-icon" ></i>Edit</a></p>
               <p><i class="fas fa-arrow-down myCV-icon"></i>Download PDF</p>
               <p><i class="fas fa-trash-alt myCV-icon"></i>Delete</p>
             </div>
           </div>
         </div>
-        <div>
-          <img src="app/images/resum-1.png" />
-          <div class="myCV-display-info">
-            <p class="myCV-info-title">Untitled</p>
-            <p class="myCV-info-date">Updated November, 01:05</p>
-            <div>
-              <p><i class="fas fa-pencil-alt myCV-icon"></i>Edit</p>
-              <p><i class="fas fa-arrow-down myCV-icon"></i>Download PDF</p>
-              <p><i class="fas fa-trash-alt myCV-icon"></i>Delete</p>
-            </div>
-          </div>
-        </div>
+      <?php } ?>
       </div>
-
       <div>
       <i class="fas fa-chevron-left" style="color: #ff6f61;"></i> 1/2 <i class="fas fa-chevron-right myCV-icon"></i>
       </div>

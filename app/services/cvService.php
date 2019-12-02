@@ -10,13 +10,15 @@ require_once(__DIR__."/../classes/cv.php");
   * This class provides all cv-relating functions.
   * @package app\services
   *
-  * @method  getTemplateCV()
+  * @method  getTemplateCVByID()
   * @method  getCVByID()
   * @method  getCVsByUserID(int $user_ID)
   * @method  insertCV(int $user_ID)
   * @method  editCVByID()
   * @method  deleteCVByID()
   * @method  getCVsByType()
+  * @method  isOwnerOfCV()
+  * @method  getTemplateCVs()
   */
 class CVService{
 
@@ -549,5 +551,35 @@ class CVService{
     }
     return true;
   }
+
+  /**
+  * get all templates
+  *
+  * @return Array | boolean
+  */    
+  public function getTemplateCVs () {
+    $query = 'SELECT * FROM cv_template'; 
+    $stmt = $this->db_connection->prepare($query);
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    $returnSet = $stmt->fetchAll();
+
+    if (count($returnSet) != 0) {
+      $returnArr = [];
+
+      foreach($returnSet as $template){
+        $newTemp = new TemplateCV(
+          $template["template_ID"],
+          $template["template_html"],
+          $template["template_img"]
+        );
+          
+        array_push($returnArr, $newTemp);
+      }
+      return $returnArr;
+    }
+    return false;
+  }
+
 }
 ?>
