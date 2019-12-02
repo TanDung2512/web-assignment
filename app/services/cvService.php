@@ -10,13 +10,15 @@ require_once(__DIR__."/../classes/cv.php");
   * This class provides all cv-relating functions.
   * @package app\services
   *
-  * @method  getTemplateCV()
+  * @method  getTemplateCVByID()
   * @method  getCVByID()
   * @method  getCVsByUserID(int $user_ID)
   * @method  insertCV(int $user_ID)
   * @method  editCVByID()
   * @method  deleteCVByID()
   * @method  getCVsByType()
+  * @method  isOwnerOfCV()
+  * @method  getTemplateCVs()
   */
 class CVService{
 
@@ -528,69 +530,95 @@ class CVService{
     return false;
   }
 
-  /**
-  * Get all templates CV.
+  /**     
+  * check if CV belongs to a user
+  * @param int $cv_ID
+  * @param int $user_ID
   *
-  * @return TemplateCV[] return empty list if not found
-  */   
-  public function getTemplateCVs(){
-    $query = 'SELECT * FROM cv_template';
+  * @return boolean
+  */    
+  public function isOwnerOfCV (int $user_ID, int $cv_ID) {
+    $query = 'SELECT * FROM users, cv
+              WHERE users.user_ID = :user_ID 
+                AND users.user_ID = cv.user_id 
+                AND CV_ID = :cv_ID';
+    $stmt = $this->db_connection->prepare($query);
+    $stmt->bindParam(':user_ID', $user_ID, PDO::PARAM_INT);
+    $stmt->bindParam(':cv_ID', $cv_ID, PDO::PARAM_INT);
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    $returnSet = $stmt->fetchAll();
+    if (count($returnSet) == 0) {
+      return false;
+    }
+    return true;
+  }
+
+  /**
+  * get all templates
+  *
+  * @return Array | boolean
+  */    
+  public function getTemplateCVs () {
+    $query = 'SELECT * FROM cv_template'; 
     $stmt = $this->db_connection->prepare($query);
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
-    $resultSet = $stmt->fetchAll(); 
+    $returnSet = $stmt->fetchAll();
 
-    if (count($resultSet) != 0) {
+    if (count($returnSet) != 0) {
       $returnArr = [];
-      foreach($resultSet as $cv){
-        $newTemplate_CV = new TemplateCV(
-          $cv["template_ID"],
-          $cv["template_html"],
-          $cv["template_img"]
+
+      foreach($returnSet as $template){
+        $newTemp = new TemplateCV(
+          $template["template_ID"],
+          $template["template_html"],
+          $template["template_img"]
         );
-        array_push($returnArr, $newTemplate_CV);
+          
+        array_push($returnArr, $newTemp);
       }
       return $returnArr;
     }
     return false;
   }
 
-  public function searchCV(string $key_word){
-    if($key_word == "") return [];
-    
-    $keyword_to_search = '%' . $key_word . '%';
+public function searchCV(string $key_word){
+  if($key_word == "") return [];
+  
+  $keyword_to_search = '%' . $key_word . '%';
 
-    $query = 'SELECT * FROM cv 
-              WHERE raw_info LIKE :key_word';
+  $query = 'SELECT * FROM cv 
+            WHERE raw_info LIKE :key_word';
 
-    $stmt = $this->db_connection->prepare($query);
-    $stmt->bindParam(':key_word', $keyword_to_search, PDO::PARAM_INT);
-    $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    $stmt->execute();
-    $resultSet = $stmt->fetchAll(); 
+  $stmt = $this->db_connection->prepare($query);
+  $stmt->bindParam(':key_word', $keyword_to_search, PDO::PARAM_INT);
+  $stmt->setFetchMode(PDO::FETCH_ASSOC);
+  $stmt->execute();
+  $resultSet = $stmt->fetchAll(); 
+  //var_dump($resultSet);
+  if (count($resultSet) != 0) {
+    $returnArr = [];
     //var_dump($resultSet);
-    if (count($resultSet) != 0) {
-      $returnArr = [];
-      //var_dump($resultSet);
-      foreach($resultSet as $cv){
-        $cv = new CV(
-          $CV_ID = $cv["CV_ID"],
-          $avatar = $cv["avatar"],
-          $category = $cv["category"],
-          $fullname = $cv["fullname"],
-          $professional = $cv["professional"],
-          $about_me = $cv["about_me"],
-          $date_created = $cv["date_created"],
-          $address = $cv["address"],
-          $phone = $cv["phone"],
-          $email = $cv["email"],
-          $template_ID = $cv["template_ID"],
-          $user_id = $cv["user_id"],
-          $experiences = NULL,
-          $education = NULL
-        );
-        array_push($returnArr, $cv);
-      }
+    foreach($resultSet as $cv){
+      $cv = new CV(
+        $CV_ID = $cv["CV_ID"],
+        $avatar = $cv["avatar"],
+        $category = $cv["category"],
+        $fullname = $cv["fullname"],
+        $professional = $cv["professional"],
+        $about_me = $cv["about_me"],
+        $date_created = $cv["date_created"],
+        $address = $cv["address"],
+        $phone = $cv["phone"],
+        $email = $cv["email"],
+        $template_ID = $cv["template_ID"],
+        $user_id = $cv["user_id"],
+        $experiences = NULL,
+        $education = NULL
+      );
+      array_push($returnArr, $cv);  
+    }
       return $returnArr;
     }
     return false;

@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__."/../classes/userService.php");
+require_once(__DIR__."/userService.php");
 
 
  /**

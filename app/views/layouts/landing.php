@@ -20,8 +20,8 @@
         </li>
       </ul>
       <div class="toolkit">
-        <button class="btn-secondary txt--sub-heading mr-2">Sign up</button>
-        <button class="btn txt--sub-heading">Log in</button>
+        <a href="register" class="btn-secondary txt--sub-heading mr-2">Sign up</a>
+        <a href="login" class="btn txt--sub-heading">Log in</a>
       </div>
     </nav>
   </div>
@@ -36,9 +36,9 @@
       ‘resume rules’ employers look for. Easy to use & done within minutes - try
       now for free!
     </p>
-    <button class="btn txt--mid-heading ">
+    <a href="login" class="btn txt--mid-heading ">
       Create My Resume
-    </button>
+    </a>
   </div>
   <div class="resum-img">
     <img src="app/images/resum-1.png" alt="" />

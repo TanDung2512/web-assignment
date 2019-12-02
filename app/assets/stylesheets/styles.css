@@ -118,27 +118,7 @@ p {
     padding: 0.5rem 0.7rem;
     float: right; }
 
-.template-cv__list {
-  width: 35%;
-  padding: 0 1.6rem 1.875rem;
-  overflow: scroll;
-  max-height: 100%;
-  font-size: 1rem;
-  text-align: center;
-  float: left; }
-
-.template-cv__item {
-  display: inline-block;
-  float: left;
-  margin: 10px;
-  width: 40%; }
-  .template-cv__item img {
-    width: 100%;
-    object-fit: contain; }
-
 .template-cv__review {
-  float: right;
-  width: 65%;
   font-size: 0.7em;
   height: 100%;
   overflow: auto;
@@ -429,19 +409,20 @@ page[size="A4"] {
   height: 80px; }
 
 #browseCV .body {
-  height: calc(100% - 80px - 120px);
   text-align: center; }
   #browseCV .body .top {
-    height: 110px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between; }
     #browseCV .body .top h3 {
-      color: #5c5c5c; }
+      color: #5c5c5c;
+      height: 100px; }
     #browseCV .body .top .progress_bar {
       display: flex;
       justify-content: center;
-      align-items: center; }
+      align-items: center;
+      height: 30px; }
       #browseCV .body .top .progress_bar .circle {
         width: 10px;
         height: 10px;
@@ -458,12 +439,11 @@ page[size="A4"] {
         #browseCV .body .top .progress_bar .bar--unreached {
           background-color: #ddd; }
   #browseCV .body .bot {
-    height: calc(100% - 110px); }
+    height: calc(100% - 370px); }
 
 #browseCV footer {
   width: 100%;
   height: 90px;
-  position: fixed;
   bottom: 0;
   display: flex;
   flex-direction: column;
@@ -494,7 +474,8 @@ page[size="A4"] {
     right: 10px; }
 
 #browseCV .cv_template {
-  height: 100%; }
+  width: 400px;
+  height: 560px; }
 
 #browseCV .slick-center .slide-h3 {
   color: #fff; }
@@ -758,19 +739,20 @@ main {
   height: 80px; }
 
 #browseCV .body {
-  height: calc(100% - 80px - 120px);
   text-align: center; }
   #browseCV .body .top {
-    height: 110px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between; }
     #browseCV .body .top h3 {
-      color: #5c5c5c; }
+      color: #5c5c5c;
+      height: 100px; }
     #browseCV .body .top .progress_bar {
       display: flex;
       justify-content: center;
-      align-items: center; }
+      align-items: center;
+      height: 30px; }
       #browseCV .body .top .progress_bar .circle {
         width: 10px;
         height: 10px;
@@ -787,12 +769,11 @@ main {
         #browseCV .body .top .progress_bar .bar--unreached {
           background-color: #ddd; }
   #browseCV .body .bot {
-    height: calc(100% - 110px); }
+    height: calc(100% - 370px); }
 
 #browseCV footer {
   width: 100%;
   height: 90px;
-  position: fixed;
   bottom: 0;
   display: flex;
   flex-direction: column;
@@ -823,7 +804,8 @@ main {
     right: 10px; }
 
 #browseCV .cv_template {
-  height: 100%; }
+  width: 400px;
+  height: 560px; }
 
 #browseCV .slick-center .slide-h3 {
   color: #fff; }

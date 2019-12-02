@@ -128,7 +128,7 @@ class UserService{
     $stmt->bindParam(':user_ID', $user_ID, PDO::PARAM_INT);
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
-    $returnSet = $stmt->fetchAll();;
+    $returnSet = $stmt->fetchAll();
     if (count($returnSet) == 0) {
       return false;
     } 
