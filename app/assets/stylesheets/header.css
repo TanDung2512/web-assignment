@@ -12,6 +12,9 @@
         margin: 0 1rem;
         color: #020202; }
 
+#logout {
+  margin-left: 15px; }
+
 .logo-big {
   height: 40px;
   object-fit: contain; }

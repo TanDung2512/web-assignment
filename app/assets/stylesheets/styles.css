@@ -86,6 +86,9 @@ p {
         margin: 0 1rem;
         color: #020202; }
 
+#logout {
+  margin-left: 15px; }
+
 .logo-big {
   height: 40px;
   object-fit: contain; }
@@ -113,7 +116,8 @@ p {
     float: left;
     font-size: 1.2rem;
     font-weight: 500;
-    line-height: 1.35; }
+    line-height: 1.35;
+    color: white; }
   .preCV__header .btn {
     padding: 0.5rem 0.7rem;
     float: right; }
@@ -153,7 +157,7 @@ p {
     padding: 1em 1em; }
 
 #template-cv {
-  background: inherit;
+  background: white;
   padding: 50px 0; }
 
 page {
@@ -895,6 +899,36 @@ main {
 .searchCV-displayCV > div > img {
   height: 250px;
   margin-right: 35px; }
+
+.upgrade-vip {
+  background-color: #fcf9f8;
+  height: 800px;
+  text-align: center; }
+  .upgrade-vip .upgrade-title {
+    color: #ff6f61;
+    font-weight: 700;
+    font-size: 50px;
+    padding-top: 100px; }
+  .upgrade-vip .upgrade-sub-title {
+    color: #ff6f61;
+    opacity: 0.5;
+    margin-bottom: 30px; }
+  .upgrade-vip .upgrade-enter > input {
+    background-color: #f3e8e4;
+    border: none;
+    height: 42px;
+    width: 304px;
+    border-radius: 4px;
+    padding: 15px;
+    color: #ff6f61; }
+  .upgrade-vip .upgrade-enter > button {
+    background-color: #ff6f61;
+    color: white;
+    height: 42px;
+    width: 132px;
+    border-radius: 37px;
+    margin-left: 39px;
+    font-size: 15px; }
 
 .clearfix {
   zoom: 1; }

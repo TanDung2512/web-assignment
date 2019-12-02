@@ -18,6 +18,7 @@ require_once __DIR__ . "/../controllers/BrowseCVController.php";
 require_once __DIR__ . "/../controllers/TestdbController.php";
 require_once __DIR__ . "/../controllers/TemplateController.php";
 require_once __DIR__ . "/../controllers/TemplateController2.php";
+require_once __DIR__ . "/../controllers/UpgradeVipController.php";
 require_once __DIR__ . "/../controllers/Error404Controller.php";
 require_once __DIR__ . "/../controllers/FakeController.php";
 require_once __DIR__ . "/../services/authenticationService.php";
@@ -102,11 +103,11 @@ Router::GET('/previewCV', function () {
     $priService = new PriviledgeService();
     if ($priService->isLogin()) {
         $previewCV = new PreviewCVController();
-        if(!isset($_GET["CV_ID"])){
+        if (!isset($_GET["CV_ID"])) {
             $editCV = new EditCVController();
             $editCV->render();
         }
-        echo "<script>var CV_ID = ".$_GET["CV_ID"]."</script>";
+        echo "<script>var CV_ID = " . $_GET["CV_ID"] . "</script>";
         $previewCV->render();
     } else {
         $login = new LoginController();
@@ -118,13 +119,11 @@ Router::GET('/editCV', function () {
     $priService = new PriviledgeService();
     if ($priService->isLogin()) {
         $editCV = new EditCVController();
-        if(isset($_GET["CV_ID"])) {
-            echo "<script>var CV_ID = ".$_GET["CV_ID"]."</script>";
-        }
-        else if(isset($_GET["template_ID"])) {
-            echo "<script>var template_ID = ".$_GET["template_ID"]."</script>";
-        }
-        else {
+        if (isset($_GET["CV_ID"])) {
+            echo "<script>var CV_ID = " . $_GET["CV_ID"] . "</script>";
+        } else if (isset($_GET["template_ID"])) {
+            echo "<script>var template_ID = " . $_GET["template_ID"] . "</script>";
+        } else {
             $browseCV = new BrowseCVController();
             $browseCV->render();
         }
@@ -132,7 +131,7 @@ Router::GET('/editCV', function () {
     } else {
         $login = new LoginController();
         $login->render();
-    }    
+    }
 });
 
 Router::GET('/searchCV', function () {
@@ -147,6 +146,11 @@ Router::GET('/searchCV', function () {
     }
 });
 
+Router::GET('/upgrade', function () {
+    $upgradeVIP = new UpgradeVipController();
+    $upgradeVIP->render();
+});
+
 Router::GET('/browseCV', function () {
     $priService = new PriviledgeService();
     if ($priService->isLogin()) {
@@ -155,7 +159,7 @@ Router::GET('/browseCV', function () {
     } else {
         $login = new LoginController();
         $login->render();
-    }  
+    }
 });
 
 Router::GET('/testdb', function () {
@@ -163,7 +167,7 @@ Router::GET('/testdb', function () {
     $testdb->render();
 });
 
-Router::GET('/cv', function(){
+Router::GET('/cv', function () {
     $previewCV = new PreviewCVController();
     echo $previewCV->getCV($_GET["CV_ID"]);
 });
@@ -176,7 +180,7 @@ Router::GET('/template', function () {
     } else {
         $login = new LoginController();
         $login->render();
-    }  
+    }
 });
 
 Router::GET('/template2', function () {
@@ -190,30 +194,28 @@ Router::GET('/template2', function () {
     }
 });
 
-Router::POST('/login-authen', function() {
+Router::POST('/login-authen', function () {
     $authenService = new AuthenService();
     echo $authenService->signin($_POST["mail"], $_POST["password"]);
 });
 
-Router::POST('/register-authen', function() {
+Router::POST('/register-authen', function () {
     $authenService = new AuthenService();
     echo $authenService->signup($_POST["mail"], $_POST["password"], $_POST["password2"]);
 });
 
-Router::POST('/logout-authen', function() {
+Router::POST('/logout-authen', function () {
     $authenService = new AuthenService();
     $authenService->signout();
 });
 
-Router::POST('/editCV', function() {
-   $editCVController = new EditCVController();
-   if(isset($_POST["CV_ID"])){
-    echo $editCVController->editCV();
-   }
-   else {
-       echo $editCVController->submitCV();
-   }    
-   
+Router::POST('/editCV', function () {
+    $editCVController = new EditCVController();
+    if (isset($_POST["CV_ID"])) {
+        echo $editCVController->editCV();
+    } else {
+        echo $editCVController->submitCV();
+    }
 });
 $action = $_SERVER['REQUEST_URI'];
 $action = str_replace("web-assignment/", "", $action);

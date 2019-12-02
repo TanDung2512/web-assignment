@@ -1,5 +1,10 @@
 <section class = "preCV__container">
     <nav class = "preCV__header">
+        <a id="nav-edit">
+            <div class = "nav-back">
+                <span>Back to editor</span>
+            </div>
+        </a>
         <a>
             <div id="download_btn" class = "btn btn--orange">
                 Download PDF
@@ -13,6 +18,10 @@
 </section>
 
 <script>
+    $("#nav-edit").on("click", function(e) {
+        document.location.href = "/web-assignment/editCV?CV_ID="+CV_ID;
+        e.preventDefault();
+    })
     $.ajax({
         type: "GET",
         url: "/web-assignment/cv?CV_ID="+CV_ID,

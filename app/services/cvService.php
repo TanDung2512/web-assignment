@@ -440,7 +440,7 @@ class CVService{
           $e_json["description"]);
       }
     }
-    return $result;
+    return $result ? $CV_ID : false;
   }
 
   /**
