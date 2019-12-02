@@ -27,7 +27,7 @@
     $this->template_img = $template_img;
    }
 
-   public function __get_json(){
+   public function get_json(){
     $json = array(
       "ID" => $this->ID,
       "template_html" => $this->template_html,

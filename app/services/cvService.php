@@ -300,7 +300,12 @@ class CVService{
   *
   * @return boolean return true if edit successfully
   */  
-  public function editCVByID(string $category, string $content, int $CV_ID, int $section_ID = null)  {
+  public function editCVByID(
+    string $category, 
+    string $content, 
+    int $CV_ID, 
+    int $section_ID = null
+    )  {
     if($category == NULL || $content == NULL) return false;
 
     if($section_ID == NULL){
@@ -341,13 +346,11 @@ class CVService{
     string $description = NULL
   ){
     if($ID == NULL) return false;
-
     $start_date_formated = $start_date ? date("Y-m-d", strtotime($start_date)): NULL;
     $end_date_formated = $end_date ? date("Y-m-d", strtotime($end_date)): NULL;
-
-    $query = 'UPDATE info start_date = :start_date, end_date = :end_date, title = :title, description = :description
+    $query = 'UPDATE info SET start_date = :start_date, end_date = :end_date, title = :title, description = :description
               WHERE ID = :ID';
-    
+
     $stmt = $this->db_connection->prepare($query);
     $stmt->bindParam(':ID', $ID, PDO::PARAM_INT);
     $stmt->bindParam(':start_date', $start_date_formated, PDO::PARAM_STR);
@@ -356,6 +359,7 @@ class CVService{
     $stmt->bindParam(':description', $description, PDO::PARAM_STR);
 
     $result = $stmt->execute();
+   
     return $result;
   }
 
@@ -381,8 +385,6 @@ class CVService{
     string $fullname = NULL,
     string $professional = NULL,
     string $about_me = NULL,
-    string $date_created = NULL,
-    string $category = NULL,
     string $address = NULL,
     int $phone = NULL,
     string $email = NULL,
@@ -390,9 +392,8 @@ class CVService{
     array $experiences = NULL,
     array $education = NULL
   ){
-    $date_created_formated = $date_created ? date("Y-m-d", $date_created) : NULL;
 
-    $query = 'UPDATE cv SET avatar = :avatar, fullname = :fullname, professional = :professional, about_me = :about_me, date_created = :date_created, category = :category, address = :address, phone = :phone, email = :email, template_ID = :template_ID
+    $query = 'UPDATE cv SET avatar = :avatar, fullname = :fullname, professional = :professional, about_me = :about_me, address = :address, phone = :phone, email = :email, template_ID = :template_ID
               WHERE CV_ID = :CV_ID';
     $stmt = $this->db_connection->prepare($query);
     $stmt->bindParam(':CV_ID', $CV_ID, PDO::PARAM_INT);
@@ -400,21 +401,18 @@ class CVService{
     $stmt->bindParam(':template_ID', $template_ID, PDO::PARAM_INT);
     $stmt->bindParam(':avatar', $avatar, PDO::PARAM_STR);
     $stmt->bindParam(':fullname', $fullname, PDO::PARAM_STR);
-    $stmt->bindParam(':category', $category, PDO::PARAM_STR);
     $stmt->bindParam(':professional', $professional, PDO::PARAM_STR);
     $stmt->bindParam(':about_me', $about_me, PDO::PARAM_STR);
-    $stmt->bindParam(':date_created', $date_created_formated, PDO::PARAM_STR);
     $stmt->bindParam(':address', $address, PDO::PARAM_STR);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
     $result = $stmt->execute();
-    
+
     if($experiences != NULL){
       foreach($experiences as $experience){
         $e_json = $experience->get_json();
         $e_json = json_decode( $e_json, true );
-        $result = $result && $this->editCVSection(
+        $result = $this->editCVSection(
           $e_json["ID"], 
-          $e_json["info_flag"], 
           $e_json["start_date"], 
           $e_json["end_date"],
           $e_json["title"], 
@@ -423,13 +421,12 @@ class CVService{
       }
     }
 
-    if($education != NULL){
+    if($education != NULL ){
       foreach($education as $education_item){
         $e_json = $education_item->get_json();
         $e_json = json_decode( $e_json, true );
         $result = $result && $this->editCVSection(
           $e_json["ID"], 
-          $e_json["info_flag"], 
           $e_json["start_date"], 
           $e_json["end_date"],
           $e_json["title"], 
@@ -525,5 +522,58 @@ class CVService{
     }
     return false;
   }
+
+  /**
+  * Get all templates CV.
+  *
+  * @return TemplateCV[] return empty list if not found
+  */   
+  public function getTemplateCVs(){
+    $query = 'SELECT * FROM cv_template';
+    $stmt = $this->db_connection->prepare($query);
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    $resultSet = $stmt->fetchAll(); 
+
+    if (count($resultSet) != 0) {
+      $returnArr = [];
+      foreach($resultSet as $cv){
+        $newTemplate_CV = new TemplateCV(
+          $cv["template_ID"],
+          $cv["template_html"],
+          $cv["template_img"]
+        );
+        array_push($returnArr, $newTemplate_CV);
+      }
+      return $returnArr;
+    }
+    return false;
+  }
+
+  // /**
+  // * get template CV by ID .
+  // * @param int template_ID 
+  // *
+  // * @return TemplateCV[] return empty list if not found
+  // */   
+  // public function getTemplateCVByID(int $template_ID){
+  //   if($template_ID == NULL) return false;
+  //   $query = 'SELECT * FROM cv_template WHERE template_ID = :template_ID';
+  //   $stmt = $this->db_connection->prepare($query);
+  //   $stmt->bindParam(':template_ID', $template_ID, PDO::PARAM_INT);
+  //   $stmt->setFetchMode(PDO::FETCH_ASSOC);
+  //   $stmt->execute();
+  //   $resultSet = $stmt->fetchAll(); 
+
+  //   if (count($resultSet) != 1) {
+  //     $newTemplate_CV = new TemplateCV(
+  //       $cv[0]["template_ID"],
+  //       $cv[0]["template_html"],
+  //       $cv[0]["template_img"]
+  //     );
+  //     return $newTemplate_CV;
+  //   }
+  //   return false;
+  // }
 }
 ?>
