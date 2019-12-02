@@ -72,7 +72,7 @@ Router::GET('/previewCV', function () {
 
 Router::GET('/editCV', function () {
     $editCV = new EditCVController();
-    echo "<script>var CV_ID = ".$_GET["CV_ID"]."</script>";
+    if(isset($_GET["CV_ID"])) echo "<script>var CV_ID = ".$_GET["CV_ID"]."</script>";
     $editCV->render();
 });
 
