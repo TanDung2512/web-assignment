@@ -1,14 +1,66 @@
-@import "./color.scss";
-.a {
-    color: #000;
-    &__a {
-        color: $black;
+@import "./colors.scss";
+@import "./normalize.scss";
+// -------------- GLOBAL CLASSES ---------------
+.clearfix {
+    &:after,
+    &:before {
+        content: " ";
+        display: block;
+        overflow: hidden;
+        visibility: hidden;
+        width: 0;
+        height: 0;
     }
-    &__b {
-        color: #ffff;
+    zoom: 1;
+}
+
+.txt {
+    &--big-heading {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    &--heading {
+        font-size: 2rem;
+    }
+    &--regular {
+        font-size: 1rem;
+    }
+    &--bold {
+        font-weight: bold;
     }
 }
 
-h1 {
-    font-size: 90px;
+.btn {
+    height: 40px;
+    color: white;
+    background-color: $living-coral;
+    padding: 8px;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+}
+
+.input {
+    height: 48px;
+    width: 100%;
+    padding: 10px;
+    background-color: $light-gray;
+    border: none;
+    border-bottom: 1px solid $living-coral;
+}
+
+.input::placeholder {
+    color: $gray;
+}
+
+.eclipse {
+    width: 20px;
+    height: 20px;
+    opacity: 0.27;
+    border: 5px solid $gray;
+    background-color: white;
+}
+
+.txt-color {
+    color: $living-coral;
 }
