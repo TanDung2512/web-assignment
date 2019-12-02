@@ -110,7 +110,6 @@ Router::GET('/previewCV', function () {
         $previewCV->render();
     } else {
         $login = new LoginController();
-        //echo "<script>var CV_ID = ".$_GET["CV_ID"]."</script>";
         $login->render();
     }
 });
@@ -119,7 +118,16 @@ Router::GET('/editCV', function () {
     $priService = new PriviledgeService();
     if ($priService->isLogin()) {
         $editCV = new EditCVController();
-        if(isset($_GET["CV_ID"])) echo "<script>var CV_ID = ".$_GET["CV_ID"]."</script>";
+        if(isset($_GET["CV_ID"])) {
+            echo "<script>var CV_ID = ".$_GET["CV_ID"]."</script>";
+        }
+        else if(isset($_GET["template_ID"])) {
+            echo "<script>var template_ID = ".$_GET["template_ID"]."</script>";
+        }
+        else {
+            $browseCV = new BrowseCVController();
+            $browseCV->render();
+        }
         $editCV->render();
     } else {
         $login = new LoginController();

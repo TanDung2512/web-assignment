@@ -57,7 +57,7 @@
             }
 
             return $this->cvService->insertCV(
-                $user_id = 1,
+                $user_id = $_SESSION["user_ID"],
                 $avatar = $_POST["avatar"],
                 $fullname = $_POST["fullname"],
                 $professional = $_POST["professional"],
@@ -67,7 +67,7 @@
                 $address = $_POST["address"],
                 $phone = $_POST["phone"],
                 $email = $_POST["email"],
-                $template_ID = 1,
+                $template_ID = $_POST["template_ID"],
                 $raw_info = $raw_info,
                 $education = $education,
                 $experiences = $experiences

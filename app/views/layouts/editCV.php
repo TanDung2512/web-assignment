@@ -169,6 +169,7 @@
         // console.log(CV_ID);
 
         if(typeof CV_ID == "undefined"){
+            typeof template_ID != "undefined" && $(".editCV").data("template_ID", template_ID);
             addEdu();
             addJob();
         }
