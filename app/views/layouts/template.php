@@ -1,5 +1,5 @@
-<div id="template-cv">
-    <page size="A4">
+<div>
+    <page size="A4" id="template-cv">
         <div class="cv-container">
             <section class="cv-section ali-center" id="section-header">
                 <div class="img-wrapper">
