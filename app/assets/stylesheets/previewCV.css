@@ -26,27 +26,7 @@
     padding: 0.5rem 0.7rem;
     float: right; }
 
-.template-cv__list {
-  width: 35%;
-  padding: 0 1.6rem 1.875rem;
-  overflow: scroll;
-  max-height: 100%;
-  font-size: 1rem;
-  text-align: center;
-  float: left; }
-
-.template-cv__item {
-  display: inline-block;
-  float: left;
-  margin: 10px;
-  width: 40%; }
-  .template-cv__item img {
-    width: 100%;
-    object-fit: contain; }
-
 .template-cv__review {
-  float: right;
-  width: 65%;
   font-size: 0.7em;
   height: 100%;
   overflow: auto;

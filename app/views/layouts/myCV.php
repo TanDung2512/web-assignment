@@ -19,8 +19,7 @@
       
       
       <?php 
-      GLOBAL $cvs;
-      foreach($cvs as $cv) { ?>
+      foreach($_REQUEST["cvs"] as $cv) { ?>
         <div>
           <img src="app/images/resum-1.png" />
           <div class="myCV-display-info">

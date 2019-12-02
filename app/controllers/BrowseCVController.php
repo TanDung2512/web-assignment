@@ -16,8 +16,7 @@
         }
 
         public function render(){
-            GLOBAL $templates;
-            $templates = $this->getTemplates();
+            $_REQUEST["templates"] = $this->getTemplates();
             parent::getView("browseCV");
         }
 

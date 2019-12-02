@@ -15,8 +15,7 @@
         }
 
         public function render(){
-            GLOBAL $cvs;
-            $cvs = $this->getCVs();
+            $_REQUEST["cvs"] = $this->getCVs();
             parent::getView("myCV");
         }
     }
