@@ -103,7 +103,7 @@ Router::GET('/previewCV', function () {
     $priService = new PriviledgeService();
     if ($priService->isLogin()) {
         $previewCV = new PreviewCVController();
-        if (!isset($_GET["CV_ID"])) {
+        if (!isset($_GET["CV_ID"]) || !$previewCV->isPriviledge()) {
             $editCV = new EditCVController();
             $editCV->render();
         }
@@ -119,7 +119,8 @@ Router::GET('/editCV', function () {
     $priService = new PriviledgeService();
     if ($priService->isLogin()) {
         $editCV = new EditCVController();
-        if (isset($_GET["CV_ID"])) {
+        $previewCV = new PreviewCVController();
+        if (isset($_GET["CV_ID"]) AND $previewCV->isOwnerOfCV()) {
             echo "<script>var CV_ID = " . $_GET["CV_ID"] . "</script>";
         } else if (isset($_GET["template_ID"])) {
             echo "<script>var template_ID = " . $_GET["template_ID"] . "</script>";
@@ -141,14 +142,26 @@ Router::GET('/searchCV', function () {
         $searchCV->render();
     }
     else{
-        $login = new LoginController();
-        $login->render();
+        $upgradeVIP = new UpgradeVipController();
+        $upgradeVIP->render();
     }
 });
 
 Router::GET('/upgrade', function () {
     $upgradeVIP = new UpgradeVipController();
     $upgradeVIP->render();
+});
+
+Router::POST('/upgrade', function () {
+    $upgradeVIP = new UpgradeVipController();
+    if($upgradeVIP->upgradeVIP()){
+        $home = new HomeController();
+        $home->render();
+    }
+    else{
+        $upgradeVIP->render();
+    }
+    
 });
 
 Router::GET('/browseCV', function () {

@@ -104,3 +104,7 @@
     </div>
   </div>
 </footer>
+
+<script>
+  $("#loading").css("display", "none");
+</script>

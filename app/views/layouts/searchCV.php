@@ -16,6 +16,9 @@
             </div>
             <div class="searchCV-displayCV">
             <?php 
+                if (count($_REQUEST["cv-list"]) == 0){
+                    echo "<p>There is no CV yet</p>";
+                }
                 foreach($_REQUEST["cv-list"] as $cv): 
             ?>
                     <div>
@@ -49,13 +52,12 @@
 </div>
 
 <script>
-
+    $("#loading").css("display", "none");
     $("#search-input").on("keypress",function(e){
-        
         if(e.which == 13) {
             console.log($(this))
             window.location.href = "/web-assignment/searchCV?key_word="+$(this).val();
         };
     })
-   
+
 </script>

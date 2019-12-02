@@ -10,7 +10,7 @@
           <a href="searchCV" class="txt--sub-heading">search CV</a>
         </li>
         <li>
-          <a href="#" class="txt--sub-heading">Examples</a>
+          <a href="myCV" class="txt--sub-heading">My CV</a>
         </li>
         <li>
           <a href="#" class="txt--sub-heading">Guides</a>
@@ -25,7 +25,7 @@
         <span>
           <?php 
           if (isset($_SESSION["user_mail"])) {
-            echo $_SESSION["user_mail"];
+            echo strtok($_SESSION["user_mail"],"@");
           } else {
             echo "lmao";
           }
@@ -35,8 +35,18 @@
       </div>
     </nav>
   </div>
-</header>
 
+</header>
+  <div class = "loading-wrapper" id = "loading">
+    <div class="sk-chase">
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+    </div>
+    </div>
 <script>
 $(document).ready(function(){
   $("#logout").on("click" ,function(e){

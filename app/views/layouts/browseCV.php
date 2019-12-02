@@ -128,4 +128,7 @@
             }]
         });
     });
+    $(document).ready(function() {
+        $("#loading").css("display", "none");
+    });
 </script>

@@ -44,3 +44,6 @@
     </div>
   </div>
 </div>
+<script>
+  $("#loading").css("display", "none");
+</script>

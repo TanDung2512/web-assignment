@@ -22,8 +22,10 @@
     </div>
 </div>
 <script>
+$("#loading").css("display", "none");
 $(document).ready(function(){
   $("#login").on("click" ,function(e){
+    $("#loading").css("display", "block"); 
     $.ajax({
         url:"/web-assignment/login-authen",
         type: "POST",

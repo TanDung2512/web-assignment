@@ -40,7 +40,9 @@
 
 <script>
 $(document).ready(function(){
+  $("#loading").css("display", "none");
   $("#signup").on("click" ,function(e){
+    $("#loading").css("display", "block");
     $.ajax({
         url:"/web-assignment/register-authen",
         type: "POST",

@@ -31,6 +31,7 @@
             let template_cv_parse = JSON.parse(result_parse.template_cv);  
             $(".template-cv__review").append(template_cv_parse.template_html);  
             genCV(result_parse.cv);
+            $("#loading").css("display", "none");
         }
     })
 

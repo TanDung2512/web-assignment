@@ -13,7 +13,7 @@ class PriviledgeService {
 
     private $userService;
     
-    public function __constructor(){
+    public function __construct(){
         $this->userService = new UserService();
     } 
 
@@ -37,9 +37,7 @@ class PriviledgeService {
     */  
     public function isVIP(){
         if(!isset($_SESSION["user_ID"])) return false;
-        var_dump($this->userService);
         $response_value = $this->userService->getRoleByID($_SESSION["user_ID"]);
-
         if($response_value == "VIP"){
             return true;
         }
@@ -55,9 +53,8 @@ class PriviledgeService {
     * @return boolean
     */  
     public function upgradeVIP($code){
-        if(!isset($_SESSION["user_ID"]) || $this->isVIP()) return false;
+        if(!isset($_SESSION["user_ID"]) || $code != "upgrade-vip") return false;
         return $this->userService->updateRoleByID($_SESSION["user_ID"], "VIP");
-
     }
 
     

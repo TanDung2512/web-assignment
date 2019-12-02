@@ -172,6 +172,7 @@
             typeof template_ID != "undefined" && $(".editCV").data("template_ID", template_ID);
             addEdu();
             addJob();
+            $("#loading").css("display", "none");
         }
         else{
             $.ajax({
@@ -182,9 +183,12 @@
                 let result_parse =  JSON.parse(result);
                 console.log(result_parse.cv);
                 addDataToInput(result_parse.cv);
+                $("#loading").css("display", "none");
+
             },
         });
         }
+
 
         function addDataToInput(data){
 
