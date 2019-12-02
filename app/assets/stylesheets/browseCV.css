@@ -31,8 +31,6 @@
           background-color: #ff6f61; }
         #browseCV .body .top .progress_bar .bar--unreached {
           background-color: #ddd; }
-  #browseCV .body .bot {
-    height: calc(100% - 370px); }
 
 #browseCV footer {
   width: 100%;
@@ -93,6 +91,6 @@
 #browseCV .slick-center {
   opacity: 1; }
 
-#browseCV .slide-item.slick-current.slick-center > div {
+#browseCV .slide-item.slick-current.slick-center > a > div {
   border: 2px solid #ff5544 !important;
   display: inline-block; }

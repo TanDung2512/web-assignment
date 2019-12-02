@@ -110,6 +110,7 @@ Router::GET('/previewCV', function () {
         $previewCV->render();
     } else {
         $login = new LoginController();
+        //echo "<script>var CV_ID = ".$_GET["CV_ID"]."</script>";
         $login->render();
     }
 });
