@@ -41,7 +41,8 @@ CREATE TABLE `cv` (
   `phone` int(11) DEFAULT NULL,
   `email` varchar(2047) DEFAULT NULL,
   `template_ID` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL
+  `raw_info` text DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

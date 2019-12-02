@@ -47,6 +47,7 @@ class CVService{
   * @param int $phone
   * @param string $email
   * @param int $template_ID
+  * @param string $raw_info
   * @param CV_Section[] experiences
   * @param CV_Section[] education 
   *
@@ -64,13 +65,14 @@ class CVService{
     int $phone = NULL,
     string $email = NULL,
     int $template_ID = NULL,
+    string $raw_info = NULL,
     array $experiences = NULL,
     array $education = NULL
   ) {
     $date_created_formated = $date_created ? date("Y-m-d", $date_created) : NULL;
 
-    $query = 'INSERT INTO cv (avatar, fullname, professional, about_me, date_created, category, address, phone, email, template_ID, user_id)
-    VALUES(:avatar, :fullname, :professional, :about_me, :date_created, :category, :address, :phone, :email, :template_ID, :user_id)';
+    $query = 'INSERT INTO cv (avatar, fullname, professional, about_me, date_created, category, address, phone, email, template_ID, user_id, raw_info)
+    VALUES(:avatar, :fullname, :professional, :about_me, :date_created, :category, :address, :phone, :email, :template_ID, :user_id, :raw_info)';
     $stmt = $this->db_connection->prepare($query);
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->bindParam(':phone', $phone, PDO::PARAM_INT);
@@ -83,10 +85,10 @@ class CVService{
     $stmt->bindParam(':date_created', $date_created_formated, PDO::PARAM_STR);
     $stmt->bindParam(':address', $address, PDO::PARAM_STR);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    $stmt->bindParam(':raw_info', $raw_info, PDO::PARAM_STR);
     $result = $stmt->execute();
 
     $CV_ID = $this->db_connection->lastInsertId();
-    
     if($experiences != NULL){
       foreach($experiences as $experience){
         $e_json = $experience->get_json();
@@ -94,7 +96,7 @@ class CVService{
        // var_dump($e_json);
         $result = $result && $this->insertCVSection(
           $CV_ID, 
-          $e_json["info_flag"], 
+          "0", 
           $e_json["start_date"], 
           $e_json["end_date"],
           $e_json["title"], 
@@ -102,14 +104,13 @@ class CVService{
         );
       }
     }
-
     if($education != NULL){
       foreach($education as $education_item){
         $e_json = $education_item->get_json();
         $e_json = json_decode( $e_json, true );
         $result = $result && $this->insertCVSection(
           $CV_ID, 
-          $e_json["info_flag"], 
+          "1", 
           $e_json["start_date"], 
           $e_json["end_date"],
           $e_json["title"], 
@@ -218,8 +219,8 @@ class CVService{
     if (count($resultSet) != 0) {
       $returnArr = [];
       foreach($resultSet as $cv){
-        $experiences = $this->getCVSectionsByCVID($cv["CV_ID"], "1");
-        $education = $this->getCVSectionsByCVID($cv["CV_ID"], "2");
+        $experiences = $this->getCVSectionsByCVID($cv["CV_ID"], "0");
+        $education = $this->getCVSectionsByCVID($cv["CV_ID"], "1");
         if(!$experiences) $experiences = NULL;
         if(!$education) $education = NULL;
 
@@ -236,6 +237,7 @@ class CVService{
           $cv["email"],
           $cv["template_ID"],
           $cv["user_id"],
+          $cv["raw_info"],
           $experiences,
           $education
         );
@@ -265,26 +267,27 @@ class CVService{
     $result = $stmt->fetchAll(); 
     
     if (count($result) == 1) {
-      $experiences = $this->getCVSectionsByCVID($result[0]["CV_ID"], "1");
-      $education = $this->getCVSectionsByCVID($result[0]["CV_ID"], "2");
+      $experiences = $this->getCVSectionsByCVID($result[0]["CV_ID"], "0");
+      $education = $this->getCVSectionsByCVID($result[0]["CV_ID"], "1");
       if(!$experiences) $experiences = NULL;
       if(!$education) $education = NULL;
 
         $cv = new CV(
-          $result[0]["CV_ID"],
-          $result[0]["avatar"],
-          $result[0]["category"],
-          $result[0]["fullname"],
-          $result[0]["professional"],
-          $result[0]["about_me"],
-          $result[0]["date_created"],
-          $result[0]["address"],
-          $result[0]["phone"],
-          $result[0]["email"],
-          $result[0]["template_ID"],
-          $result[0]["user_id"],
-          $experiences,
-          $education
+          $CV_ID = $result[0]["CV_ID"],
+          $avatar = $result[0]["avatar"],
+          $category = $result[0]["category"],
+          $fullname = $result[0]["fullname"],
+          $professional = $result[0]["professional"],
+          $about_me = $result[0]["about_me"],
+          $date_created = $result[0]["date_created"],
+          $address = $result[0]["address"],
+          $phone = $result[0]["phone"],
+          $email = $result[0]["email"],
+          $template_ID = $result[0]["template_ID"],
+          $user_id = $result[0]["user_id"],
+          $raw_info = $result[0]["raw_info"],
+          $experiences = $experiences,
+          $education = $education
         );
       return $cv;
     }
@@ -389,11 +392,12 @@ class CVService{
     int $phone = NULL,
     string $email = NULL,
     int $template_ID = NULL,
+    string $raw_info = NULL,
     array $experiences = NULL,
     array $education = NULL
   ){
 
-    $query = 'UPDATE cv SET avatar = :avatar, fullname = :fullname, professional = :professional, about_me = :about_me, address = :address, phone = :phone, email = :email, template_ID = :template_ID
+    $query = 'UPDATE cv SET avatar = :avatar, fullname = :fullname, professional = :professional, about_me = :about_me, address = :address, phone = :phone, email = :email, template_ID = :template_ID, raw_info = :raw_info
               WHERE CV_ID = :CV_ID';
     $stmt = $this->db_connection->prepare($query);
     $stmt->bindParam(':CV_ID', $CV_ID, PDO::PARAM_INT);
@@ -405,6 +409,7 @@ class CVService{
     $stmt->bindParam(':about_me', $about_me, PDO::PARAM_STR);
     $stmt->bindParam(':address', $address, PDO::PARAM_STR);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    $stmt->bindParam(':raw_info', $raw_info, PDO::PARAM_STR);
     $result = $stmt->execute();
 
     if($experiences != NULL){
@@ -500,20 +505,20 @@ class CVService{
         if(!$education) $education = NULL;
 
         $newCV = new CV(
-          $cv["CV_ID"],
-          $cv["avatar"],
-          $cv["category"],
-          $cv["fullname"],
-          $cv["professional"],
-          $cv["about_me"],
-          $cv["date_created"],
-          $cv["address"],
-          $cv["phone"],
-          $cv["email"],
-          $cv["template_ID"],
-          $cv["user_id"],
-          $experiences,
-          $education
+          $CV_ID = $cv["CV_ID"],
+          $avatar = $cv["avatar"],
+          $category = $cv["category"],
+          $fullname = $cv["fullname"],
+          $professional = $cv["professional"],
+          $about_me = $cv["about_me"],
+          $date_created = $cv["date_created"],
+          $address = $cv["address"],
+          $phone = $cv["phone"],
+          $email = $cv["email"],
+          $template_ID = $cv["template_ID"],
+          $user_id = $cv["user_id"],
+          $experiences = $experiences,
+          $education = $education
         );
           
         array_push($returnArr, $newCV);
@@ -550,30 +555,45 @@ class CVService{
     return false;
   }
 
-  // /**
-  // * get template CV by ID .
-  // * @param int template_ID 
-  // *
-  // * @return TemplateCV[] return empty list if not found
-  // */   
-  // public function getTemplateCVByID(int $template_ID){
-  //   if($template_ID == NULL) return false;
-  //   $query = 'SELECT * FROM cv_template WHERE template_ID = :template_ID';
-  //   $stmt = $this->db_connection->prepare($query);
-  //   $stmt->bindParam(':template_ID', $template_ID, PDO::PARAM_INT);
-  //   $stmt->setFetchMode(PDO::FETCH_ASSOC);
-  //   $stmt->execute();
-  //   $resultSet = $stmt->fetchAll(); 
+  public function searchCV(string $key_word){
+    if($key_word == "") return [];
+    
+    $keyword_to_search = '%' . $key_word . '%';
 
-  //   if (count($resultSet) != 1) {
-  //     $newTemplate_CV = new TemplateCV(
-  //       $cv[0]["template_ID"],
-  //       $cv[0]["template_html"],
-  //       $cv[0]["template_img"]
-  //     );
-  //     return $newTemplate_CV;
-  //   }
-  //   return false;
-  // }
+    $query = 'SELECT * FROM cv 
+              WHERE raw_info LIKE :key_word';
+
+    $stmt = $this->db_connection->prepare($query);
+    $stmt->bindParam(':key_word', $keyword_to_search, PDO::PARAM_INT);
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    $resultSet = $stmt->fetchAll(); 
+    //var_dump($resultSet);
+    if (count($resultSet) != 0) {
+      $returnArr = [];
+      //var_dump($resultSet);
+      foreach($resultSet as $cv){
+        $cv = new CV(
+          $CV_ID = $cv["CV_ID"],
+          $avatar = $cv["avatar"],
+          $category = $cv["category"],
+          $fullname = $cv["fullname"],
+          $professional = $cv["professional"],
+          $about_me = $cv["about_me"],
+          $date_created = $cv["date_created"],
+          $address = $cv["address"],
+          $phone = $cv["phone"],
+          $email = $cv["email"],
+          $template_ID = $cv["template_ID"],
+          $user_id = $cv["user_id"],
+          $experiences = NULL,
+          $education = NULL
+        );
+        array_push($returnArr, $cv);
+      }
+      return $returnArr;
+    }
+    return false;
+  }
 }
 ?>

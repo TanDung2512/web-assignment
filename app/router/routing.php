@@ -78,8 +78,8 @@ Router::GET('/editCV', function () {
 });
 
 Router::GET('/searchCV', function () {
-    $editCV = new SearchCVController();
-    $editCV->render();
+    $searchCV = new SearchCVController();
+    $searchCV->render();
 });
 
 Router::GET('/browseCV', function () {
@@ -119,7 +119,6 @@ Router::POST('/logout-authen', function() {
 
 Router::POST('/editCV', function() {
    $editCVController = new EditCVController();
-
    if(isset($_POST["CV_ID"])){
     echo $editCVController->editCV();
    }

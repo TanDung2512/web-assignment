@@ -111,4 +111,8 @@
         // max-height: 20% !important;
         opacity: 1;
     }
+    .slide-item.slick-current.slick-center>div {
+        border: 2px solid $tomato!important;
+        display: inline-block;
+    }
 }

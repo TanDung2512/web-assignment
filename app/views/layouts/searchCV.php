@@ -7,107 +7,37 @@
             <div class="myCV-navbar" style="justify-content: flex-end;">
                 <div>
                     <input
+                        id = "search-input"
                         type="text"
-                        placeholder="       Search . . ."
+                        placeholder="Search . . ."
                         required
                     />
                 </div>
             </div>
-
             <div class="searchCV-displayCV">
-                <div>
-                    <img src="app/images/resum-1.png" />
-                    <div class="searchCV-display-info">
-                        <p class="searchCV-info-title">Untitled</p>
-                        <p class="searchCV-info-date" style="margin-bottom:5px;" >Updated November, 01:05</p>
-                        <p class="searchCV-info-date">Posted by: <span>Nhu Vo</span></p>
-                        <div>
-                            <p>
-                                <a href="#"
-                                    ><i class="fas fa-eye myCV-icon"></i>View</a
-                                >
-                            </p>
-                            <p>
-                                <i class="fas fa-arrow-down myCV-icon"></i
-                                >Download PDF
-                            </p>
+            <?php 
+                foreach($_REQUEST["cv-list"] as $cv): 
+            ?>
+                    <div>
+                        <img src="app/images/resum-1.png" />
+                        <div class="searchCV-display-info">
+                            <p class="searchCV-info-title"><?php echo $cv->fullname."_".$cv->CV_ID ?></p>
+                            <p class="searchCV-info-date" style="margin-bottom:5px;" >Created at <?php echo $cv->date_created ?></p>
+                            <p class="searchCV-info-date">Posted by: <span><?php echo $cv->fullname ?></span></p>
+                            <div>
+                                <p>
+                                    <?php echo '<a href="previewCV?CV_ID=' . $cv->CV_ID . '"' ?>
+                                        ><i class="fas fa-eye myCV-icon"></i>View</a
+                                    >
+                                </p>
+                                <p>
+                                    <i class="fas fa-arrow-down myCV-icon"></i
+                                    >Download PDF
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <img src="app/images/resum-1.png" />
-                    <div class="searchCV-display-info">
-                        <p class="searchCV-info-title">Untitled</p>
-                        <p class="searchCV-info-date" style="margin-bottom:5px;">Updated November, 01:05</p>
-                        <p class="searchCV-info-date">Posted by: <span>Nhu Vo</span></p>
-                        <div>
-                            <p>
-                                <i class="fas fa-eye myCV-icon"></i></i>View
-                            </p>
-                            <p>
-                                <i class="fas fa-arrow-down myCV-icon"></i
-                                >Download PDF
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <img src="app/images/resum-1.png" />
-                    <div class="searchCV-display-info">
-                        <p class="searchCV-info-title">Untitled</p>
-                        <p class="searchCV-info-date" style="margin-bottom:5px;">Updated November, 01:05</p>
-                        <p class="searchCV-info-date">Posted by: <span>Nhu Vo</span></p>
-                        <div>
-                            <p>
-                                <a href="#"
-                                    ><i class="fas fa-eye myCV-icon"></i>View</a
-                                >
-                            </p>
-                            <p>
-                                <i class="fas fa-arrow-down myCV-icon"></i
-                                >Download PDF
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <img src="app/images/resum-1.png" />
-                    <div class="searchCV-display-info">
-                        <p class="searchCV-info-title">Untitled</p>
-                        <p class="searchCV-info-date" style="margin-bottom:5px;">Updated November, 01:05</p>
-                        <p class="searchCV-info-date">Posted by: <span>Nhu Vo</span></p>
-                        <div>
-                            <p>
-                                <a href="#"
-                                    ><i class="fas fa-eye myCV-icon"></i>View</a
-                                >
-                            </p>
-                            <p>
-                                <i class="fas fa-arrow-down myCV-icon"></i
-                                >Download PDF
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <img src="app/images/resum-1.png" />
-                    <div class="searchCV-display-info">
-                        <p class="searchCV-info-title">Untitled</p>
-                        <p class="searchCV-info-date" style="margin-bottom:5px;">Updated November, 01:05</p>
-                        <p class="searchCV-info-date">Posted by: <span>Nhu Vo</span></p>
-                        <div>
-                            <p>
-                                <a href="#"
-                                    ><i class="fas fa-eye myCV-icon"></i>View</a
-                                >
-                            </p>
-                            <p>
-                                <i class="fas fa-arrow-down myCV-icon"></i
-                                >Download PDF
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>    
             </div>
 
             <div>
@@ -117,3 +47,15 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    $("#search-input").on("keypress",function(e){
+        
+        if(e.which == 13) {
+            console.log($(this))
+            window.location.href = "/web-assignment/searchCV?key_word="+$(this).val();
+        };
+    })
+   
+</script>

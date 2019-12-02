@@ -12,8 +12,20 @@
         }
 
 
+        public function createRawInfo($param){
+            $data = "";
+            foreach($param as $key => $value){
+                if(is_array($value)) 
+                    $data = $data." ".$this->createRawInfo($value);
+                else 
+                    $data = $data." ".$value;
+            }
+            return $data;
+        }
 
         public function submitCV(){
+            $raw_info = $this->createRawInfo($_POST);
+
             $experiences = [];
             foreach($_POST["experiences"] as $ex ){
                 $CV_section = new CV_Section(
@@ -36,10 +48,10 @@
                     null,
                     null,
                     $info_flag = "1",
-                    $start_date = $ex["start_date"],
-                    $end_date = $ex["end_date"],
-                    $title = $ex["title"],
-                    $description = $ex["description"]
+                    $start_date = $edu["start_date"],
+                    $end_date = $edu["end_date"],
+                    $title = $edu["title"],
+                    $description = $edu["description"]
                 );
                 array_push($education, $CV_section);
             }
@@ -56,6 +68,7 @@
                 $phone = $_POST["phone"],
                 $email = $_POST["email"],
                 $template_ID = 1,
+                $raw_info = $raw_info,
                 $education = $education,
                 $experiences = $experiences
             );
@@ -63,6 +76,8 @@
 
 
         public function editCV(){
+            $raw_info = $this->createRawInfo($_POST);
+
             $experiences = [];
             if(isset($_POST["experiences"])) foreach($_POST["experiences"] as $ex ){
                 $CV_section = new CV_Section(
@@ -102,6 +117,7 @@
                 $phone = $_POST["phone"],
                 $email = $_POST["email"],
                 $template_ID = intval($_POST["template_ID"]),
+                $raw_info = $raw_info,
                 $experiences = $experiences,
                 $education = $education
             );

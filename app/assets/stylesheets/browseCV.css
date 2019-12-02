@@ -91,3 +91,7 @@
 
 #browseCV .slick-center {
   opacity: 1; }
+
+#browseCV .slide-item.slick-current.slick-center > div {
+  border: 2px solid #ff5544 !important;
+  display: inline-block; }

@@ -71,7 +71,7 @@
             return createSectionCVTag(element, "cv-experience");
         })
 
-        let listOfEduTag = data["Education"] && data["Education"].map(function(element) {
+        let listOfEduTag = data["education"] && data["education"].map(function(element) {
             return createSectionCVTag(element, "cv-education");
         })
         $("#section-education .cv-education-list").append(listOfEduTag || "");

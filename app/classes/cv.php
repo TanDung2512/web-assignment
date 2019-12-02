@@ -52,7 +52,7 @@ class CV_Section {
   /** 
    * @var string $info_flag 
    * 1 is Experience 
-   * 2 is Education
+   * 2 is education
    * */
   public $info_flag;
 
@@ -155,8 +155,8 @@ class CV {
   /** @var CV_Section[] $experiences */
   public $experiences;
 
-  /** @var CV_Section[] $Education */
-  public $Education;
+  /** @var CV_Section[] $education */
+  public $education;
 
 
 /**
@@ -170,11 +170,12 @@ class CV {
   * @param string $address
   * @param string $phone
   * @param string $email
+  * @param string $raw_info
   * @param int $template_ID
   * @param int $user_id
   * @param string $category
   * @param CV_Section[] $experiences
-  * @param CV_Section[] $Education
+  * @param CV_Section[] $education
   *
   * @return instance
   */
@@ -191,8 +192,9 @@ class CV {
         $email = null,
         $template_ID = null,
         $user_id = null,
+        $raw_info = null,
         $experiences = null,
-        $Education = null
+        $education = null
     ) {
         $this->CV_ID = $CV_ID;
         $this->avatar = $avatar;
@@ -206,42 +208,10 @@ class CV {
         $this->template_ID = $template_ID;
         $this->user_id = $user_id;
         $this->category = $category;
+        $this->raw_info = $raw_info;
         $this->experiences = $experiences;
-        $this->Education = $Education;
+        $this->education = $education;
   }
-
-/**
-  * get attribute of cv.
-  * @param string $name
-  *
-  * @return attribute
-  */
-  // public function get(string $name) {
-  //   $name = "_".$name;
-  //   var_dump($name);
-  //   if (property_exists("CV", $name)) {
-  //     return $this->getProperty($name);
-  //   } else {
-  //     return null;
-  //   }
-  // }
-  
-/**
-  * set attribute of user
-  * @param string $name 
-  * @param string $value
-  *
-  * @return boolean
-  */  
-  // public function set(string $name, string $value) {
-  //   $name = "_".$name;
-  //   if (property_exists("CV",$name) and $value != null) {
-  //     $this[$name] = $value;
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
 
   public function convertArrayCVSectionToJson($list){
     if($list == NULL) return NULL;
@@ -260,7 +230,7 @@ class CV {
   */
   public function get_json(){
     $experiences = $this->convertArrayCVSectionToJson($this->experiences);
-    $Education = $this->convertArrayCVSectionToJson($this->Education);
+    $education = $this->convertArrayCVSectionToJson($this->education);
 
     $json = array(
         "CV_ID" => $this->CV_ID,
@@ -274,8 +244,9 @@ class CV {
         "email" => $this->email,
         "template_ID" => $this->template_ID,
         "user_ID" => $this->user_id,
+        "raw_info" => $this->raw_info,
         "experiences" => $experiences,
-        "Education" => $Education
+        "education" => $education
     );
 
   return json_encode($json);

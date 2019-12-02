@@ -519,6 +519,10 @@ page[size="A4"] {
 #browseCV .slick-center {
   opacity: 1; }
 
+#browseCV .slide-item.slick-current.slick-center > div {
+  border: 2px solid #ff5544 !important;
+  display: inline-block; }
+
 p {
   margin: 0; }
 
@@ -843,6 +847,10 @@ main {
 
 #browseCV .slick-center {
   opacity: 1; }
+
+#browseCV .slide-item.slick-current.slick-center > div {
+  border: 2px solid #ff5544 !important;
+  display: inline-block; }
 
 .myCV-navbar > div {
   display: inline-block;

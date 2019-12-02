@@ -166,9 +166,9 @@
         ).catch(error => {
             console.error(error);
         });
-        console.log(CV_ID);
+        // console.log(CV_ID);
 
-        if(CV_ID == undefined){
+        if(typeof CV_ID == "undefined"){
             addEdu();
             addJob();
         }
@@ -283,9 +283,9 @@
                 crossDomain: true,
                 success: function(result){
                     console.log(result);
-                    // if(result){
-                    //     window.location.href = "/web-assignment/previewCV?CV_ID="+result;
-                    // }
+                    if(result){
+                        window.location.href = "/web-assignment/previewCV?CV_ID="+result;
+                    }
                     
                 },
             });
