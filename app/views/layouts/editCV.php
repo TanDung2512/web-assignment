@@ -110,75 +110,6 @@
         //initial run
         var job = 1;
         var edu = 1;
-        addEdu();
-        addJob();
-
-        $(".editCV-btn").click(function(e) {
-            let infos = $(".editCV-personal").find("input").toArray();
-            let jsonData = {};
-
-            infos.forEach(function(info){
-                let type = $(info).attr("name");
-                let value = $(info).val();
-                jsonData[type] = value;       
-            })
-
-            jsonData["about_me"] = $("#profile .ck-content").html();
-            
-            let experiences = $(".editCV-job").find("*[class*='projob']").toArray();
-
-            let experiences_arr = []
-
-            experiences.forEach(function(ex){
-                let experience = {};
-                let inputArr = $(ex).find("input").toArray();
-
-                inputArr.forEach(function(input){
-                    let type = $(input).attr("name");
-                    let value = $(input).val();
-                    experience[type] = value;
-                })
-
-                experience["description"] = $(`.${$(ex).attr("class")} .ck-content`).html();
-                experiences_arr.push(experience);
-            })
-
-            jsonData["experiences"] = experiences_arr;
-
-            let eductions = $(".editCV-addEdu").find("*[class*='edu2edu']").toArray();
-
-            let eductions_arr = []
-
-            eductions.forEach(function(ex){
-                let education = {};
-                let inputArr = $(ex).find("input").toArray();
-
-                inputArr.forEach(function(input){
-                    let type = $(input).attr("name");
-                    let value = $(input).val();
-                    education[type] = value;
-                })
-
-                education["description"] = $(`.${$(ex).attr("class")} .ck-content`).html();
-                eductions_arr.push(education);
-            })
-            jsonData["education"] = eductions_arr;
-            //jsonData = JSON.parse(jsonData);
-            //console.log(jsonData);
-
-            $.ajax({
-                type: "POST",
-                url: "/web-assignment/editCV",
-                data: jsonData,
-                crossDomain: true,
-                success: function(result){
-                    console.log(result);
-                },
-            });
-            e.preventDefault();
-
-        })
-
         var loadFile = function(event) {
             var output = document.getElementById(
                 "output"
@@ -187,8 +118,6 @@
             console.log(event.target.value);
             output.src = event.target.value;
         };
-
-
         ClassicEditor.create(
             document.querySelector("#editor"), {
                 removePlugins: [
@@ -212,6 +141,156 @@
         }).catch(error => {
             console.error(error);
         });
+
+        ClassicEditor.create(document.querySelector("#editor3"), {
+            removePlugins: [
+                "Link",
+                "ImageUpload",
+                "Table",
+                "MediaEmbed"
+            ]
+        }).catch(error => {
+            console.error(error);
+        });
+
+
+        ClassicEditor.create(
+            document.querySelector("#editor4"), {
+                removePlugins: [
+                    "Link",
+                    "ImageUpload",
+                    "Table",
+                    "MediaEmbed"
+                ]
+            }
+        ).catch(error => {
+            console.error(error);
+        });
+        console.log(CV_ID);
+
+        if(CV_ID == undefined){
+            addEdu();
+            addJob();
+        }
+        else{
+            $.ajax({
+            type: "GET",
+            url: "/web-assignment/cv?CV_ID="+CV_ID,
+            crossDomain: true,
+            success: function(result){
+                let result_parse =  JSON.parse(result);
+                console.log(result_parse.cv);
+                addDataToInput(result_parse.cv);
+            },
+        });
+        }
+
+        function addDataToInput(data){
+
+            $(".editCV").data("template_ID", data["template_ID"])
+            $(".editCV").data("CV_ID", data["CV_ID"])
+
+            let infos = $(".editCV-personal").find("input").toArray();
+            infos.forEach(function(info){
+                let type = $(info).attr("name");
+                let value = $(info).val(data[type]);
+            })
+
+            $("#profile .ck-content").val(data["about_me"]);
+
+            let experiences = data["experiences"] || [];
+            experiences.forEach(function(exp){
+                addJob();
+                let new_ele = $(".editCV-job").find("div[class*='projob']").last();
+
+                $(new_ele).data("ID", exp["ID"]);
+
+                let inputArr = $(new_ele).find("input").toArray();
+                inputArr.forEach(function(input){
+                    let type = $(input).attr("name");
+                    let value = $(input).val(exp[type]);
+                })
+                //console.log($(new_ele));
+                $(new_ele).find("textarea").val(exp["description"])
+                
+            })
+        }
+
+        $(".editCV-btn").click(function(e) {
+            
+            let infos = $(".editCV-personal").find("input").toArray();
+            let jsonData = {};
+
+            jsonData["CV_ID"] = $(".editCV").data("CV_ID") || undefined;
+            jsonData["template_ID"] = $(".editCV").data("template_ID") || undefined;
+
+            infos.forEach(function(info){
+                let type = $(info).attr("name");
+                let value = $(info).val();
+                jsonData[type] = value;       
+            })
+
+            jsonData["about_me"] = $("#profile .ck-content").html();
+            
+            let experiences = $(".editCV-job").find("*[class*='projob']").toArray();
+
+            let experiences_arr = []
+
+            experiences.forEach(function(ex){
+                let experience = {};
+                let inputArr = $(ex).find("input").toArray();
+
+                experience["ID"] = $(ex).data("ID") || undefined;
+
+                inputArr.forEach(function(input){
+                    let type = $(input).attr("name");
+                    let value = $(input).val();
+                    experience[type] = value;
+                })
+
+                experience["description"] = $(`.${$(ex).attr("class")} .ck-content`).html();
+                experiences_arr.push(experience);
+            })
+
+            jsonData["experiences"] = experiences_arr;
+
+            let eductions = $(".editCV-addEdu").find("*[class*='edu2edu']").toArray();
+
+            let eductions_arr = []
+
+            eductions.forEach(function(ex){
+                let education = {};
+                let inputArr = $(ex).find("input").toArray();
+
+                education["ID"] = $(ex).data("ID") || undefined;
+
+                inputArr.forEach(function(input){
+                    let type = $(input).attr("name");
+                    let value = $(input).val();
+                    education[type] = value;
+                })
+
+                education["description"] = $(`.${$(ex).attr("class")} .ck-content`).html();
+                eductions_arr.push(education);
+            })
+            jsonData["education"] = eductions_arr;
+            console.log(jsonData);
+
+            $.ajax({
+                type: "POST",
+                url: "/web-assignment/editCV",
+                data: jsonData,
+                crossDomain: true,
+                success: function(result){
+                    console.log(result);
+                    // if(result){
+                    //     window.location.href = "/web-assignment/previewCV?CV_ID="+result;
+                    // }
+                    
+                },
+            });
+            e.preventDefault();
+        })
 
         function addJob() {
             let idName = "job" + job.toString();
@@ -259,17 +338,6 @@
             event.preventDefault();
         }
 
-        ClassicEditor.create(document.querySelector("#editor3"), {
-            removePlugins: [
-                "Link",
-                "ImageUpload",
-                "Table",
-                "MediaEmbed"
-            ]
-        }).catch(error => {
-            console.error(error);
-        });
-
         function addEdu() {
             let idName = "edu" + edu.toString();
             let schoolName = "title";
@@ -314,19 +382,6 @@
             $(".edu2" + value).remove();
             event.preventDefault();
         }
-
-        ClassicEditor.create(
-            document.querySelector("#editor4"), {
-                removePlugins: [
-                    "Link",
-                    "ImageUpload",
-                    "Table",
-                    "MediaEmbed"
-                ]
-            }
-        ).catch(error => {
-            console.error(error);
-        });
 
         function createEditTagCV(buttonTag) {
             var editCVInputTag = document.createElement("div");

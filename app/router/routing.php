@@ -63,11 +63,17 @@ Router::POST('/fake', function () {
 
 Router::GET('/previewCV', function () {
     $previewCV = new PreviewCVController();
+    if(!isset($_GET["CV_ID"])){
+        $editCV = new EditCVController();
+        $editCV->render();
+    }
+    echo "<script>var CV_ID = ".$_GET["CV_ID"]."</script>";
     $previewCV->render();
 });
 
 Router::GET('/editCV', function () {
     $editCV = new EditCVController();
+    if(isset($_GET["CV_ID"])) echo "<script>var CV_ID = ".$_GET["CV_ID"]."</script>";
     $editCV->render();
 });
 
@@ -86,8 +92,13 @@ Router::GET('/testdb', function () {
     $testdb->render();
 });
 
+Router::GET('/cv', function(){
+    $previewCV = new PreviewCVController();
+    echo $previewCV->getCV($_GET["CV_ID"]);
+});
+
 Router::GET('/template', function () {
-    $testdb = new TemplateController2();
+    $testdb = new TemplateController();
     $testdb->render();
 });
 
@@ -107,9 +118,14 @@ Router::POST('/logout-authen', function() {
 });
 
 Router::POST('/editCV', function() {
-   // var_dump($_POST);
    $editCVController = new EditCVController();
-   var_dump($editCVController->submitCV());
+
+   if(isset($_POST["CV_ID"])){
+    echo $editCVController->editCV();
+   }
+   else {
+       echo $editCVController->submitCV();
+   }    
    
 });
 $action = $_SERVER['REQUEST_URI'];

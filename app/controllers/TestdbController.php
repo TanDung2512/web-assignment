@@ -11,6 +11,10 @@
         }
 
         public function render(){
+
+           // $cv = new cvService();
+//            var_dump($cv->getTemplateCVs());
+
             // $auth = new AuthenService();
             // var_dump($auth->signup('c@c.c', 'ccc', 'ccc'));
             // var_dump($auth->signin('c@c.c', 'ccc'));

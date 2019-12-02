@@ -3,11 +3,11 @@
         <div class="cv-container">
             <section class="cv-section ali-center" id="section-header">
                 <div class="img-wrapper">
-                    <img src="app/images/avatar_toan.jpg" alt="avatar_toan" />
+                    <img class="personal" data-cv-type="avatar" src="app/images/avatar_toan.jpg" alt="avatar_toan" />
                 </div>
                 <div class="cv-header-right">
-                    <h2 id="cv-header-name">Jim Tran</h2>
-                    <h4 id="cv-header-major">Software Engineer</h4>
+                    <h2 class="personal" data-cv-type="fullname">Jim Tran</h2>
+                    <h4 class="personal" data-cv-type="professional">Software Engineer</h4>
                 </div>
             </section>
             <section class="cv-section" id="section-contact">
@@ -20,20 +20,20 @@
                         <div class="cv-contact-list-left">
                             <div class="cv-contact-item">
                                 <b>Email: </b>
-                                <p id="cv-email">
+                                <p class="personal" data-cv-type="email">
                                     tio200@gmail.com
                                 </p>
                             </div>
                             <div class="cv-contact-item">
                                 <b>Phone: </b>
-                                <p id="cv-phone">
+                                <p class="personal" data-cv-type="phone">
                                     0332996969
                                 </p>
                             </div>
                         </div>
                         <div class="cv-contact-list-right cv-contact-item">
-                            <b>Phone: </b>
-                            <p id="cv-address">
+                            <b>Address: </b>
+                            <p class="personal" data-cv-type="address">
                                 497 Hoa Hao street, Ward 7, District 10, HCMC
                             </p>
                         </div>
@@ -46,12 +46,8 @@
                     <div class="cv-section-line"></div>
                 </div>
                 <div class="cv-section-right">
-                    <p class="cv-profile">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Accusantium, magni maxime veniam ullam velit quas
-                        voluptates aliquid atque voluptatibus eius, sapiente
-                        inventore porro, voluptatem labore nam amet ipsam rerum
-                        facere.
+                    <p class="cv-profile personal" data-cv-type="about_me">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, magni maxime veniam ullam velit quas voluptates aliquid atque voluptatibus eius, sapiente inventore porro, voluptatem labore nam amet ipsam rerum facere.
                     </p>
                 </div>
             </section>
@@ -62,38 +58,6 @@
                 </div>
                 <div class="cv-section-right">
                     <ul class="cv-experience-list">
-                        <li class="cv-experience-item">
-                            <h3 class="cv-experience-item__title">
-                                Your job title
-                            </h3>
-                            <h4 class="cv-experience-item__subtitle">
-                                Company Name, May 2016 - Current
-                            </h4>
-                            <div class="cv-experience-item__content">
-                                Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Natus, animi doloribus
-                                accusamus perspiciatis numquam beatae
-                                consequuntur mollitia nostrum quas quidem
-                                dolorum tempore, ipsam nihil dignissimos
-                                reprehenderit error optio unde assumenda.
-                            </div>
-                        </li>
-                        <li class="cv-experience-item">
-                            <h3 class="cv-experience-item__title">
-                                Your job title
-                            </h3>
-                            <h4 class="cv-experience-item__subtitle">
-                                Company Name, May 2016 - Current
-                            </h4>
-                            <div class="cv-experience-item__content">
-                                Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Natus, animi doloribus
-                                accusamus perspiciatis numquam beatae
-                                consequuntur mollitia nostrum quas quidem
-                                dolorum tempore, ipsam nihil dignissimos
-                                reprehenderit error optio unde assumenda.
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </section>
@@ -104,17 +68,10 @@
                 </div>
                 <div class="cv-section-right">
                     <ul class="cv-education-list">
-                        <li class="cv-education-item">
-                            <h3 id="cv-school">
-                                Ho Chi Minh City University of Technology
-                            </h3>
-                            <h4 id="cv-major">Computer Science</h4>
-                            <p id="cv-edu-content">GPA: 8.0</p>
-                        </li>
                     </ul>
                 </div>
             </section>
-            <section class="cv-section" id="section-skills">
+            <!-- <section class="cv-section" id="section-skills">
                 <div class="cv-section-left">
                     <h3>Skills</h3>
                     <div class="cv-section-line"></div>
@@ -149,7 +106,40 @@
                         </li>
                     </ul>
                 </div>
-            </section>
+            </section> -->
         </div>
     </page>
 </div>
+
+<script>
+    // data = {
+    //     fullname: "dung",
+    //     avatar: "http://localhost:3000/web-assignment/app/images/avatar_toan.jpg",
+    //     phone: "0767607676",
+    //     address: "497 Hoa Hao street, Ward 7, District 10, HCMC",
+    //     about_me: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, magni maxime veniam ullam velit quas voluptates aliquid atque voluptatibus eius, sapiente inventore porro, voluptatem labore nam amet ipsam rerum facere.",
+    //     email: "dung@gmail",
+    //     experiences: [{
+    //         title: "FUck",
+    //         start_date: "17/01/1998",
+    //         end_date: "18/01/1998",
+    //         description: "adasdasdasd"
+    //     }, {
+    //         title: "FUck",
+    //         start_date: "17/01/1998",
+    //         end_date: "18/01/1998",
+    //         description: "adasdasdasd"
+    //     }],
+    //     education: [{
+    //         title: "FUck",
+    //         start_date: "17/01/1998",
+    //         end_date: "18/01/1998",
+    //         description: "adasdasdasd"
+    //     }, {
+    //         title: "FUck",
+    //         start_date: "17/01/1998",
+    //         end_date: "18/01/1998",
+    //         description: "adasdasdasd"
+    //     }]
+    // }
+</script>
