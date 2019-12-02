@@ -19,25 +19,26 @@
     <div class="bot">
       <div class="slider">
         
-          <div class="slide-item">
-            <p>Paris</p>
-            <img class="cv_template" src="https://www.my-resume-templates.com/wp-content/uploads/2019/07/67-best-cv-format.jpg">
+        <div class="slide-item">
+          <p>Professionalism</p>
+          <img class="cv_template" src="https://raw.githubusercontent.com/TanDung2512/web-assignment/feature/link/app/assets/images/template_1.png">
         </div>
-        
-          <div class="slide-item">
-            <p>London</p>
-            <img class="cv_template" src="https://www.my-resume-templates.com/wp-content/uploads/2019/07/67-best-cv-format.jpg">
+      
+        <div class="slide-item">
+          <p>Minimalism</p>
+          <img class="cv_template" src="https://raw.githubusercontent.com/TanDung2512/web-assignment/feature/link/app/assets/images/template_2.png">
         </div>
-        
-          <div class="slide-item">
-            <p>Paris</p>
-            <img class="cv_template" src="https://www.my-resume-templates.com/wp-content/uploads/2019/07/67-best-cv-format.jpg">
+      
+        <div class="slide-item">
+          <p>Professionalism</p>
+          <img class="cv_template" src="https://raw.githubusercontent.com/TanDung2512/web-assignment/feature/link/app/assets/images/template_1.png">
         </div>
-        
-          <div class="slide-item">
-            <p>New York</p>
-            <img class="cv_template" src="https://www.my-resume-templates.com/wp-content/uploads/2019/07/67-best-cv-format.jpg">
+
+        <div class="slide-item">
+          <p>Minimalism</p>
+          <img class="cv_template" src="https://raw.githubusercontent.com/TanDung2512/web-assignment/feature/link/app/assets/images/template_2.png">
         </div>
+
       </div>
     </div>
   </div>

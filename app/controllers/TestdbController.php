@@ -11,10 +11,12 @@
         }
 
         public function render(){
-            // $auth = new AuthenService();
+            // $auth = new CVService();
+            // var_dump("haha");
             // var_dump($auth->signup('c@c.c', 'ccc', 'ccc'));
             // var_dump($auth->signin('c@c.c', 'ccc'));
             // var_dump($auth->signout());
+            // var_dump($auth->isOwnerOfCV(1000, 1));
         }
     }
 ?>

@@ -525,5 +525,29 @@ class CVService{
     }
     return false;
   }
+
+  /**
+  * check if CV belongs to a user
+  * @param int $cv_ID
+  * @param int $user_ID
+  *
+  * @return boolean
+  */    
+  public function isOwnerOfCV (int $user_ID, int $cv_ID) {
+    $query = 'SELECT * FROM users, cv
+              WHERE users.user_ID = :user_ID 
+                AND users.user_ID = cv.user_id 
+                AND CV_ID = :cv_ID';
+    $stmt = $this->db_connection->prepare($query);
+    $stmt->bindParam(':user_ID', $user_ID, PDO::PARAM_INT);
+    $stmt->bindParam(':cv_ID', $cv_ID, PDO::PARAM_INT);
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    $returnSet = $stmt->fetchAll();
+    if (count($returnSet) == 0) {
+      return false;
+    }
+    return true;
+  }
 }
 ?>
