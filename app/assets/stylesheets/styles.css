@@ -90,7 +90,7 @@ p {
   margin-left: 15px; }
 
 .logo-big {
-  height: 40px;
+  height: 60px;
   object-fit: contain; }
 
 .loading-wrapper {
@@ -240,6 +240,7 @@ page {
 
 page[size="A4"] {
   width: 21cm;
+  font-size: 0.4cm;
   height: 29.7cm; }
 
 .cv-container {
@@ -260,6 +261,8 @@ page[size="A4"] {
         background: #ddd; }
     .cv-container .cv-section-right {
       padding-right: 1cm; }
+    .cv-container .cv-section ul li {
+      line-height: 0.6cm; }
   .cv-container #section-header .img-wrapper {
     width: 3cm;
     height: 3cm;

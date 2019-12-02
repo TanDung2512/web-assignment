@@ -57,7 +57,7 @@
             }
 
             return $this->cvService->insertCV(
-                $user_id = $_SESSION["user_ID"],
+                $user_id = intval($_SESSION["user_ID"]),
                 $avatar = $_POST["avatar"],
                 $fullname = $_POST["fullname"],
                 $professional = $_POST["professional"],
@@ -65,9 +65,9 @@
                 $date_created = time(),
                 $category = "IT",
                 $address = $_POST["address"],
-                $phone = $_POST["phone"],
+                $phone = intval($_POST["phone"]),
                 $email = $_POST["email"],
-                $template_ID = $_POST["template_ID"],
+                $template_ID = intval($_POST["template_ID"]),
                 $raw_info = $raw_info,
                 $education = $education,
                 $experiences = $experiences
@@ -80,8 +80,12 @@
 
             $experiences = [];
             if(isset($_POST["experiences"])) foreach($_POST["experiences"] as $ex ){
+                $ex_ID = NULL;
+                if(isset($ex["ID"])) {
+                    $ex_ID = intval($ex["ID"]);
+                }
                 $CV_section = new CV_Section(
-                    intval($ex["ID"]),
+                    $ex_ID,
                     NULL,
                     $info_flag = "0",
                     $start_date = $ex["start_date"],
@@ -95,14 +99,19 @@
             $education = [];
             
             if(isset($_POST["education"])) foreach($_POST["education"] as $edu ){
+                $edu_ID = NULL;
+                if(isset($edu["ID"])) {
+                    $edu_ID = intval($edu["ID"]);
+                }
+
                 $CV_section = new CV_Section(
-                    intval($edu["ID"]),
+                    $edu_ID ,
                     null,
                     $info_flag = "1",
-                    $start_date = $ex["start_date"],
-                    $end_date = $ex["end_date"],
-                    $title = $ex["title"],
-                    $description = $ex["description"]
+                    $start_date = $edu["start_date"],
+                    $end_date = $edu["end_date"],
+                    $title = $edu["title"],
+                    $description = $edu["description"]
                 );
                 array_push($education, $CV_section);
             }

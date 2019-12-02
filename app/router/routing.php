@@ -104,8 +104,8 @@ Router::GET('/previewCV', function () {
     if ($priService->isLogin()) {
         $previewCV = new PreviewCVController();
         if (!isset($_GET["CV_ID"]) || !$previewCV->isPriviledge()) {
-            $editCV = new EditCVController();
-            $editCV->render();
+            $updateVIP = new UpgradeVipController();
+            $updateVIP->render();
         }
         echo "<script>var CV_ID = " . $_GET["CV_ID"] . "</script>";
         $previewCV->render();

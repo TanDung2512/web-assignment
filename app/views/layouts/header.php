@@ -1,7 +1,7 @@
 <header class="cv-header">
   <div class="page-wrapper d-flex ali-center">
     <a href="#" class="d-b">
-      <img src="app/images/logo.jpg" alt="logo" class="logo-big" />
+      <img src="app/assets/images/logo-02.png" alt="logo" class="logo-big" />
     </a>
 
     <nav class="category-menu d-flex ali-center">
@@ -37,6 +37,7 @@
   </div>
 
 </header>
+
   <div class = "loading-wrapper" id = "loading">
     <div class="sk-chase">
       <div class="sk-chase-dot"></div>

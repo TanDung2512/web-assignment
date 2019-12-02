@@ -20,7 +20,7 @@
   <link
     rel="shortcut icon"
     type="image/x-icon"
-    href="app/images/favicon-16x16.png"
+    href="app/assets/images/logo_faq.png"
   />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>

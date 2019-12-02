@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="slide-item">
-                    <a href="editCV?template_ID=1">
+                    <a href="editCV?template_ID=2">
                         <p>Minimalism</p>
                         <div>
                             <img class="cv_template" src="https://raw.githubusercontent.com/TanDung2512/web-assignment/feature/link/app/assets/images/template_2.png">
@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="slide-item">
-                    <a href="editCV?template_ID=1">
+                    <a href="editCV?template_ID=2">
                         <p>Minimalism</p>
                         <div>
                             <img class="cv_template" src="https://raw.githubusercontent.com/TanDung2512/web-assignment/feature/link/app/assets/images/template_2.png">

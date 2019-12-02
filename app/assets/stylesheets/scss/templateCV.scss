@@ -40,11 +40,13 @@ page {
     display: block;
     margin: 0 auto;
     margin-bottom: 0.5cm;
+    // font-size: 13cm;
     box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
 }
 
 page[size="A4"] {
     width: 21cm;
+    font-size: 0.4cm;
     height: 29.7cm;
 }
 
@@ -69,6 +71,11 @@ page[size="A4"] {
         }
         &-right {
             padding-right: 1cm;
+        }
+        ul {
+            li {
+                line-height: 0.6cm;
+            }
         }
     }
     #section-header {

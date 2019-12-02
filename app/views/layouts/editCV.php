@@ -180,11 +180,11 @@
             url: "/web-assignment/cv?CV_ID="+CV_ID,
             crossDomain: true,
             success: function(result){
+                console.log(result);
                 let result_parse =  JSON.parse(result);
                 console.log(result_parse.cv);
                 addDataToInput(result_parse.cv);
                 $("#loading").css("display", "none");
-
             },
         });
         }
@@ -207,6 +207,23 @@
             experiences.forEach(function(exp){
                 addJob();
                 let new_ele = $(".editCV-job").find("div[class*='projob']").last();
+
+                $(new_ele).data("ID", exp["ID"]);
+
+                let inputArr = $(new_ele).find("input").toArray();
+                inputArr.forEach(function(input){
+                    let type = $(input).attr("name");
+                    let value = $(input).val(exp[type]);
+                })
+                //console.log($(new_ele));
+                $(new_ele).find("textarea").val(exp["description"])
+                
+            })
+
+            let education = data["education"] || [];
+            education.forEach(function(exp){
+                addEdu();
+                let new_ele = $(".editCV-addEdu").find("div[class*='edu2edu']").last();
 
                 $(new_ele).data("ID", exp["ID"]);
 
@@ -291,7 +308,6 @@
                     if(result){
                         window.location.href = "/web-assignment/previewCV?CV_ID="+result;
                     }
-                    
                 },
             });
             e.preventDefault();
@@ -315,7 +331,6 @@
             $(wrapperEdit).addClass("pro" + idName);
             $(wrapperEdit).append(
                 createEditTagCV(createInputTag("text", "Job title", "margin-top: 15px", jobTitle)),
-                createEditTagCV(createInputTag("text", "Company name", "", comName)),
                 createEditTagCV(dateTag),
                 createTextArea(idName, "Enter your Employment History here."),
                 createDeleteTag("text-align:end", idName, deleteThis)
@@ -361,7 +376,6 @@
             $(wrapperEdit).addClass("edu2" + idName)
                 .append(
                     createEditTagCV(createInputTag("text", "School name", "margin-top: 15px", schoolName)),
-                    createEditTagCV(createInputTag("text", "Major name", "", majorName)),
                     createEditTagCV(dateTags),
                     createTextArea(idName, "Enter your Education here."),
                     createDeleteTag("text-align:end", idName, deleteThis2)

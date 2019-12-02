@@ -245,11 +245,10 @@ class CVService{
         );
           
         array_push($returnArr, $newCV);
-
       }
       return $returnArr;
     }
-    return false;
+    return [];
   }
 
   /**
@@ -418,13 +417,25 @@ class CVService{
       foreach($experiences as $experience){
         $e_json = $experience->get_json();
         $e_json = json_decode( $e_json, true );
-        $result = $this->editCVSection(
-          $e_json["ID"], 
-          $e_json["start_date"], 
-          $e_json["end_date"],
-          $e_json["title"], 
-          $e_json["description"]
-        );
+        if(!isset($e_json["ID"])){
+          $result = $result &&  $this->insertCVSection(
+            $CV_ID,
+            "0",
+            $e_json["start_date"], 
+            $e_json["end_date"],
+            $e_json["title"], 
+            $e_json["description"] 
+          );
+        }
+        else{
+          $result = $result &&  $this->editCVSection(
+            $e_json["ID"], 
+            $e_json["start_date"], 
+            $e_json["end_date"],
+            $e_json["title"], 
+            $e_json["description"]
+          );
+        }
       }
     }
 
@@ -432,13 +443,26 @@ class CVService{
       foreach($education as $education_item){
         $e_json = $education_item->get_json();
         $e_json = json_decode( $e_json, true );
-        $result = $result && $this->editCVSection(
-          $e_json["ID"], 
-          $e_json["start_date"], 
-          $e_json["end_date"],
-          $e_json["title"], 
-          $e_json["description"]);
-      }
+
+        if(!isset($e_json["ID"])){
+          $result = $result && $this->insertCVSection(
+            $CV_ID,
+            "1",
+            $e_json["start_date"], 
+            $e_json["end_date"],
+            $e_json["title"], 
+            $e_json["description"] 
+          );
+        }
+        else{
+            $result = $result && $this->editCVSection(
+              $e_json["ID"], 
+              $e_json["start_date"], 
+              $e_json["end_date"],
+              $e_json["title"], 
+              $e_json["description"]);
+          }
+        }
     }
     return $result ? $CV_ID : false;
   }
@@ -464,7 +488,7 @@ class CVService{
 
     $query = 'SELECT * FROM cv_template WHERE template_ID = :templateCV_ID';
     $stmt = $this->db_connection->prepare($query);
-    $stmt->bindParam(':templateCV_ID', $templateCV_ID, PDO::PARAM_STR);
+    $stmt->bindParam(':templateCV_ID', $templateCV_ID, PDO::PARAM_INT);
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
     $result = $stmt->fetchAll(); 
