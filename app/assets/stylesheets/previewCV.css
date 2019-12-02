@@ -21,7 +21,8 @@
     float: left;
     font-size: 1.2rem;
     font-weight: 500;
-    line-height: 1.35; }
+    line-height: 1.35;
+    color: white; }
   .preCV__header .btn {
     padding: 0.5rem 0.7rem;
     float: right; }
