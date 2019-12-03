@@ -616,7 +616,7 @@ public function searchCV(string $key_word){
             WHERE raw_info LIKE :key_word';
 
   $stmt = $this->db_connection->prepare($query);
-  $stmt->bindParam(':key_word', $keyword_to_search, PDO::PARAM_INT);
+  $stmt->bindParam(':key_word', $keyword_to_search, PDO::PARAM_STR);
   $stmt->setFetchMode(PDO::FETCH_ASSOC);
   $stmt->execute();
   $resultSet = $stmt->fetchAll(); 

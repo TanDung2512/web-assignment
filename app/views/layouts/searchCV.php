@@ -33,10 +33,6 @@
                                         ><i class="fas fa-eye myCV-icon"></i>View</a
                                     >
                                 </p>
-                                <p>
-                                    <i class="fas fa-arrow-down myCV-icon"></i
-                                    >Download PDF
-                                </p>
                             </div>
                         </div>
                     </div>

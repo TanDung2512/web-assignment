@@ -84,33 +84,21 @@
         return sectionCV;
     }
 
+
     $('#download_btn').click(function() {
-    html2canvas($("#template-cv"), {
+    html2canvas(document.getElementById("template-cv"), {
         onrendered: function(canvas) {
-                var doc = new jsPDF('p','mm','a4');
-                var w = doc.internal.pageSize.width;
-                var h = doc.internal.pageSize.height;
-        
-                var img = canvas.toDataURL(canvas, {
-                   encoderOptions: 1.0
-                });
-                // console.log(img)
-        
-                //doc.addImage(agency_logo.src, 'PNG', logo_sizes.centered_x, _y, logo_sizes.w, logo_sizes.h);
-                var img_avatar = canvas.toDataURL($("img.personal"), {
-                    type: 'image/jpeg',
-                   encoderOptions: 1.0
-                });
-                console.log(img_avatar)
-                doc.addImage(img_avatar, 'JPEG', 0, 0, $("img.personal").css("width"), $("img.personal").css("height"));
-                doc.addImage(img, 'JPEG', 0, 0, w, h);
+            var doc = new jsPDF('p', 'mm', 'a4');
+            var w = doc.internal.pageSize.width;
+            var h = doc.internal.pageSize.height;
 
-                doc.save('cv.pdf');
-            }
-        },
-        {
-            scale: 40
-        });
+            var img = canvas.toDataURL(canvas, '#ffffff', {
+                type: 'image/jpeg',
+                encoderOptions: 1.0
+            });
+            doc.addImage(img, 'JPEG', 0, 0, w, h);
+            doc.save('cv.pdf');
+        }
     });
-
+});
 </script>
