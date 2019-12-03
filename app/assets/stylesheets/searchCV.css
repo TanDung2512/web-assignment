@@ -2,32 +2,20 @@
   display: inline-block;
   position: relative; }
 
-.myCV-navbar > div:after {
-  content: "";
-  background: #ff6f61;
-  width: 4px;
-  height: 20px;
-  position: absolute;
-  top: 40px;
-  right: 2px;
-  transform: rotate(135deg);
-  box-shadow: 1px 0 #ffc83d; }
-
 .myCV-navbar > div > input {
   color: black;
   font-size: 16px;
   background: transparent;
-  width: 47px;
+  width: 250px;
   height: 47px;
   padding: 10px;
   border: solid 3px #ff6f61;
   outline: none;
   border-radius: 35px;
-  box-shadow: 0 1px #ffc83d;
-  transition: width 0.5s; }
+  box-shadow: 0 1px #ffc83d; }
 
 .myCV-navbar > div > input::placeholder {
-  color: #ffc83d;
+  color: #333333;
   opacity: 1; }
 
 .myCV-navbar > div > input::-ms-placeholder {
