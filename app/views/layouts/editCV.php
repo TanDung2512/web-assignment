@@ -77,7 +77,7 @@
                     </p>
                 </div>
                 <p class="editCV-add" onclick="addEdu()">+ Add Education</p>
-
+<!-- 
                 <div class="editCV-profess">
                     <p class="editCV-tag-title">Skills</p>
                     <p class="editCV-sub-info">
@@ -87,9 +87,8 @@
                         <textarea name="content4" id="editor4">
                       &lt;p&gt;Enter your skills here.&lt;/p&gt;
                   </textarea>
-                        <!-- <p><input type="submit" value="Submit" name="submit-btn" /></p> -->
                     </div>
-                </div>
+                </div> -->
 
                 <div class="editCV-btn">
                     <a href="previewCV">
