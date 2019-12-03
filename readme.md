@@ -6,18 +6,17 @@
 - Thinh Tran - 1652578
 - Nhu Vo - 1652458
 - Thu Tran - 1652599
-## User case diagram
-
-![Diagram](https://github.com/TanDung2512/web-assignment/blob/master/Usercase.png?raw=true)
 
 
 
 ## Table of contents
 
 - [Quick start](#quick-start)
+- [Usecase diagram](#usecase-diagram)
 - [Summary](#summary)
 - [Technologies](#technologies)
 - [Additional Tools](#additional-tools)
+
 
 
 ## Quick start
@@ -32,6 +31,10 @@
 ```
     gulp
 ```
+
+## Usecase diagram
+
+![Diagram](https://github.com/TanDung2512/web-assignment/blob/master/Usercase.png?raw=true)
 
 ## Summary
 - **Model:** This project applies MVC model to structure the website in order to make it more maintainable and extendable 
