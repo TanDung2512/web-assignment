@@ -15,6 +15,7 @@
 - [Usecase diagram](#usecase-diagram)
 - [Summary](#summary)
 - [Technologies](#technologies)
+- [Related links](#related-links)
 - [Additional Tools](#additional-tools)
 
 
@@ -57,6 +58,11 @@
 - **MySQL:** Database
 - **Gulp:** Compile SCSS, Browser Sync
 - **SCSS:** To make writing CSS easier and maintainable
+
+## Usecase diagram
+
+- **Trello:**: show assigned tasks https://trello.com/b/gCbDcLLl/assignment-web
+- **Design UI:**: https://app.zeplin.io/project/5dad9ee730b1aa127f09350e
 
 ## Additional Tools
 - **Git Client**: Sourcetree or Sublime Merge is good, or use the one included in VSCode or Atom.
