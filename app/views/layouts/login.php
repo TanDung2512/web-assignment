@@ -1,6 +1,6 @@
 <div class="container" id="login-container">
     <div class="logo-big">
-        <img src="app/images/logo.jpg" alt="logo" />
+        <img src="app/assets/images/logo-02.png" alt="logo" />
     </div>
     <div class="login-wrapper">
         <h2 class="txt--big-heading">Login</h2>

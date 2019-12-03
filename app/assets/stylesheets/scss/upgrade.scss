@@ -3,7 +3,7 @@
     height: 800px;
     text-align: center;
     .upgrade-title {
-        color: #ff6f61;
+        color: #333;
         font-weight: 700;
         font-size: 50px;
         padding-top: 100px;
@@ -13,7 +13,7 @@
         opacity: 0.5;
         margin-bottom: 30px;
     }
-    .upgrade-enter > input {
+    .upgrade-enter>input {
         background-color: #f3e8e4;
         border: none;
         height: 42px;
@@ -22,7 +22,7 @@
         padding: 15px;
         color: #ff6f61;
     }
-    .upgrade-enter > button {
+    .upgrade-enter>button {
         background-color: #ff6f61;
         color: white;
         height: 42px;

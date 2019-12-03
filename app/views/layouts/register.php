@@ -1,7 +1,8 @@
+
 <div class="container" id="signup-container">
-    <div class="logo-big">
-        <img src="app/images/logo.jpg" alt="logo" />
-    </div>
+    <a href="/web-assignment/" class="d-b">
+      <img src="app/assets/images/logo-02.png" alt="logo" class="logo-big" />
+    </a>
     <div class="login-wrapper">
         <h2 class="txt--big-heading">Sign up</h2>
         <p class="">Fast and very easy</p>

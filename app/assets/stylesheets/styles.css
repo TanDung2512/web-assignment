@@ -764,7 +764,7 @@ main {
 
 #signup-container {
   min-height: 100vh;
-  background: url("/web-assignment/app/images/bg-f-36-c-1501.svg") no-repeat 50% 250%; }
+  background: url("app/web-assignment/app/images/bg-f-36-c-1501.svg") no-repeat 50% 250%; }
   #signup-container .logo-big {
     margin: 2rem; }
     #signup-container .logo-big img {
@@ -979,7 +979,7 @@ main {
   height: 800px;
   text-align: center; }
   .upgrade-vip .upgrade-title {
-    color: #ff6f61;
+    color: #333;
     font-weight: 700;
     font-size: 50px;
     padding-top: 100px; }

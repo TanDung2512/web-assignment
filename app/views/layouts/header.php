@@ -7,7 +7,7 @@
     <nav class="category-menu d-flex ali-center">
       <ul class="d-flex mr-5 pr-1">
         <li>
-          <a href="searchCV" class="txt--sub-heading">search CV</a>
+          <a href="searchCV" class="txt--sub-heading">Search</a>
         </li>
         <li>
           <a href="myCV" class="txt--sub-heading">My CV</a>
