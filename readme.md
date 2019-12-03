@@ -1,4 +1,4 @@
-# Web Programming Assignment 
+# Web Programming Assignment - Resume Creator 
 **Lecturer:** Dr. Nguyen Duc Thai
 
 **Group members:**
@@ -10,7 +10,7 @@
 
 
 ## Table of contents
-
+- [About the_project](#about-the-project)
 - [Quick start](#quick-start)
 - [Usecase diagram](#usecase-diagram)
 - [Summary](#summary)
@@ -18,7 +18,9 @@
 - [Related links](#related-links)
 - [Additional Tools](#additional-tools)
 
+## About the project
 
+<img src="https://raw.githubusercontent.com/TanDung2512/web-assignment/master/app/assets/images/logo-02.png" height="200"> </img>
 
 ## Quick start
 0. Install XAMPP and clone the project into XAMPP/htdocs
@@ -37,7 +39,7 @@
 
 ## Usecase diagram
 
-![Diagram](https://github.com/TanDung2512/web-assignment/blob/master/Usercase.png?raw=true)
+<img src="https://github.com/TanDung2512/web-assignment/blob/master/Usercase.png" height="600"> </img>
 
 ## Summary
 - **Model:** This project applies MVC model to structure the website in order to make it more maintainable and extendable 
