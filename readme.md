@@ -20,14 +20,16 @@
 
 
 ## Quick start
+0. Install XAMPP and clone the project into XAMPP/htdocs
 
+1. Initialize database: import database scripts into phpmyadmin
 
-1. use command line
+2. Use command line (Require node v11.11.0)
 ``` 
     npm install 
 ```
 
-2. to Start project 
+3. To start project 
 ```
     gulp
 ```
