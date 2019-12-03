@@ -6,6 +6,10 @@
 - Thinh Tran - 1652578
 - Nhu Vo - 1652458
 - Thu Tran - 1652599
+## User case diagram
+
+https://github.com/TanDung2512/web-assignment/blob/master/Usercase.png?raw=true
+
 
 ## Table of contents
 
