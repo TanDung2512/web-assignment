@@ -1,21 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-.c {
-  color: #000; }
-
-.a {
-  color: #000; }
-  .a__a {
-    color: #000; }
-  .a__b {
-    color: #ffff; }
-
-h1 {
-  font-size: 90px; }
-=======
-=======
 @import url("https://fonts.googleapis.com/css?family=Merriweather+Sans");
->>>>>>> develop
 * {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased; }
@@ -1176,9 +1159,6 @@ strong {
 
 .txt-color {
   color: #ff6f61; }
-<<<<<<< HEAD
->>>>>>> dceb18eb6193d51656978f256d57d6c8370356b2
-=======
 
 .d-flex {
   display: flex; }
@@ -1263,4 +1243,3 @@ body {
 
 .pb-5 {
   padding-bottom: 2em; }
->>>>>>> develop
