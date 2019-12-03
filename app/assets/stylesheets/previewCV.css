@@ -1,0 +1,41 @@
+.preCV__container {
+  min-width: 100%;
+  margin: 0px;
+  overflow: hidden;
+  height: 100vh; }
+  .preCV__container main {
+    padding: 1rem 1rem;
+    display: inline-block;
+    overflow: auto;
+    background-color: #4f5259; }
+
+.preCV__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 0.5rem 3.7rem;
+  background-color: #0f141f;
+  height: 3.7rem; }
+  .preCV__header .nav-back {
+    float: left;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.35;
+    color: white; }
+  .preCV__header .btn {
+    padding: 0.5rem 0.7rem;
+    float: right; }
+
+.template-cv__review {
+  font-size: 0.7em;
+  height: 100%;
+  overflow: auto;
+  padding: 1rem;
+  padding-bottom: 4rem; }
+
+.check-image {
+  background-image: url("/web-assignment/app/assets/images/cv.jpg");
+  background-size: contain;
+  width: 100px;
+  height: 100px; }

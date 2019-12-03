@@ -1,0 +1,63 @@
+.myCV-icon {
+  color: #ff6f61;
+  margin-right: 8px; }
+
+#myCV {
+  background-color: #fcf9f8; }
+  #myCV .myCV-body {
+    height: 171%;
+    display: flex; }
+    #myCV .myCV-body .myCV-content {
+      width: 100%;
+      height: 100%;
+      margin: 40px 141px; }
+      #myCV .myCV-body .myCV-content .myCV-title {
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 1.35;
+        text-align: left;
+        color: #000000; }
+      #myCV .myCV-body .myCV-content .myCV-navbar {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: solid 0.5px lightgray;
+        height: 51px; }
+        #myCV .myCV-body .myCV-content .myCV-navbar .myCV-nav {
+          opacity: 0.68;
+          font-size: 20px;
+          line-height: 1.34;
+          text-align: left;
+          color: #000000;
+          display: flex;
+          align-items: center; }
+          #myCV .myCV-body .myCV-content .myCV-navbar .myCV-nav .myCV-nav-resume {
+            margin-right: 17px; }
+          #myCV .myCV-body .myCV-content .myCV-navbar .myCV-nav .myCV-nav-CV {
+            color: #000000;
+            opacity: 0.2; }
+        #myCV .myCV-body .myCV-content .myCV-navbar .myCV-createNew {
+          width: 148px;
+          height: 45px;
+          border-radius: 4px;
+          background-color: #ff6f61;
+          color: white; }
+      #myCV .myCV-body .myCV-content .myCV-displayCV {
+        display: grid;
+        grid-template-columns: auto auto;
+        margin-top: 40px;
+        margin-bottom: 25px; }
+        #myCV .myCV-body .myCV-content .myCV-displayCV .myCV-display-info > div > p {
+          margin-bottom: 5px; }
+        #myCV .myCV-body .myCV-content .myCV-displayCV .myCV-info-title {
+          font-size: 30px;
+          margin: 1px 0; }
+        #myCV .myCV-body .myCV-content .myCV-displayCV .myCV-info-date {
+          opacity: 0.3;
+          margin: 1px 0 26px 0; }
+      #myCV .myCV-body .myCV-content .myCV-displayCV > div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center; }
+      #myCV .myCV-body .myCV-content .myCV-displayCV > div > img {
+        height: 416px;
+        margin-right: 44px; }

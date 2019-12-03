@@ -27,7 +27,6 @@ h3,
 h4,
 h5,
 h6,
-p,
 b,
 strong {
   font-weight: bold;
@@ -40,8 +39,13 @@ button {
   outline: none;
 }
 
+a {
+  text-decoration: none;
+  color: #020202;
+}
 button {
   border: 0;
+  background-color: #fff;
 }
 
 input,
@@ -63,6 +67,9 @@ input,
 select,
 button {
   box-shadow: none;
+}
+body {
+  margin: 0;
 }
 
 ul,

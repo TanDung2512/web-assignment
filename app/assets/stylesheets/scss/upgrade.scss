@@ -1,0 +1,34 @@
+.upgrade-vip {
+    background-color: #fcf9f8;
+    height: 800px;
+    text-align: center;
+    .upgrade-title {
+        color: #333;
+        font-weight: 700;
+        font-size: 50px;
+        padding-top: 100px;
+    }
+    .upgrade-sub-title {
+        color: #ff6f61;
+        opacity: 0.5;
+        margin-bottom: 30px;
+    }
+    .upgrade-enter>input {
+        background-color: #f3e8e4;
+        border: none;
+        height: 42px;
+        width: 304px;
+        border-radius: 4px;
+        padding: 15px;
+        color: #ff6f61;
+    }
+    .upgrade-enter>button {
+        background-color: #ff6f61;
+        color: white;
+        height: 42px;
+        width: 132px;
+        border-radius: 37px;
+        margin-left: 39px;
+        font-size: 15px;
+    }
+}

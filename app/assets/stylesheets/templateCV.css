@@ -1,0 +1,109 @@
+.cv {
+  font-size: 0.7em;
+  width: 50em;
+  height: 70em;
+  background-color: white; }
+  .cv-1__container {
+    padding: 3em; }
+  .cv-1__header {
+    display: block; }
+  .cv-1__avatar {
+    width: 4em;
+    height: 4em;
+    object-fit: cover;
+    border-radius: 0.5em;
+    display: inline-block; }
+  .cv-1__header > div {
+    display: inline-block;
+    padding: 2em 0em; }
+  .cv section > div {
+    padding: 1em 1em; }
+
+#template-cv {
+  background: white;
+  padding: 50px 0; }
+
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5); }
+
+page[size="A4"] {
+  width: 21cm;
+  font-size: 0.4cm;
+  height: 29.7cm; }
+
+.cv-container {
+  padding: 1cm 0;
+  color: #333333; }
+  .cv-container .cv-section {
+    display: flex;
+    margin-bottom: 0.75cm; }
+    .cv-container .cv-section-left {
+      min-width: 5.5cm;
+      text-align: right;
+      margin-right: 0.5cm; }
+      .cv-container .cv-section-left h3 {
+        margin-bottom: 4px; }
+      .cv-container .cv-section-left .cv-section-line {
+        width: 100%;
+        height: 1.5px;
+        background: #ddd; }
+    .cv-container .cv-section-right {
+      padding-right: 1cm; }
+    .cv-container .cv-section ul li {
+      line-height: 0.6cm; }
+  .cv-container #section-header .img-wrapper {
+    width: 3cm;
+    height: 3cm;
+    object-fit: contain;
+    border-radius: 50%;
+    margin: 0 1cm 0cm 2cm; }
+    .cv-container #section-header .img-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%; }
+  .cv-container #section-header #cv-header-name {
+    font-size: 28pt; }
+  .cv-container #section-header #cv-header-major {
+    font-size: 14pt;
+    color: #777777;
+    font-weight: normal; }
+  .cv-container #section-working-experience .cv-experience-item {
+    margin-bottom: 10px; }
+    .cv-container #section-working-experience .cv-experience-item::last-child {
+      margin-bottom: 0; }
+  .cv-container #section-contact .cv-contact-list {
+    padding: 0.35cm 0.5cm;
+    background: #eee; }
+    .cv-container #section-contact .cv-contact-list-left {
+      min-width: 6.5cm; }
+  .cv-container #section-contact .cv-contact-item > * {
+    display: inline-block; }
+  .cv-container #section-contact .cv-contact-item #cv-address {
+    display: inline; }
+  .cv-container #section-skills .cv-skill-list:first-child {
+    margin-right: 3cm; }
+  .cv-container #section-skills .cv-skill-list li {
+    line-height: 1.5; }
+
+#template-2 {
+  text-align: left; }
+  #template-2 #section-header {
+    display: flex; }
+    #template-2 #section-header .img-wrapper {
+      margin-left: 0; }
+  #template-2 .cv-section {
+    display: block;
+    padding: 0 2cm; }
+    #template-2 .cv-section-left {
+      text-align: left;
+      margin-bottom: 10px; }
+  #template-2 #section-contact .cv-contact-list {
+    background: none;
+    padding: 0; }
+  #template-2 #section-skills .cv-skill-list:first-child {
+    min-width: 8cm;
+    margin-right: 0; }
